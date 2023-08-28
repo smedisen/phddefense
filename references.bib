@@ -1,0 +1,1773 @@
+@InProceedings{ehmetric,
+  author    = {Bandaru, Sunith and Smedberg, Henrik},
+  booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference},
+  title     = {A Parameterless Performance Metric for Reference-Point Based Multi-Objective Evolutionary Algorithms},
+  address   = {New York, NY, USA},
+  pages     = {499--506},
+  publisher = {Association for Computing Machinery},
+  series    = {GECCO '19},
+  abstract  = {Most preference-based multi-objective evolutionary algorithms use reference points to articulate the decision maker's preferences. Since these algorithms typically converge to a sub-region of the Pareto-optimal front, the use of conventional performance measures (such as hypervolume and inverted generational distance) may lead to misleading results. Therefore, experimental studies in preference-based optimization often resort to using graphical methods to compare various algorithms. Though a few ad-hoc measures have been proposed in the literature, they either fail to generalize or involve parameters that are non-intuitive for a decision maker. In this paper, we propose a performance metric that is simple to implement, inexpensive to compute, and most importantly, does not involve any parameters. The so called expanding hypercube metric has been designed to extend the concepts of convergence and diversity to preference optimization. We demonstrate its effectiveness through constructed preference solution sets in two and three objectives. The proposed metric is then used to compare two popular reference-point based evolutionary algorithms on benchmark optimization problems up to 20 objectives.},
+  date      = {2019},
+  keywords  = {comparison, multi-objective optimization, decision making, performance metric, reference point},
+  location  = {Prague, Czech Republic},
+  numpages  = {8},
+}
+
+@InProceedings{workshoppaper,
+  author    = {Smedberg, Henrik},
+  booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference Companion},
+  title     = {Knowledge-Driven Reference-Point Based Multi-Objective Optimization: First Results},
+  address   = {New York, NY, USA},
+  pages     = {2060--2063},
+  publisher = {Association for Computing Machinery},
+  series    = {GECCO '19},
+  abstract  = {Multi-objective optimization problems in the real world often involve a decision maker who has certain preferences for the objective functions. When such preferences can be expressed as a reference point, the goal of optimization changes from generating a complete set of Pareto-optimal solutions to generating a small set of non-dominated solutions close to the reference point. Reference-point based optimization algorithms are used for this purpose. The preferences of the decision maker in the objective space can be interpreted as knowledge in the decision space. Extracting this knowledge it-eratively from the solutions generated during optimization, and feeding it back into the optimization algorithm can in principle improve convergence towards the reference point. Since the knowledge is extracted during runtime, this approach is termed as online knowledge-driven optimization. In this paper a recent knowledge discovery technique called flexible pattern mining is used to extract explicit rules that are used to generate new solutions in R-NSGA-II. The performance of the proposed FPM-R-NSGA-II is demonstrated on 3, 5 and 10 objective DTLZ problems. In addition to converging to a set of preferred solutions, FPM-R-NSGA-II also converges to a set of explicit rules which describe the decision maker's preferences in the decision space.},
+  date      = {2019},
+  keywords  = {reference-point, multi-objective optimization, decision making, knowledge discovery},
+  location  = {Prague, Czech Republic},
+  numpages  = {4},
+}
+
+@InProceedings{infspaper,
+  author    = {Smedberg, Henrik and Bandaru, Sunith},
+  booktitle = {2020 IEEE Symposium Series on Computational Intelligence (SSCI)},
+  title     = {Finding Influential Variables in Multi-Objective optimization Problems},
+  pages     = {173--180},
+  abstract  = {The use of evolutionary algorithms for solving multi-objective optimization problems leaves the decision makers with a set of Pareto-optimal solutions to be considered in their decision making. Multi-objective optimization problems offer two spaces for a decision maker to analyze, the decision space and the objective space. In the literature, most of the focus has been on analyzing the objective space, however, in this paper, two procedures are presented for analyzing the decision space by identifying the variables that predominantly influence the structure of the objective space. Both procedures employ a recently proposed rule mining approach, which is used to find significant rules in terms of the variables. The rules are then combined and an influence score is calculated. The method is demonstrated on four problems, two scalable test problems (DTLZ2 and WFG2) with cases of three, five and seven objectives, one engineering design problem and one simulation-based optimization problem. The experiments show that the proposed approach is able to identify influential variables in most problem cases.},
+  date      = {2020},
+}
+
+
+@Article{aitorpaper,
+  author         = {Iriondo Pascual, Aitor and Smedberg, Henrik and Högberg, Dan and Syberfeldt, Anna and Lämkull, Dan},
+  title          = {Enabling Knowledge Discovery in Multi-Objective Optimizations of Worker Well-Being and Productivity},
+  number         = {9},
+  volume         = {14},
+  abstract       = {Usually, optimizing productivity and optimizing worker well-being are separate tasks performed by engineers with different roles and goals using different tools. This results in a silo effect which can lead to a slow development process and suboptimal solutions, with one of the objectives, either productivity or worker well-being, being given precedence. Moreover, studies often focus on finding the best solutions for a particular use case, and once solutions have been identified and one has been implemented, the engineers move on to analyzing the next use case. However, the knowledge obtained from previous use cases could be used to find rules of thumb for similar use cases without needing to perform new optimizations. In this study, we employed the use of data mining methods to obtain knowledge from a real-world optimization dataset of multi-objective optimizations of worker well-being and productivity with the aim to identify actionable insights for the current and future optimization cases. Using different analysis and data mining methods on the database revealed rules, as well as the relative importance of the design variables of a workstation. The generated rules have been used to identify measures to improve the welding gun workstation design.},
+  article-number = {4894},
+  date           = {2022},
+  journaltitle   = {Sustainability},
+}
+
+
+@InProceedings{fpmoperator,
+  author    = {Smedberg, Henrik and Bandaru, Sunith},
+  booktitle = {2022 IEEE Congress on Evolutionary Computation (CEC)},
+  title     = {A Modular Knowledge-Driven Mutation Operator for Reference-Point Based Evolutionary Algorithms},
+  pages     = {1--8},
+  abstract  = {Although an entire frontier of Pareto-optimal solutions exists for multi-objective optimization problems, in practice, decision makers are often only interested in a small subset of these solutions, called the region of interest. Specialized optimizers, such as reference-point based evolutionary algorithms, exist that can focus the search to only find solutions inside this region of interest. These algorithms typically only modify the selection mechanism of regular multi-objective optimizers to preferentially select solutions that conform to the reference point. However, a more effective search may be performed by additionally modifying the variation mechanism of the optimizers, namely the crossover and the mutation operators, to preferentially generate solutions conforming to the reference point. In this paper, we propose a modular mutation operator that uses a recent knowledge discovery technique to first find decision rules unique to the preferred solutions in each generation. These rules are then used to build an empirical distribution in the decision space that can be sampled to generate new mutated solutions which are more likely to be closer to the preferred solutions. The operator is modular in the sense that it can be used with any existing reference-point based evolutionary algorithm by simply replacing the mutation operator. We incorporate the proposed knowledge-driven mutation operator into three such algorithms, and through benchmark test problems up to 10 objectives, demonstrate that their performance improves significantly in the majority of cases according to two different performance indicators.},
+  date      = {2022},
+}
+
+@Article{carlosjournal,
+  author       = {Barrera-Diaz, Carlos Alberto and Nourmohammadi, Amir and Smedberg, Henrik and Aslam, Tehseen and Ng, Amos HC},
+  title        = {An enhanced simulation-based multi-objective optimization approach with knowledge discovery for reconfigurable manufacturing systems},
+  number       = {6},
+  volume       = {11},
+  date         = {2023},
+  journaltitle = {Mathematics},
+  publisher    = {MDPI},
+}
+
+@Article{offlinekdo,
+  author         = {Smedberg, Henrik and Barrera-Diaz, Carlos Alberto and Nourmohammadi, Amir and Bandaru, Sunith and Ng, Amos H. C.},
+  title          = {Knowledge-Driven Multi-Objective Optimization for Reconfigurable Manufacturing Systems},
+  number         = {6},
+  volume         = {27},
+  abstract       = {Current market requirements force manufacturing companies to face production changes more often than ever before. Reconfigurable manufacturing systems (RMS) are considered a key enabler in today&rsquo;s manufacturing industry to cope with such dynamic and volatile markets. The literature confirms that the use of simulation-based multi-objective optimization offers a promising approach that leads to improvements in RMS. However, due to the dynamic behavior of real-world RMS, applying conventional optimization approaches can be very time-consuming, specifically when there is no general knowledge about the quality of solutions. Meanwhile, Pareto-optimal solutions may share some common design principles that can be discovered with data mining and machine learning methods and exploited by the optimization. In this study, the authors investigate a novel knowledge-driven optimization (KDO) approach to speed up the convergence in RMS applications. This approach generates generalized knowledge from previous scenarios, which is then applied to improve the efficiency of the optimization of new scenarios. This study applied the proposed approach to a multi-part flow line RMS that considers scalable capacities while addressing the tasks assignment to workstations and the buffer allocation problems. The results demonstrate how a KDO approach leads to convergence rate improvements in a real-world RMS case.},
+  article-number = {106},
+  date           = {2022},
+  journaltitle   = {Mathematical and Computational Applications},
+}
+
+@InProceedings{carloswsc,
+  author    = {Diaz, Carlos Alberto Barrera and Smedberg, Henrik and Bandaru, Sunith and Ng, Amos H.C.},
+  booktitle = {2022 Winter Simulation Conference (WSC)},
+  title     = {Enabling Knowledge Discovery from Simulation-Based Multi-Objective Optimization in Reconfigurable Manufacturing Systems},
+  pages     = {1794--1805},
+  abstract  = {Due to the nature of today's manufacturing industry, where enterprises are subjected to frequent changes and volatile markets, reconfigurable manufacturing systems (RMS) are crucial when addressing ramp-up and ramp-down scenarios derived from, among other challenges, increasingly shortened product lifecycles. Applying simulation-based optimization techniques to their designs under different production volume scenarios has become valuable when RMS becomes more complex. Apart from proposing the optimal solutions subject to various production volume changes, decision-makers can extract propositional knowledge to better understand the RMS design and support their decision-making through a knowledge discovery method by combining simulation-based optimization and data mining techniques. In particular, this study applies a novel flexible pattern mining algorithm to conduct post-optimality analysis on multi-dimensional, multi-objective optimization datasets from an industrial-inspired application to discover the rules regarding how the tasks are assigned to the workstations constitute reasonable solutions for scalable RMS.},
+  date      = {2022},
+}
+
+@Article{ejorpaper,
+  author       = {Smedberg, Henrik and Bandaru, Sunith},
+  title        = {Interactive Knowledge Discovery and Knowledge Visualization for Decision Support in Multi-Objective Optimization},
+  number       = {3},
+  pages        = {1311--1329},
+  volume       = {306},
+  abstract     = {In many practical applications, the end-goal of multi-objective optimization is to select an implementable solution that is close to the Pareto-optimal front while satisfying the decision maker’s preferences. The decision making process is challenging since it involves the manual consideration of all solutions. The field of multi-criteria decision making offers many methods that help the decision maker in this process. However, most methods only focus on analyzing the solutions’ objective values. A more informed decision generally requires the additional knowledge of how different preferences affect the variable values. One difficulty in realizing this is that while the preferences are often expressed in the objective space, the knowledge required to implement a preferred solution exists in the decision space. In this paper, we propose a decision support system that allows interactive knowledge discovery and knowledge visualization to support practitioners by simultaneously considering preferences in the objective space and their impact in the decision space. The knowledge discovery step can use either of two recently proposed data mining techniques for extracting decision rules that conform to given preferences, while the extracted knowledge is visualized via a novel graph-based approach that allows the discovery of important variables, their values and their interactions with other variables. The result is an intuitive and interactive decision support system that aids the entire decision making process — from solution visualization to knowledge visualization. We demonstrate the usefulness of this system on benchmark optimization problems up to 10 objectives and real-world problems with up to six objectives.},
+  date         = {2023},
+  journaltitle = {European Journal of Operational Research},
+  keywords     = {Decision support systems, Multi-objective optimization, Multiple criteria decision making, Data mining, Knowledge discovery},
+}
+
+@Unpublished{infskdo,
+  author   = {Smedberg, Henrik and Bandaru, Sunith and Ng, Amos H.C},
+  note     = {Manuscript ready for submission to international journal},
+  title    = {Knowledge-Driven Multi-Objective Optimization Using Variable Importance},
+  date     = {2023},
+  keywords = {Multi-objective optimization, Knowledge discovery},
+}
+
+@Unpublished{mimerpaper,
+  author   = {Smedberg, Henrik and Bandaru, Sunith and Riveiro, Maria and Ng, Amos H.C.},
+  note     = {Submitted to: IEEE Computational Intelligence Magazine},
+  title    = {Mimer: A Web-Based Tool for Knowledge Discovery in Multi-Criteria Decision Support},
+  date     = {2023},
+  keywords = {Multi-objective optimization, Knowledge discovery},
+}
+
+@InProceedings{trendmining2,
+  author    = {Smedberg, Henrik and Bandaru, Sunith and Ng, Amos H.C. and Deb, Kalyanmoy},
+  booktitle = {2020 IEEE Congress on Evolutionary Computation (CEC)},
+  title     = {Trend Mining 2.0: Automating the Discovery of Variable Trends in the Objective Space},
+  pages     = {1--8},
+  abstract  = {Practical multi-criterion decision making not only involves the articulation of preferences in the objective space, but also a consideration of how the variables impact these preferences. Trend mining is a recently proposed visualization technique that offers the decision maker a quick overview of the variables' effect on the structure of the objective space and easily discover interesting variable trends. The original trend mining approach relies on a set of predefined reference directions along which an interestingness score is measured for each variable. In this paper, we relax this requirement by automating the approach to find optimal reference directions that maximize the interestingness for each variable. Additional extensions include the use of an Achievement Scalarizing Function (ASF) for ranking solutions along a given reference direction, and an updated interestingness score formulation for more appropriately handling discrete variables. We demonstrate the working of the extended approach on DTLZ2 and WFG2 benchmarks for up to five objectives and on a biobjective engineering design problem. The results show that the ability of the proposed approach to detect variable trends in high dimensional objective spaces is heavily dependent on the quality of the solutions used.},
+  date      = {2020},
+}
+
+@InCollection{deb2016multi,
+  author    = {Deb, Kalyanmoy and Sindhya, Karthik and Hakanen, Jussi},
+  booktitle = {Decision Sciences},
+  publisher = {CRC Press},
+  title     = {Multi-objective optimization},
+  pages     = {161--200},
+  date      = {2016},
+}
+
+@Article{deb2002fast,
+  author       = {Deb, Kalyanmoy and Pratap, Amrit and Agarwal, Sameer and Meyarivan, TAMT},
+  title        = {A fast and elitist multiobjective genetic algorithm: NSGA-II},
+  number       = {2},
+  pages        = {182--197},
+  volume       = {6},
+  date         = {2002},
+  journaltitle = {IEEE transactions on evolutionary computation},
+  publisher    = {IEEE},
+}
+
+@Article{boussaid2013survey,
+  author       = {Boussaïd, Ilhem and Lepagnot, Julien and Siarry, Patrick},
+  title        = {A survey on optimization metaheuristics},
+  pages        = {82--117},
+  volume       = {237},
+  date         = {2013},
+  journaltitle = {Information sciences},
+  publisher    = {Elsevier},
+}
+
+@Article{stork2020new,
+  author       = {Stork, J{\"o}rg and Eiben, Agoston E and Bartz-Beielstein, Thomas},
+  title        = {A new taxonomy of global optimization algorithms},
+  pages        = {1--24},
+  date         = {2020},
+  journaltitle = {Natural Computing},
+  publisher    = {Springer},
+}
+
+@InProceedings{zitzler2004indicator,
+  author       = {Zitzler, Eckart and K{\"u}nzli, Simon and others},
+  booktitle    = {PPSN},
+  title        = {Indicator-based selection in multiobjective search},
+  publisher = {Springer},
+  pages        = {832--842},
+  volume       = {4},
+  date         = {2004},
+}
+
+@Article{deb2013evolutionary,
+  author       = {Deb, Kalyanmoy and Jain, Himanshu},
+  title        = {An evolutionary many-objective optimization algorithm using reference-point-based nondominated sorting approach, part I: solving problems with box constraints},
+  number       = {4},
+  pages        = {577--601},
+  volume       = {18},
+  date         = {2013},
+  journaltitle = {IEEE transactions on evolutionary computation},
+  publisher    = {IEEE},
+}
+
+@Article{zitzler2001spea2,
+  author       = {Zitzler, Eckart and Laumanns, Marco and Thiele, Lothar},
+  title        = {SPEA2: Improving the strength Pareto evolutionary algorithm},
+  volume       = {103},
+  date         = {2001},
+  journaltitle = {TIK-report},
+  publisher    = {Eidgen{\"o}ssische Technische Hochschule Z{\"u}rich (ETH), Institut f{\"u}r Technische~…},
+}
+
+@Article{zhang2007moea,
+  author       = {Zhang, Qingfu and Li, Hui},
+  title        = {MOEA/D: A multiobjective evolutionary algorithm based on decomposition},
+  number       = {6},
+  pages        = {712--731},
+  volume       = {11},
+  date         = {2007},
+  journaltitle = {IEEE Transactions on evolutionary computation},
+  publisher    = {IEEE},
+}
+
+@Article{huband2006review,
+  author       = {Huband, Simon and Hingston, Philip and Barone, Luigi and While, Lyndon},
+  title        = {A review of multiobjective test problems and a scalable test problem toolkit},
+  number       = {5},
+  pages        = {477--506},
+  volume       = {10},
+  date         = {2006},
+  journaltitle = {IEEE Transactions on Evolutionary Computation},
+  publisher    = {IEEE},
+}
+
+@InProceedings{huband2005scalable,
+  author       = {Huband, Simon and Barone, Luigi and While, Lyndon and Hingston, Phil},
+  booktitle    = {Evolutionary Multi-Criterion Optimization: Third International Conference, EMO 2005, Guanajuato, Mexico, March 9-11, 2005. Proceedings 3},
+  title        = {A scalable multi-objective test problem toolkit},
+  publisher = {Springer},
+  pages        = {280--295},
+  date         = {2005},
+}
+
+@Article{zitzler2000comparison,
+  author       = {Zitzler, Eckart and Deb, Kalyanmoy and Thiele, Lothar},
+  title        = {Comparison of multiobjective evolutionary algorithms: Empirical results},
+  number       = {2},
+  pages        = {173--195},
+  volume       = {8},
+  date         = {2000},
+  journaltitle = {Evolutionary computation},
+  publisher    = {MIT Press},
+}
+
+@Article{zapotecas2018review,
+  author       = {Zapotecas-Mart{\'i}nez, Sa{\'u}l and Coello, Carlos A Coello and Aguirre, Hern{\'a}n E and Tanaka, Kiyoshi},
+  title        = {A review of features and limitations of existing scalable multiobjective test suites},
+  number       = {1},
+  pages        = {130--142},
+  volume       = {23},
+  date         = {2018},
+  journaltitle = {IEEE Transactions on Evolutionary Computation},
+  publisher    = {IEEE},
+}
+
+@Article{tanabe2020easy,
+  author       = {Tanabe, Ryoji and Ishibuchi, Hisao},
+  title        = {An easy-to-use real-world multi-objective optimization problem suite},
+  volume       = {89},
+  date         = {2020},
+  journaltitle = {Applied Soft Computing},
+  publisher    = {Elsevier},
+}
+
+@Article{beume2007sms,
+  author       = {Beume, Nicola and Naujoks, Boris and Emmerich, Michael},
+  title        = {SMS-EMOA: Multiobjective selection based on dominated hypervolume},
+  number       = {3},
+  pages        = {1653--1669},
+  volume       = {181},
+  date         = {2007},
+  journaltitle = {European Journal of Operational Research},
+  publisher    = {Elsevier},
+}
+
+@InProceedings{zitzler1998multiobjective,
+  author       = {Zitzler, Eckart and Thiele, Lothar},
+  booktitle    = {Parallel Problem Solving from Nature—PPSN V: 5th International Conference Amsterdam, The Netherlands September 27--30, 1998 Proceedings 5},
+  title        = {Multiobjective optimization using evolutionary algorithms—a comparative case study},
+  publisher = {Springer},
+  pages        = {292--301},
+  date         = {1998},
+}
+
+@Article{zitzler2003performance,
+  author       = {Zitzler, Eckart and Thiele, Lothar and Laumanns, Marco and Fonseca, Carlos M and Da Fonseca, Viviane Grunert},
+  title        = {Performance assessment of multiobjective optimizers: An analysis and review},
+  number       = {2},
+  pages        = {117--132},
+  volume       = {7},
+  date         = {2003},
+  journaltitle = {IEEE Transactions on evolutionary computation},
+  publisher    = {IEEE},
+}
+
+@Article{9679762,
+  author       = {Ishibuchi, Hisao and Pang, Lie Meng and Shang, Ke},
+  title        = {Difficulties in Fair Performance Comparison of Multi-Objective Evolutionary Algorithms [Research Frontier]},
+  number       = {1},
+  pages        = {86--101},
+  volume       = {17},
+  date         = {2022},
+  doi          = {10.1109/MCI.2021.3129961},
+  journaltitle = {IEEE Computational Intelligence Magazine},
+}
+
+@Article{wolpert1997no,
+  author       = {Wolpert, David H and Macready, William G},
+  title        = {No free lunch theorems for optimization},
+  number       = {1},
+  pages        = {67--82},
+  volume       = {1},
+  date         = {1997},
+  journaltitle = {IEEE transactions on evolutionary computation},
+  publisher    = {IEEE},
+}
+
+@InProceedings{hoffman1997dna,
+  author       = {Hoffman, Patrick and Grinstein, Georges and Marx, Kenneth and Grosse, Ivo and Stanley, Eugene},
+  booktitle    = {Proceedings. Visualization'97 (Cat. No. 97CB36155)},
+  title        = {DNA visual and analytic data mining},
+  publisher = {IEEE},
+  pages        = {437--441},
+  date         = {1997},
+}
+
+@InProceedings{filipivc2018taxonomy,
+  author    = {Filipi{\v{c}}, Bogdan and Tu{\v{s}}ar, Tea},
+  booktitle = {Proceedings of the genetic and evolutionary computation conference},
+  title     = {A taxonomy of methods for visualizing pareto front approximations},
+  publisher = {Association for Computing Machinery},
+  pages     = {649--656},
+  date      = {2018},
+}
+
+@InProceedings{gao2019visualisation,
+  author       = {Gao, Huiru and Nie, Haifeng and Li, Ke},
+  booktitle    = {2019 ieee congress on evolutionary computation (CEC)},
+  title        = {Visualisation of pareto front approximation: A short survey and empirical comparisons},
+  publisher = {IEEE},
+  pages        = {1750--1757},
+  date         = {2019},
+}
+
+
+@InProceedings{ang2002visualization,
+  author    = {Ang, Kiam Heong and Chong, Gregory and Li, Yun},
+  booktitle = {Proceedings of the 4th Asia-Pacific Conference on Simulated Evolution and Learning (SEAL’02)},
+  title     = {Visualization technique for analyzing non-dominated set comparison},
+  volume    = {1},
+  date      = {2002},
+}
+
+@Article{klamroth2008integrating,
+  author       = {Klamroth, Kathrin and Miettinen, Kaisa},
+  title        = {Integrating approximation and interactive decision making in multicriteria optimization},
+  number       = {1},
+  pages        = {222--234},
+  volume       = {56},
+  date         = {2008},
+  journaltitle = {Operations Research},
+  publisher    = {INFORMS},
+}
+
+@Article{manas1982graphical,
+  author       = {Manas, M},
+  title        = {Graphical methods of multicriterial optimization},
+  number       = {5 BIS},
+  pages        = {T375--T377},
+  volume       = {62},
+  date         = {1982},
+  journaltitle = {Zeitschrift fur Angewandte Mathematik und Mechanik},
+  publisher    = {AKADEMIE VERLAG GMBH MUHLENSTRASSE 33-34, D-13187 BERLIN, GERMANY},
+}
+
+@Book{angehrn1991supporting,
+  author    = {Angehrn, Albert A and Jelassi, T},
+  publisher = {INSEAD, European Institute of Business Administration},
+  title     = {Supporting multicriteria decision making: New perspectives and new systems},
+  date      = {1991},
+}
+
+@Article{korhonen1988pareto,
+  author       = {Korhonen, Pekka and Wallenius, Jyrki},
+  title        = {A Pareto race},
+  number       = {6},
+  pages        = {615--623},
+  volume       = {35},
+  date         = {1988},
+  journaltitle = {Naval Research Logistics (NRL)},
+  publisher    = {Wiley Online Library},
+}
+
+@Book{lotov2013interactive,
+  author    = {Lotov, Alexander V and Bushenkov, Vladimir A and Kamenev, Georgy K},
+  publisher = {Springer Science \& Business Media},
+  title     = {Interactive decision maps: Approximation and visualization of Pareto frontier},
+  volume    = {89},
+  date      = {2013},
+}
+
+@InProceedings{taboada2006data,
+  author       = {Taboada, Heidi A and Coit, David W},
+  booktitle    = {IIE Annual Conference. Proceedings},
+  title        = {Data mining techniques to facilitate the analysis of the Pareto-optimal set for multiple objective problems},
+  publisher = {Institute of Industrial and Systems Engineers (IISE)},
+  date         = {2006},
+}
+
+@Article{blasco2008new,
+  author       = {Blasco, Xavier and Herrero, Juan M and Sanchis, Javier and Mart{\'i}nez, Manuel},
+  title        = {A new graphical visualization of n-dimensional Pareto front for decision-making in multiobjective optimization},
+  number       = {20},
+  pages        = {3908--3924},
+  volume       = {178},
+  date         = {2008},
+  journaltitle = {Information Sciences},
+  publisher    = {Elsevier},
+}
+
+
+@InProceedings{koppen2007visualization,
+  author       = {Koppen, Mario and Yoshida, Kaori},
+  booktitle    = {7th International Conference on Hybrid Intelligent Systems (HIS 2007)},
+  title        = {Visualization of Pareto-sets in evolutionary multi-objective optimization},
+  publisher = {IEEE},
+  pages        = {156--161},
+  date         = {2007},
+}
+
+@InProceedings{agrawal2004intuitive,
+  author    = {Agrawal, Gautam and Bloebaum, Christina and Lewis, Kemper and Chugh, Kevin and Huang, Chen-Hung and Parashar, Sumeet},
+  booktitle = {10th AIAA/ISSMO multidisciplinary analysis and optimization conference},
+  title     = {Intuitive visualization of Pareto frontier for multiobjective optimization in n-dimensional performance space},
+  date      = {2004},
+}
+
+@InProceedings{pryke2007heatmap,
+  author       = {Pryke, Andy and Mostaghim, Sanaz and Nazemi, Alireza},
+  booktitle    = {International Conference on Evolutionary Multi-Criterion Optimization},
+  title        = {Heatmap visualization of population based multi objective algorithms},
+  publisher = {Springer},
+  pages        = {361--375},
+  date         = {2007},
+}
+
+@Article{tuvsar2014visualization,
+  author       = {Tu{\v{s}}ar, Tea and Filipi{\v{c}}, Bogdan},
+  title        = {Visualization of Pareto front approximations in evolutionary multiobjective optimization: A critical review and the prosection method},
+  number       = {2},
+  pages        = {225--245},
+  volume       = {19},
+  date         = {2014},
+  journaltitle = {IEEE Transactions on Evolutionary Computation},
+  publisher    = {IEEE},
+}
+
+@Article{morse1980reducing,
+  author       = {Morse, Joel N},
+  title        = {Reducing the size of the nondominated set: Pruning by clustering},
+  number       = {1-2},
+  pages        = {55--66},
+  volume       = {7},
+  date         = {1980},
+  journaltitle = {Computers \& Operations Research},
+  publisher    = {Elsevier},
+}
+
+@InProceedings{jeong2008multidimensional,
+  author       = {Jeong, Min Joong and Dennis, Brian H and Yoshimura, Shinobu},
+  booktitle    = {ASME 2003 International Design Engineering Technical Conferences and Computers and Information in Engineering Conference},
+  title        = {Multidimensional solution clustering and its application to the coolant passage optimization of a turbine blade},
+  publisher = {American Society of Mechanical Engineers Digital Collection},
+  pages        = {587--595},
+  date         = {2008},
+}
+
+@Article{jeong2005multidimensional,
+  author       = {Jeong, Min Joong and Dennis, Brian H and Yoshimura, Shinobu},
+  title        = {Multidimensional clustering interpretation and its application to optimization of coolant passages of a turbine blade},
+  number       = {2},
+  pages        = {215--221},
+  volume       = {127},
+  date         = {2005},
+  journaltitle = {Journal of Mechanical Design},
+  publisher    = {American Society of Mechanical Engineers Digital Collection},
+}
+
+@InProceedings{ulrich2008pattern,
+  author       = {Ulrich, Tamara and Brockhoff, Dimo and Zitzler, Eckart},
+  booktitle    = {Proceedings of the 10th annual conference on Genetic and evolutionary computation},
+  title        = {Pattern identification in Pareto-set approximations},
+  publisher = {ACM},
+  pages        = {737--744},
+  date         = {2008},
+}
+
+@Article{ulrich2013pareto,
+  author       = {Ulrich, Tamara},
+  title        = {Pareto-Set Analysis: Biobjective Clustering in Decision and Objective Spaces},
+  number       = {5-6},
+  pages        = {217--234},
+  volume       = {20},
+  date         = {2013},
+  journaltitle = {Journal of Multi-Criteria Decision Analysis},
+  publisher    = {Wiley Online Library},
+}
+
+@Article{sato2019data,
+  author       = {Sato, Yuki and Izui, Kazuhiro and Yamada, Takayuki and Nishiwaki, Shinji},
+  title        = {Data mining based on clustering and association rule analysis for knowledge discovery in multiobjective topology optimization},
+  pages        = {247--261},
+  volume       = {119},
+  date         = {2019},
+  journaltitle = {Expert Systems with Applications},
+  publisher    = {Elsevier},
+}
+
+@Article{wold1987principal,
+  author       = {Wold, Svante and Esbensen, Kim and Geladi, Paul},
+  title        = {Principal component analysis},
+  number       = {1-3},
+  pages        = {37--52},
+  volume       = {2},
+  date         = {1987},
+  journaltitle = {Chemometrics and intelligent laboratory systems},
+  publisher    = {Elsevier},
+}
+
+@Article{tenenbaum2000global,
+  author       = {Tenenbaum, Joshua B and De Silva, Vin and Langford, John C},
+  title        = {A global geometric framework for nonlinear dimensionality reduction},
+  number       = {5500},
+  pages        = {2319--2323},
+  volume       = {290},
+  date         = {2000},
+  journaltitle = {science},
+  publisher    = {American Association for the Advancement of Science},
+}
+
+@Article{van2008visualizing,
+  author       = {Van der Maaten, Laurens and Hinton, Geoffrey},
+  title        = {Visualizing data using t-SNE.},
+  number       = {11},
+  volume       = {9},
+  date         = {2008},
+  journaltitle = {Journal of machine learning research},
+}
+
+@Article{mcinnes2018umap,
+  author       = {McInnes, Leland and Healy, John and Melville, James},
+  title        = {Umap: Uniform manifold approximation and projection for dimension reduction},
+  date         = {2018},
+  journaltitle = {arXiv preprint arXiv:1802.03426},
+}
+
+@Article{oyama2010data,
+  author       = {Oyama, Akira and Nonomura, Taku and Fujii, Kozo},
+  title        = {Data mining of Pareto-optimal transonic airfoil shapes using proper orthogonal decomposition},
+  number       = {5},
+  pages        = {1756--1762},
+  volume       = {47},
+  date         = {2010},
+  journaltitle = {Journal of Aircraft},
+}
+
+@InProceedings{oyama2010flow,
+  author    = {Oyama, Akira and Verburg, Paul and Nonomura, Taku and Hoeijmakers, Harry and Fujii, Kozo},
+  booktitle = {48th AIAA Aerospace Sciences Meeting Including the New Horizons Forum and Aerospace Exposition},
+  title     = {Flow field data mining of Pareto-optimal airfoils using proper orthogonal decomposition},
+  pages     = {1140},
+  date      = {2010},
+}
+
+@Article{walker2012visualizing,
+  author       = {Walker, David J and Everson, RichardM and Fieldsend, Jonathan E},
+  title        = {Visualizing mutually nondominating solution sets in many-objective optimization},
+  number       = {2},
+  pages        = {165--184},
+  volume       = {17},
+  date         = {2012},
+  journaltitle = {IEEE Transactions on Evolutionary Computation},
+  publisher    = {IEEE},
+}
+
+@InProceedings{walker2018toward,
+  author       = {Walker, David J and Craven, Matthew J},
+  booktitle    = {International Conference on the Applications of Evolutionary Computation},
+  title        = {Toward the online visualisation of algorithm performance for parameter selection},
+  publisher = {Springer},
+  pages        = {547--560},
+  date         = {2018},
+}
+
+@Article{walker2020identifying,
+  author       = {Walker, David J and Craven, Matthew J},
+  title        = {Identifying good algorithm parameters in evolutionary multi-and many-objective optimisation: A visualisation approach},
+  volume       = {88},
+  date         = {2020},
+  journaltitle = {Applied Soft Computing},
+  publisher    = {Elsevier},
+}
+
+@Article{talukder2020paletteviz,
+  author       = {Talukder, AKM Khaled Ahsan and Deb, Kalyanmoy},
+  title        = {PaletteViz: A visualization method for functional understanding of high-dimensional Pareto-optimal data-sets to aid multi-criteria decision making},
+  number       = {2},
+  pages        = {36--48},
+  volume       = {15},
+  date         = {2020},
+  journaltitle = {IEEE Computational Intelligence Magazine},
+  publisher    = {IEEE},
+}
+
+
+@InProceedings{koochaksaraei2016new,
+  author       = {Koochaksaraei, Roozbeh Haghnazar and Enayatifar, Rasul and Guimar{\~a}es, Frederico Gadelha},
+  booktitle    = {International Conference on Hybrid Artificial Intelligence Systems},
+  title        = {A new visualization tool in many-objective optimization problems},
+  publisher = {Springer},
+  pages        = {213--224},
+  date         = {2016},
+}
+
+@Article{koochaksaraei2017new,
+  author       = {Koochaksaraei, Roozbeh Haghnazar and Meneghini, Ivan Reinaldo and Coelho, Vitor Naz{\'a}rio and Guimar{\~a}es, Frederico Gadelha},
+  title        = {A new visualization method in many-objective optimization with chord diagram and angular mapping},
+  pages        = {134--154},
+  volume       = {138},
+  date         = {2017},
+  journaltitle = {Knowledge-Based Systems},
+  publisher    = {Elsevier},
+}
+
+@Article{geoffrion1972interactive,
+  author       = {Geoffrion, Arthur M and Dyer, James S and Feinberg, A},
+  title        = {An interactive approach for multi-criterion optimization, with an application to the operation of an academic department},
+  number       = {4-part-1},
+  pages        = {357--368},
+  volume       = {19},
+  date         = {1972},
+  journaltitle = {Management science},
+  publisher    = {INFORMS},
+}
+
+
+@InProceedings{walker2012visualising,
+  author    = {Walker, David and Fieldsend, Jonathan and Everson, Richard},
+  booktitle = {Proceedings of the 14th annual conference companion on Genetic and evolutionary computation},
+  title     = {Visualising many-objective populations},
+  pages     = {451--458},
+  date      = {2012},
+}
+
+@Article{walker2018visualisation,
+  author       = {Walker, David J},
+  title        = {Visualisation with treemaps and sunbursts in many-objective optimisation},
+  number       = {3},
+  pages        = {421--452},
+  volume       = {19},
+  date         = {2018},
+  journaltitle = {Genetic programming and evolvable machines},
+  publisher    = {Springer},
+}
+
+@Article{parta,
+  author       = {Bandaru, Sunith and Ng, Amos HC and Deb, Kalyanmoy},
+  title        = {Data mining methods for knowledge discovery in multi-objective optimization: Part A-Survey},
+  pages        = {139--159},
+  volume       = {70},
+  date         = {2017},
+  journaltitle = {Expert Systems with Applications},
+  publisher    = {Elsevier},
+}
+
+@Article{kohonen1982self,
+  author       = {Kohonen, Teuvo},
+  title        = {Self-organized formation of topologically correct feature maps},
+  number       = {1},
+  pages        = {59--69},
+  volume       = {43},
+  date         = {1982},
+  journaltitle = {Biological cybernetics},
+  publisher    = {Springer},
+}
+
+@InProceedings{kobayashi2016pareto,
+  author       = {Kobayashi, Yusuke and Okamoto, Takashi and Koakutsu, Seiichi},
+  booktitle    = {2016 IEEE International Conference on Systems, Man, and Cybernetics (SMC)},
+  title        = {A Pareto optimal solution visualization method using SOM-NG with learning parameter optimization},
+  publisher = {IEEE},
+  pages        = {004525--004531},
+  date         = {2016},
+}
+
+@Article{suzuki2017visualization,
+  author       = {Suzuki, Naoto and Okamoto, Takashi and Koakutsu, Seiichi},
+  title        = {Visualization of Pareto Optimal Solution Sets Using the Growing Hierarchical Self-Organizing Maps},
+  number       = {1},
+  pages        = {3--17},
+  volume       = {100},
+  date         = {2017},
+  journaltitle = {Electronics and Communications in Japan},
+  publisher    = {Wiley Online Library},
+}
+
+@InProceedings{zhang2019visualization,
+  author       = {Zhang, Shen and Zhang, Shibo and Li, Sufei and Du, Liang and Habetler, Thomas G},
+  booktitle    = {2019 IEEE Energy Conversion Congress and Exposition (ECCE)},
+  title        = {Visualization of Multi-Objective Switched Reluctance Machine Optimization at Multiple Operating Conditions with t-SNE},
+  publisher = {IEEE},
+  pages        = {3793--3798},
+  date         = {2019},
+}
+
+@Article{trawinski2017mograms,
+  author       = {Trawi{\'n}ski, Krzysztof and Chica, Manuel and Pancho, David P and Damas, Sergio and Cord{\'o}n, Oscar},
+  title        = {moGrams: A Network-Based Methodology for Visualizing the Set of Nondominated Solutions in Multiobjective Optimization},
+  number       = {2},
+  pages        = {474--485},
+  volume       = {48},
+  date         = {2017},
+  journaltitle = {IEEE transactions on cybernetics},
+  publisher    = {IEEE},
+}
+
+@InProceedings{obayashi2003visualization,
+  author       = {Obayashi, Shigeru and Sasaki, Daisuke},
+  booktitle    = {International Conference on Evolutionary Multi-Criterion Optimization},
+  title        = {Visualization and data mining of Pareto solutions using self-organizing map},
+  publisher = {Springer},
+  pages        = {796--809},
+  date         = {2003},
+}
+
+@InProceedings{deb2006innovization,
+  author    = {Deb, Kalyanmoy and Srinivasan, Aravind},
+  booktitle = {Proceedings of the 8th annual conference on Genetic and evolutionary computation},
+  title     = {Innovization: Innovating design principles through optimization},
+  pages     = {1629--1636},
+  date      = {2006},
+}
+
+@Article{bandaru2011towards,
+  author       = {Bandaru, Sunith and Deb, Kalyanmoy},
+  title        = {Towards automating the discovery of certain innovative design principles through a clustering-based optimization technique},
+  number       = {9},
+  pages        = {911--941},
+  volume       = {43},
+  date         = {2011},
+  journaltitle = {Engineering optimization},
+  publisher    = {Taylor \& Francis},
+}
+
+@InProceedings{bandaru2013dimensionally,
+  author       = {Bandaru, Sunith and Deb, Kalyanmoy},
+  booktitle    = {Evolutionary Multi-Criterion Optimization: 7th International Conference, EMO 2013, Sheffield, UK, March 19-22, 2013. Proceedings 7},
+  title        = {A dimensionally-aware genetic programming architecture for automated innovization},
+  publisher = {Springer},
+  pages        = {513--527},
+  date         = {2013},
+}
+
+@Article{deb2014integrated,
+  author       = {Deb, Kalyanmoy and Bandaru, Sunith and Greiner, David and Gaspar-Cunha, Ant{\'o}nio and Tutum, Cem Celal},
+  title        = {An integrated approach to automated innovization for discovering useful design principles: Case studies from engineering},
+  pages        = {42--56},
+  volume       = {15},
+  date         = {2014},
+  journaltitle = {Applied Soft Computing},
+  publisher    = {Elsevier},
+}
+
+@InProceedings{ng2009simulation,
+  author       = {Ng, Amos and Deb, Kalyanmoy and Dudas, Catarina},
+  booktitle    = {Proceedings of The International 3rd Swedish Production Symposium, SPS'09, Göteborg, Sweden, 2-3 December 2009},
+  title        = {Simulation-based innovization for production systems improvement: An industrial case study},
+  publisher = {The Swedish Production Academy},
+  pages        = {278--286},
+  date         = {2009},
+}
+
+@Article{dudas2014integration,
+  author       = {Dudas, Catarina and Ng, Amos HC and Pehrsson, Leif and Bostr{\"o}m, Henrik},
+  title        = {Integration of data mining and multi-objective optimisation for decision support in production systems development},
+  number       = {9},
+  pages        = {824--839},
+  volume       = {27},
+  date         = {2014},
+  journaltitle = {International Journal of Computer Integrated Manufacturing},
+  publisher    = {Taylor \& Francis},
+}
+
+@InProceedings{sugimura2009kriging,
+  author       = {Sugimura, Kazuyuki and Jeong, Shinkyu and Obayashi, Shigeru and Kimura, Takeshi},
+  booktitle    = {2009 IEEE congress on evolutionary computation},
+  title        = {Kriging-model-based multi-objective robust optimization and trade-off-rule mining using association rule with aspiration vector},
+  publisher = {IEEE},
+  pages        = {522--529},
+  date         = {2009},
+}
+
+@Article{sugimura2010multi,
+  author       = {Sugimura, Kazuyuki and Obayashi, S and Jeong, S},
+  title        = {Multi-objective optimization and design rule mining for an aerodynamically efficient and stable centrifugal impeller with a vaned diffuser},
+  number       = {3},
+  pages        = {271--293},
+  volume       = {42},
+  date         = {2010},
+  journaltitle = {Engineering Optimization},
+  publisher    = {Taylor \& Francis},
+}
+
+@InProceedings{sugimura2007multi,
+  author    = {Sugimura, Kazuyuki and Obayashi, Shigeru and Jeong, Shinkyu},
+  booktitle = {Fluids engineering division summer meeting},
+  title     = {Multi-objective design exploration of a centrifugal impeller accompanied with a vaned diffuser},
+  pages     = {939--946},
+  volume    = {42894},
+  date      = {2007},
+}
+
+@Article{yang2022design,
+  author       = {Yang, Sunwoong and Yee, Kwanjung},
+  title        = {Design rule extraction using multi-fidelity surrogate model for unmanned combat aerial vehicles},
+  number       = {4},
+  pages        = {977--991},
+  volume       = {59},
+  date         = {2022},
+  journaltitle = {Journal of Aircraft},
+  publisher    = {American Institute of Aeronautics and Astronautics},
+}
+
+@Article{partb,
+  author       = {Bandaru, Sunith and Ng, Amos HC and Deb, Kalyanmoy},
+  title        = {Data mining methods for knowledge discovery in multi-objective optimization: Part B-New developments and applications},
+  pages        = {119--138},
+  volume       = {70},
+  date         = {2017},
+  journaltitle = {Expert Systems with Applications},
+  publisher    = {Elsevier},
+}
+
+@InProceedings{agrawal1995mining,
+  author       = {Agrawal, Rakesh and Srikant, Ramakrishnan},
+  booktitle    = {Proceedings of the eleventh international conference on data engineering},
+  title        = {Mining sequential patterns},
+  publisher = {IEEE},
+  pages        = {3--14},
+  date         = {1995},
+}
+
+@Book{miettinen1999nonlinear,
+  author    = {Miettinen, Kaisa},
+  publisher = {Springer Science \& Business Media},
+  title     = {Nonlinear multiobjective optimization},
+  volume    = {12},
+  date      = {1999},
+}
+
+@Article{mahbub2016incorporating,
+  author       = {Mahbub, Md Shahriar and Wagner, Markus and Crema, Luigi},
+  title        = {Incorporating domain knowledge into the optimization of energy systems},
+  pages        = {483--493},
+  volume       = {47},
+  date         = {2016},
+  journaltitle = {Applied Soft Computing},
+  publisher    = {Elsevier},
+}
+
+@Article{hitomi2018incorporating,
+  author       = {Hitomi, Nozomi and Selva, Daniel},
+  title        = {Incorporating expert knowledge into evolutionary algorithms with operators and constraints to design satellite systems},
+  pages        = {330--345},
+  volume       = {66},
+  date         = {2018},
+  journaltitle = {Applied Soft Computing},
+  publisher    = {Elsevier},
+}
+
+@Article{barba2021injecting,
+  author       = {Barba-Gonz{\'a}lez, Crist{\'o}bal and Nebro, Antonio J and Garcia-Nieto, Jose and del Mar Roldan-Garcia, Maria and Navas-Delgado, Ismael and Aldana-Montes, Jose F},
+  title        = {Injecting domain knowledge in multi-objective optimization problems: A semantic approach},
+  volume       = {78},
+  date         = {2021},
+  journaltitle = {Computer Standards \& Interfaces},
+  publisher    = {Elsevier},
+}
+
+@Article{bonissone2006evolutionary,
+  author       = {Bonissone, Piero P and Subbu, Raj and Eklund, Neil and Kiehl, Thomas R},
+  title        = {Evolutionary algorithms + domain knowledge = real-world evolutionary computation},
+  number       = {3},
+  pages        = {256--280},
+  volume       = {10},
+  date         = {2006},
+  journaltitle = {IEEE Transactions on Evolutionary Computation},
+  publisher    = {IEEE},
+}
+
+@Article{chabuk2012causally,
+  author       = {Chabuk, Timur and Reggia, James and Lohn, Jason and Linden, Derek},
+  title        = {Causally-guided evolutionary optimization and its application to antenna array design},
+  number       = {2},
+  pages        = {111--124},
+  volume       = {19},
+  date         = {2012},
+  journaltitle = {Integrated Computer-Aided Engineering},
+  publisher    = {IOS Press},
+}
+
+@Article{weiss2016survey,
+  author       = {Weiss, Karl and Khoshgoftaar, Taghi M and Wang, DingDing},
+  title        = {A survey of transfer learning},
+  number       = {1},
+  pages        = {1--40},
+  volume       = {3},
+  date         = {2016},
+  journaltitle = {Journal of Big data},
+  publisher    = {SpringerOpen},
+}
+
+@Article{min2017multiproblem,
+  author       = {Min, Alan Tan Wei and Ong, Yew-Soon and Gupta, Abhishek and Goh, Chi-Keong},
+  title        = {Multiproblem surrogates: Transfer evolutionary multiobjective optimization of computationally expensive problems},
+  number       = {1},
+  pages        = {15--28},
+  volume       = {23},
+  date         = {2017},
+  journaltitle = {IEEE Transactions on Evolutionary Computation},
+  publisher    = {IEEE},
+}
+
+@Article{tan2021evolutionary,
+  author       = {Tan, Kay Chen and Feng, Liang and Jiang, Min},
+  title        = {Evolutionary transfer optimization-a new frontier in evolutionary computation research},
+  number       = {1},
+  pages        = {22--33},
+  volume       = {16},
+  date         = {2021},
+  journaltitle = {IEEE Computational Intelligence Magazine},
+  publisher    = {IEEE},
+}
+
+@Article{saxena2012objective,
+  author       = {Saxena, Dhish Kumar and Duro, Joao A and Tiwari, Ashutosh and Deb, Kalyanmoy and Zhang, Qingfu},
+  title        = {Objective reduction in many-objective optimization: Linear and nonlinear algorithms},
+  number       = {1},
+  pages        = {77--99},
+  volume       = {17},
+  date         = {2012},
+  journaltitle = {IEEE Transactions on Evolutionary Computation},
+  publisher    = {IEEE},
+}
+
+@InProceedings{shang2014novel,
+  author       = {Shang, Ronghua and Zhang, Kun and Jiao, Licheng and Fang, Wei and Zhang, Xiangrong and Tian, Xiaolin},
+  booktitle    = {2014 IEEE congress on evolutionary computation (CEC)},
+  title        = {A novel algorithm for many-objective dimension reductions: Pareto-PCA-NSGA-II},
+  publisher = {IEEE},
+  pages        = {1974--1981},
+  date         = {2014},
+}
+
+@Article{cheung2016objective,
+  author       = {Cheung, Yiu-ming and Gu, Fangqing and Liu, Hai-Lin},
+  title        = {Objective extraction for many-objective optimization problems: Algorithm and test problems},
+  number       = {5},
+  pages        = {755--772},
+  volume       = {20},
+  date         = {2016},
+  journaltitle = {IEEE Transactions on Evolutionary Computation},
+  publisher    = {IEEE},
+}
+
+@Article{jones2001taxonomy,
+  author       = {Jones, Donald R},
+  title        = {A taxonomy of global optimization methods based on response surfaces},
+  pages        = {345--383},
+  volume       = {21},
+  date         = {2001},
+  journaltitle = {Journal of global optimization},
+  publisher    = {Springer},
+}
+
+@Article{li2019multidisciplinary,
+  author       = {Li, Lei and Tang, Zhonghao and Li, Honglin and Tong, Fujuan and Gao, Wenjing},
+  title        = {Multidisciplinary design optimization of twin-web turbine disk with pin fins in inner cavity},
+  volume       = {161},
+  date         = {2019},
+  journaltitle = {Applied Thermal Engineering},
+  publisher    = {Elsevier},
+}
+
+@Article{yang2018multi,
+  author       = {Yang, Yang and Cao, Longchao and Zhou, Qi and Wang, Chaochao and Wu, Qing and Jiang, Ping},
+  title        = {Multi-objective process parameters optimization of Laser-magnetic hybrid welding combining Kriging and NSGA-II},
+  pages        = {253--262},
+  volume       = {49},
+  date         = {2018},
+  journaltitle = {Robotics and Computer-Integrated Manufacturing},
+  publisher    = {Elsevier},
+}
+
+@Article{suh2018design,
+  author       = {Suh, Kwonhee and Yoon, Hiseak},
+  title        = {Design optimization of a rear independent suspension for the Korean light tactical vehicle},
+  pages        = {245--252},
+  volume       = {19},
+  date         = {2018},
+  journaltitle = {International Journal of Automotive Technology},
+  publisher    = {Springer},
+}
+
+@Article{thelin2021using,
+  author       = {Thelin, Christopher and Salmon, John and Gorrell, Steven and Bunnell, Spencer and Bird, Gregory and Ruoti, Christopher and Selin, Evan and Calogero, Joseph},
+  title        = {Using surrogate models to predict nodal results for fatigue risk analysis},
+  volume       = {146},
+  date         = {2021},
+  journaltitle = {International Journal of Fatigue},
+  publisher    = {Elsevier},
+}
+
+@Article{michalski2000learnable,
+  author       = {Michalski, Ryszard S},
+  title        = {Learnable evolution model: Evolutionary processes guided by machine learning},
+  pages        = {9--40},
+  volume       = {38},
+  date         = {2000},
+  journaltitle = {Machine learning},
+  publisher    = {Springer},
+}
+
+@TechReport{wnek1995inductive,
+  author = {Wnek, Janusz and Kaufman, Kenneth A and Bloedorn, Eric and Michalski, Ryszard S},
+  title  = {Inductive learning system AQ15c: the method and user's guide},
+  date   = {1995},
+}
+
+@InProceedings{jourdan2005preliminary,
+  author       = {Jourdan, Laetitia and Corne, David and Savic, Dragan and Walters, Godfrey},
+  booktitle    = {Evolutionary Multi-Criterion Optimization: Third International Conference, EMO 2005, Guanajuato, Mexico, March 9-11, 2005. Proceedings 3},
+  title        = {Preliminary investigation of the 'learnable evolution model' for faster/better multiobjective water systems design},
+  publisher = {Springer},
+  pages        = {841--855},
+  date         = {2005},
+}
+
+@Article{dashti2022lemabe,
+  author       = {Dashti, Maedeh and Gandomani, Taghi Javdani and Adeh, Dariush Hasanpoor and Zulzalil, Hazura and Sultan, Abu Bakar Md},
+  title        = {LEMABE: a novel framework to improve analogy-based software cost estimation using learnable evolution model},
+  pages        = {e800},
+  volume       = {8},
+  date         = {2022},
+  journaltitle = {PeerJ Computer Science},
+  publisher    = {PeerJ Inc.},
+}
+
+@Article{sayers2019performance,
+  author       = {Sayers, William and Savic, Dragan and Kapelan, Zoran},
+  title        = {Performance of LEMMO with artificial neural networks for water systems optimisation},
+  number       = {1},
+  pages        = {21--32},
+  volume       = {16},
+  date         = {2019},
+  journaltitle = {Urban Water Journal},
+  publisher    = {Taylor \& Francis},
+}
+
+@InProceedings{muhlenbein1996recombination,
+  author       = {M{\"u}hlenbein, Heinz and Paass, Gerhard},
+  booktitle    = {Parallel Problem Solving from Nature—PPSN IV: International Conference on Evolutionary Computation—The 4th International Conference on Parallel Problem Solving from Nature Berlin, Germany, September 22--26, 1996 Proceedings 4},
+  title        = {From recombination of genes to the estimation of distributions I. Binary parameters},
+  publisher = {Springer},
+  pages        = {178--187},
+  date         = {1996},
+}
+
+@InProceedings{pelikan1999boa,
+  author       = {Pelikan, Martin and Goldberg, David E and Cant{\'u}-Paz, Erick and others},
+  booktitle    = {Proceedings of the genetic and evolutionary computation conference GECCO-99},
+  title        = {BOA: The Bayesian optimization algorithm},
+  publisher = {Citeseer},
+  pages        = {525--532},
+  volume       = {1},
+  date         = {1999},
+}
+
+@Article{pelikan2006multiobjective,
+  author       = {Pelikan, Martin and Sastry, Kumara and Goldberg, David E},
+  title        = {Multiobjective estimation of distribution algorithms},
+  pages        = {223--248},
+  date         = {2006},
+  journaltitle = {Scalable optimization via probabilistic modeling},
+  publisher    = {Springer},
+}
+
+@Article{torabi2020multi,
+  author       = {Torabi Yeganeh, Farnaz and Zegordi, Seyed Hessameddin},
+  title        = {A multi-objective optimization approach to project scheduling with resiliency criteria under uncertain activity duration},
+  pages        = {161--196},
+  volume       = {285},
+  date         = {2020},
+  journaltitle = {Annals of Operations Research},
+  publisher    = {Springer},
+}
+
+@Article{martins2021analysis,
+  author       = {Martins, Marcella SR and Yafrani, Mohamed El and Delgado, Myriam and L{\"u}ders, Ricardo and Santana, Roberto and Siqueira, Hugo V and Akcay, Huseyin G and Ahiod, Bela{\"\i}d},
+  title        = {Analysis of Bayesian network learning techniques for a hybrid multi-objective Bayesian estimation of distribution algorithm: a case study on MNK landscape},
+  pages        = {549--573},
+  volume       = {27},
+  date         = {2021},
+  journaltitle = {Journal of Heuristics},
+  publisher    = {Springer},
+}
+
+@InProceedings{nojima2018multiobjective,
+  author       = {Nojima, Yusuke and Tanigaki, Yuki and Masuyama, Naoki and Ishibuchi, Hisao},
+  booktitle    = {2018 IEEE International Conference on Systems, Man, and Cybernetics (SMC)},
+  title        = {Multiobjective evolutionary data mining for performance improvement of evolutionary multiobjective optimization},
+  publisher = {IEEE},
+  pages        = {745--750},
+  date         = {2018},
+}
+
+@Article{zhang2018preselection,
+  author       = {Zhang, Jinyuan and Zhou, Aimin and Tang, Ke and Zhang, Guixu},
+  title        = {Preselection via classification: A case study on evolutionary multiobjective optimization},
+  pages        = {388--403},
+  volume       = {465},
+  date         = {2018},
+  journaltitle = {Information Sciences},
+  publisher    = {Elsevier},
+}
+
+@InCollection{raju2022multi,
+  author    = {Raju, M Sri Srinivasa and Das, Kedar Nath and Dutta, Saykat},
+  booktitle = {Biologically Inspired Techniques in Many Criteria Decision Making: Proceedings of BITMDM 2021},
+  publisher = {Springer},
+  title     = {A Multi-objective Evolutionary Algorithm with Clustering-Based Two-Round Selection Strategy},
+  pages     = {537--549},
+  date      = {2022},
+}
+
+@Article{pal2018decor,
+  author       = {Pal, Monalisa and Saha, Sriparna and Bandyopadhyay, Sanghamitra},
+  title        = {DECOR: differential evolution using clustering based objective reduction for many-objective optimization},
+  pages        = {200--218},
+  volume       = {423},
+  date         = {2018},
+  journaltitle = {Information Sciences},
+  publisher    = {Elsevier},
+}
+
+@InProceedings{sagawa2016learning,
+  author       = {Sagawa, Miyako and Aguirre, Hern{\'a}n and Daolio, Fabio and Liefooghe, Arnaud and Derbel, Bilel and Verel, S{\'e}bastien and Tanaka, Kiyoshi},
+  booktitle    = {2016 IEEE Symposium Series on Computational Intelligence (SSCI)},
+  title        = {Learning variable importance to guide recombination},
+  publisher = {IEEE},
+  pages        = {1--7},
+  date         = {2016},
+}
+
+@InProceedings{sagawa2017learning,
+  author       = {Sagawa, Miyako and Aguirre, Hern{\'a}n and Daolio, Fabio and Liefooghe, Arnaud and Derbel, Bilel and Verel, S{\'e}bastien and Tanaka, Kiyoshi},
+  booktitle    = {2017 6th IIAI International Congress on Advanced Applied Informatics (IIAI-AAI)},
+  title        = {Learning variable importance to guide recombination on many-objective optimization},
+  publisher = {IEEE},
+  pages        = {874--879},
+  date         = {2017},
+}
+
+@InProceedings{gaur2017effect,
+  author       = {Gaur, Abhinav and Deb, Kalyanmoy},
+  booktitle    = {2017 IEEE Congress on Evolutionary Computation (CEC)},
+  title        = {Effect of size and order of variables in rules for multi-objective repair-based innovization procedure},
+  publisher = {IEEE},
+  pages        = {2177--2184},
+  date         = {2017},
+}
+
+@InProceedings{ghosh2020large,
+  author       = {Ghosh, Abhiroop and Goodman, Erik and Deb, Kalyanmoy and Averill, Ronald and Diaz, Alejandro},
+  booktitle    = {2020 IEEE Congress on Evolutionary Computation (CEC)},
+  title        = {A large-scale bi-objective optimization of solid rocket motors using innovization},
+  publisher = {IEEE},
+  pages        = {1--8},
+  date         = {2020},
+}
+
+@Article{mittal2021learning,
+  author       = {Mittal, Sukrit and Saxena, Dhish Kumar and Deb, Kalyanmoy and Goodman, Erik D},
+  title        = {A learning-based innovized progress operator for faster convergence in evolutionary multi-objective optimization},
+  number       = {1},
+  pages        = {1--29},
+  volume       = {2},
+  date         = {2021},
+  journaltitle = {ACM Transactions on Evolutionary Learning and Optimization (TELO)},
+  publisher    = {ACM New York, NY},
+}
+
+@Article{mittal2021enhanced,
+  author       = {Mittal, Sukrit and Saxena, Dhish Kumar and Deb, Kalyanmoy and Goodman, Erik D},
+  title        = {Enhanced innovized progress operator for evolutionary multi-and many-objective optimization},
+  number       = {5},
+  pages        = {961--975},
+  volume       = {26},
+  date         = {2021},
+  journaltitle = {IEEE Transactions on Evolutionary Computation},
+  publisher    = {IEEE},
+}
+
+@Article{baskarada2013data,
+  author       = {Baskarada, Sasa and Koronios, Andy},
+  title        = {Data, information, knowledge, wisdom (DIKW): a semiotic theoretical and empirical exploration of the hierarchy and its quality dimension},
+  number       = {1},
+  volume       = {18},
+  date         = {2013},
+  pages        = {5--24},
+  journaltitle = {Australasian Journal of Information Systems},
+}
+
+@Article{aamodt1995different,
+  author       = {Aamodt, Agnar and Nyg{\aa}rd, Mads},
+  title        = {Different roles and mutual dependencies of data, information, and knowledge—An AI perspective on their integration},
+  number       = {3},
+  pages        = {191--222},
+  volume       = {16},
+  date         = {1995},
+  journaltitle = {Data \& Knowledge Engineering},
+  publisher    = {Elsevier},
+}
+
+@Article{alavi2001knowledge,
+  author       = {Alavi, Maryam and Leidner, Dorothy E},
+  title        = {Knowledge management and knowledge management systems: Conceptual foundations and research issues},
+  pages        = {107--136},
+  date         = {2001},
+  journaltitle = {MIS quarterly},
+  publisher    = {JSTOR},
+}
+
+@Book{burnyeat1990theaetetus,
+  author    = {Burnyeat, Myles and others},
+  publisher = {Hackett Publishing},
+  title     = {The Theaetetus of Plato},
+  date      = {1990},
+}
+
+@Book{piaget1977development,
+  author    = {Piaget, Jean},
+  publisher = {Viking},
+  title     = {The development of thought: Equilibration of cognitive structures.(Trans A. Rosin).},
+  date      = {1977},
+}
+
+@Book{jessup2008information,
+  author    = {Jessup, Leonard M and Valacich, Joseph S},
+  publisher = {Pearson Prentice Hall Upper Saddle River},
+  title     = {Information systems today: Managing in the digital world},
+  volume    = {3},
+  date      = {2008},
+}
+
+@Article{intezari2018conceptualizing,
+  author       = {Intezari, Ali and Pauleen, David J},
+  title        = {Conceptualizing wise management decision-making: A grounded theory approach},
+  number       = {2},
+  pages        = {335--400},
+  volume       = {49},
+  date         = {2018},
+  journaltitle = {Decision Sciences},
+  publisher    = {Wiley Online Library},
+}
+
+@Article{van2020revising,
+  author       = {Van Meter, Heather J},
+  title        = {Revising the DIKW pyramid and the real relationship between data, information, knowledge, and wisdom},
+  number       = {2},
+  pages        = {69--80},
+  volume       = {2},
+  date         = {2020},
+  journaltitle = {Law, Technology and Humans},
+}
+
+@Article{march1995design,
+  author       = {March, Salvatore T and Smith, Gerald F},
+  title        = {Design and natural science research on information technology},
+  number       = {4},
+  pages        = {251--266},
+  volume       = {15},
+  date         = {1995},
+  journaltitle = {Decision support systems},
+  publisher    = {Elsevier},
+}
+
+@InCollection{boland2004information,
+  author    = {Boland Jr, Richard J and Lyytinen, Kalle},
+  booktitle = {Information systems research: relevant theory and informed practice},
+  publisher = {Springer},
+  title     = {Information systems research as design: Identity, process, and narrative},
+  pages     = {53--68},
+  date      = {2004},
+}
+
+@Article{hevner2008design,
+  author       = {Hevner, Alan R and March, Salvatore T and Park, Jinsoo and Ram, Sudha},
+  title        = {Design science in information systems research},
+  number       = {1},
+  volume       = {28},
+  date         = {2008},
+  journaltitle = {Management Information Systems Quarterly},
+}
+
+@Book{oates2022researching,
+  author    = {Oates, Briony J},
+  publisher = {Sage},
+  title     = {Researching information systems and computing},
+  date      = {2006},
+}
+
+@Article{derrac2011practical,
+  author       = {Derrac, Joaqu{\'i}n and Garc{\'i}a, Salvador and Molina, Daniel and Herrera, Francisco},
+  title        = {A practical tutorial on the use of nonparametric statistical tests as a methodology for comparing evolutionary and swarm intelligence algorithms},
+  number       = {1},
+  pages        = {3--18},
+  volume       = {1},
+  date         = {2011},
+  journaltitle = {Swarm and Evolutionary Computation},
+  publisher    = {Elsevier},
+}
+
+@Book{godforskning,
+  editor    = {{Vetenskapsr{\aa}det}},
+  publisher = {Vetenskapsr{\aa}det},
+  title     = {God forskningssed},
+  isbn      = {9789173073523},
+  note      = {174 23/swe},
+  date      = {2017},
+  keywords  = {Forskningsetik; sao; Research; Moral and ethical aspects},
+  location  = {Stockholm},
+  url       = {https://www.vr.se/analys/rapporter/vara-rapporter/2017-08-29-god-forskningssed.html},
+}
+
+@Article{eiben2011parameter,
+  author       = {Eiben, Agoston E and Smit, Selmar K},
+  title        = {Parameter tuning for configuring and analyzing evolutionary algorithms},
+  number       = {1},
+  pages        = {19--31},
+  volume       = {1},
+  date         = {2011},
+  journaltitle = {Swarm and Evolutionary Computation},
+  publisher    = {Elsevier},
+}
+
+@InCollection{deb2005scalable,
+  author    = {Deb, Kalyanmoy and Thiele, Lothar and Laumanns, Marco and Zitzler, Eckart},
+  booktitle = {Evolutionary multiobjective optimization},
+  publisher = {Springer},
+  title     = {Scalable test problems for evolutionary multiobjective optimization},
+  pages     = {105--145},
+  date      = {2005},
+}
+
+@Article{World_Medical_Association2013-bf,
+  author       = {{World Medical Association}},
+  title        = {World Medical Association Declaration of Helsinki: ethical principles for medical research involving human subjects},
+  number       = {20},
+  pages        = {2191--2194},
+  volume       = {310},
+  date         = {2013-11},
+  journaltitle = {JAMA},
+  language     = {en},
+  location     = {United States},
+}
+
+@InProceedings{bandaru2019trend,
+  author       = {Bandaru, Sunith and Ng, Amos HC},
+  booktitle    = {Evolutionary Multi-Criterion Optimization: 10th International Conference, EMO 2019, East Lansing, MI, USA, March 10-13, 2019, Proceedings 10},
+  title        = {Trend mining: A visualization technique to discover variable trends in the objective space},
+  publisher = {Springer},
+  pages        = {605--617},
+  date         = {2019},
+}
+
+@Article{wei2015variable,
+  author       = {Wei, Pengfei and Lu, Zhenzhou and Song, Jingwen},
+  title        = {Variable importance analysis: a comprehensive review},
+  pages        = {399--432},
+  volume       = {142},
+  date         = {2015},
+  journaltitle = {Reliability Engineering \& System Safety},
+  publisher    = {Elsevier},
+}
+
+@Article{gromping2015variable,
+  author       = {Gr{\"o}mping, Ulrike},
+  title        = {Variable importance in regression models},
+  number       = {2},
+  pages        = {137--152},
+  volume       = {7},
+  date         = {2015},
+  journaltitle = {Wiley interdisciplinary reviews: Computational statistics},
+  publisher    = {Wiley Online Library},
+}
+
+@InProceedings{ng2011factory,
+  author       = {Ng, Amos HC and Bernedixen, Jacob and Moris, Matias Urenda and J{\"a}gstam, Mats},
+  booktitle    = {Proceedings of the 2011 winter simulation conference (WSC)},
+  title        = {Factory flow design and analysis using internet-enabled simulation-based optimization and automatic model generation},
+  publisher = {IEEE},
+  pages        = {2176--2188},
+  date         = {2011},
+}
+
+@Article{li2017r,
+  author       = {Li, Ke and Deb, Kalyanmoy and Yao, Xin},
+  title        = {R-metric: Evaluating the performance of preference-based evolutionary multiobjective optimization using reference points},
+  number       = {6},
+  pages        = {821--835},
+  volume       = {22},
+  date         = {2017},
+  journaltitle = {IEEE Transactions on Evolutionary Computation},
+  publisher    = {IEEE},
+}
+
+@InProceedings{pour2022desirable,
+  author    = {Pour, Pouya Aghaei and Bandaru, Sunith and Afsar, Bekir and Miettinen, Kaisa},
+  booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference Companion},
+  title     = {Desirable properties of performance indicators for assessing interactive evolutionary multiobjective optimization methods},
+  pages     = {1803--1811},
+  date      = {2022},
+}
+
+@InProceedings{kennedy1995particle,
+  author       = {Kennedy, James and Eberhart, Russell},
+  booktitle    = {Proceedings of ICNN'95-international conference on neural networks},
+  title        = {Particle swarm optimization},
+  publisher = {IEEE},
+  pages        = {1942--1948},
+  volume       = {4},
+  date         = {1995},
+}
+
+@Article{rousseeuw1987silhouettes,
+  author       = {Rousseeuw, Peter J},
+  title        = {Silhouettes: a graphical aid to the interpretation and validation of cluster analysis},
+  pages        = {53--65},
+  volume       = {20},
+  date         = {1987},
+  journaltitle = {Journal of computational and applied mathematics},
+  publisher    = {Elsevier},
+}
+
+@InProceedings{deb2006reference,
+  author    = {Deb, Kalyanmoy and Sundar, J},
+  booktitle = {Proceedings of the 8th annual conference on Genetic and evolutionary computation},
+  title     = {Reference point based multi-objective optimization using evolutionary algorithms},
+  pages     = {635--642},
+  date      = {2006},
+}
+
+@Article{thiele2009preference,
+  author       = {Thiele, Lothar and Miettinen, Kaisa and Korhonen, Pekka J and Molina, Julian},
+  title        = {A preference-based evolutionary algorithm for multi-objective optimization},
+  number       = {3},
+  pages        = {411--436},
+  volume       = {17},
+  date         = {2009},
+  journaltitle = {Evolutionary computation},
+  publisher    = {MIT Press},
+}
+
+@Article{molina2009g,
+  author       = {Molina, Juli{\'a}n and Santana, Luis V and Hern{\'a}ndez-D{\'i}az, Alfredo G and Coello, Carlos A Coello and Caballero, Rafael},
+  title        = {g-dominance: Reference point based dominance for multiobjective metaheuristics},
+  number       = {2},
+  pages        = {685--692},
+  volume       = {197},
+  date         = {2009},
+  journaltitle = {European Journal of Operational Research},
+  publisher    = {Elsevier},
+}
+
+@Article{strobl2008conditional,
+  author       = {Strobl, Carolin and Boulesteix, Anne-Laure and Kneib, Thomas and Augustin, Thomas and Zeileis, Achim},
+  title        = {Conditional variable importance for random forests},
+  pages        = {1--11},
+  volume       = {9},
+  date         = {2008},
+  journaltitle = {BMC bioinformatics},
+  publisher    = {Springer},
+}
+
+@Article{debeer2020conditional,
+  author       = {Debeer, Dries and Strobl, Carolin},
+  title        = {Conditional permutation importance revisited},
+  number       = {1},
+  pages        = {1--30},
+  volume       = {21},
+  date         = {2020},
+  journaltitle = {BMC bioinformatics},
+  publisher    = {BioMed Central},
+}
+
+@Article{durillo2011jmetal,
+  author       = {Durillo, Juan J and Nebro, Antonio J},
+  title        = {{jMetal}: A Java framework for multi-objective optimization},
+  number       = {10},
+  pages        = {760--771},
+  volume       = {42},
+  date         = {2011},
+  journaltitle = {Advances in Engineering Software},
+  publisher    = {Elsevier},
+}
+
+@Article{tian2017platemo,
+  author       = {Tian, Ye and Cheng, Ran and Zhang, Xingyi and Jin, Yaochu},
+  title        = {{PlatEMO}: A {MATLAB} platform for evolutionary multi-objective optimization [educational forum]},
+  number       = {4},
+  pages        = {73--87},
+  volume       = {12},
+  date         = {2017},
+  journaltitle = {IEEE Computational Intelligence Magazine},
+  publisher    = {IEEE},
+}
+
+@Article{blank2020pymoo,
+  author       = {Blank, Julian and Deb, Kalyanmoy},
+  title        = {Pymoo: Multi-objective optimization in python},
+  pages        = {89497--89509},
+  volume       = {8},
+  date         = {2020},
+  journaltitle = {IEEE Access},
+  publisher    = {IEEE},
+}
+
+@Article{IOHprofiler,
+  author        = {Carola Doerr and Hao Wang and Furong Ye and Sander van Rijn and Thomas B{\"a}ck},
+  title         = {{IOHprofiler}: A Benchmarking and Profiling Tool for Iterative Optimization Heuristics},
+  archiveprefix = {arXiv},
+  date          = {2018-10},
+  eprint        = {1810.05281},
+  eprinttype    = {arxiv},
+  journaltitle  = {arXiv e-prints:1810.05281},
+  keywords      = {Computer Science - Neural and Evolutionary Computing},
+}
+
+@Article{DURO2021106851,
+  author       = {João A. Duro and Yiming Yan and Ioannis Giagkiozis and Stefanos Giagkiozis and Shaul Salomon and Daniel C. Oara and Ambuj K. Sriwastava and Jacqui Morison and Claire M. Freeman and Robert J. Lygoe and Robin C. Purshouse and Peter J. Fleming},
+  title        = {Liger: A cross-platform open-source integrated optimization and decision-making environment},
+  issn         = {1568-4946},
+  volume       = {98},
+  date         = {2021},
+  journaltitle = {Applied Soft Computing},
+  url          = {https://www.sciencedirect.com/science/article/pii/S1568494620307894},
+}
+
+@Article{davison2004principles,
+  author       = {Davison, Robert and Martinsons, Maris G and Kock, Ned},
+  title        = {Principles of canonical action research},
+  number       = {1},
+  pages        = {65--86},
+  volume       = {14},
+  date         = {2004},
+  journaltitle = {Information systems journal},
+  publisher    = {Wiley Online Library},
+}
+
+@Book{breiman2017classification,
+  author    = {Breiman, Leo},
+  publisher = {Routledge},
+  title     = {Classification and regression trees},
+  date      = {2017},
+}
+
+@InProceedings{ishibuchi2008evolutionary,
+  author       = {Ishibuchi, Hisao and Tsukamoto, Noritaka and Nojima, Yusuke},
+  booktitle    = {2008 IEEE congress on evolutionary computation (IEEE world congress on computational intelligence)},
+  title        = {Evolutionary many-objective optimization: A short review},
+  publisher = {IEEE},
+  pages        = {2419--2426},
+  date         = {2008},
+}
+
+@InProceedings{ibrahim20163d,
+  author       = {Ibrahim, Amin and Rahnamayan, Shahryar and Martin, Miguel Vargas and Deb, Kalyanmoy},
+  booktitle    = {2016 IEEE Congress on Evolutionary Computation (CEC)},
+  title        = {3D-RadVis: Visualization of Pareto front in many-objective optimization},
+  publisher = {IEEE},
+  pages        = {736--745},
+  date         = {2016},
+}
+
+@InProceedings{elewah20213d,
+  author       = {Elewah, Abdelrahman and Badawi, Abeer A and Khalil, Haytham and Rahnamayan, Shahryar and Elgazzar, Khalid},
+  booktitle    = {2021 IEEE Congress on Evolutionary Computation (CEC)},
+  title        = {3D-RadViz: Three Dimensional Radial Visualization for Large-Scale Data Visualization},
+  publisher = {IEEE},
+  pages        = {1037--1046},
+  date         = {2021},
+}
+
+@Article{tomczyk2019decomposition,
+  author       = {Tomczyk, Micha{\l} K and Kadzi{\'n}ski, Mi{\l}osz},
+  title        = {Decomposition-based interactive evolutionary algorithm for multiple objective optimization},
+  number       = {2},
+  pages        = {320--334},
+  volume       = {24},
+  date         = {2019},
+  journaltitle = {IEEE Transactions on Evolutionary Computation},
+  publisher    = {IEEE},
+}
+
+@Article{bukharov2015development,
+  author       = {Bukharov, Oleg E and Bogolyubov, Dmitry P},
+  title        = {Development of a decision support system based on neural networks and a genetic algorithm},
+  number       = {15-16},
+  pages        = {6177--6183},
+  volume       = {42},
+  date         = {2015},
+  journaltitle = {Expert Systems with Applications},
+  publisher    = {Elsevier},
+}
+
+@InBook{Olson2008,
+  author    = {Olson, David L.},
+  pages     = {299--314},
+  publisher = {Springer Berlin Heidelberg},
+  title     = {Multi-Criteria Decision Support},
+  abstract  = {There have been a variety of decision support systems, with definitional differences across disciplines and countries. These include a system focus, a model focus, an application focus, and decision aids (the latter a European term). Each of these views is described with examples. The focus of the paper is on model-focused decision support systems using multicriteria models, and decision aids, of which differences between multiattribute utility theory, analytic hierarchy process, French and Belgian outranking methods, and other approaches are discussed. The underlying preference function assumptions of each approach are compared. The many very rich applications throughout the world are reviewed.},
+  booktitle = {Handbook on Decision Support Systems},
+  date      = {2008},
+  location  = {Berlin, Heidelberg},
+}
+
+
+@InBook{Burstein2008,
+  author    = {Burstein, Frada and Carlsson, Sven A.},
+  pages     = {103--120},
+  publisher = {Springer Berlin Heidelberg},
+  title     = {Decision Support Through Knowledge Management},
+  abstract  = {This chapter explores the role of knowledge management for decision support. Traditional decision support focused on provision of analytical tools for calculating optimal solution for the decision problems. The modern approach to decision support assumes greater autonomy for the decision maker. The role of the system is in assisting a decision maker in finding relevant information, which the decision maker can convert to actionable knowledge by making sense of the problem situation. This requires the decision support system (DSS) to have an extended functionality for supporting knowledge work, including memory aids, explanation facilities, and some learning capability. DSSs supporting such functionality can be equally termed ``knowledge management systems.'' This chapter explores how decision support systems and knowledge management evolved in recent years. It identifies complementary features that these two fields furnish in supporting users to improve their abilities as intelligent knowledge workers. It argues that although these areas originated from different philosophical premises, computerized knowledge management has decision support as a core focus; at the same time, decision support systems will benefit if built with knowledge management functionality in mind. We suggest calling such systems ``knowledge work support systems'' emphasising the major focus of modern technology as a mediator between the user and the cognitive requirements of the task he or she needs to perform. We also explore some design principles for such systems following a design science approach.},
+  booktitle = {Handbook on Decision Support Systems},
+  date      = {2008},
+  location  = {Berlin, Heidelberg},
+}
+
+@Article{zhang2011fundamentals,
+  author       = {Zhang, Shichao and Wu, Xindong},
+  title        = {Fundamentals of association rules in data mining and knowledge discovery},
+  number       = {2},
+  pages        = {97--116},
+  volume       = {1},
+  date         = {2011},
+  journaltitle = {Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery},
+  publisher    = {Wiley Online Library},
+}
+
+@misc{deb2001multi,
+  title       = {Multi-Objective Optimization Using Evolutionary Algorithms},
+  author      = {Deb, Kalyanmoy},
+  date        = {2001},
+  publisher   = {John Wiley \& Sons, Inc.}
+}
+
+@Article{de2019discrete,
+  author       = {de Sousa Junior, Wilson Trigueiro and Montevechi, Jos{\'e} Arnaldo Barra and de Carvalho Miranda, Rafael and Campos, Afonso Teberga},
+  title        = {Discrete simulation-based optimization methods for industrial engineering problems: A systematic literature review},
+  pages        = {526--540},
+  volume       = {128},
+  date         = {2019},
+  journaltitle = {Computers \& Industrial Engineering},
+  publisher    = {Elsevier},
+}
+
+@Article{missbauer2011optimization,
+  author       = {Missbauer, Hubert and Uzsoy, Reha},
+  title        = {Optimization models of production planning problems},
+  pages        = {437--507},
+  date         = {2011},
+  journaltitle = {Planning Production and Inventories in the Extended Enterprise: A State of the Art Handbook, Volume 1},
+  publisher    = {Springer},
+}
+
+@book{cornuejols2006optimization,
+  title={Optimization methods in finance},
+  author={Cornuejols, Gerard and T{\"u}t{\"u}nc{\"u}, Reha},
+  volume={5},
+  date={2006},
+  publisher={Cambridge University Press}
+}
+
+@Article{schneider2018automating,
+  author       = {Schneider, Gisbert},
+  title        = {Automating drug discovery},
+  number       = {2},
+  pages        = {97--113},
+  volume       = {17},
+  date         = {2018},
+  journaltitle = {Nature reviews drug discovery},
+  publisher    = {Nature Publishing Group},
+}
+
+@article{kaim2018review,
+  author       = {Kaim, Andrea and Cord, Anna F and Volk, Martin},
+  title        = {A review of multi-criteria optimization techniques for agricultural land use allocation},
+  pages        = {79--93},
+  volume       = {105},
+  date         = {2018},
+  journaltitle = {Environmental Modelling \& Software},
+  publisher    = {Elsevier},
+}
+
+@inproceedings{branke2004finding,
+  title={Finding knees in multi-objective optimization},
+  author={Branke, J{\"u}rgen and Deb, Kalyanmoy and Dierolf, Henning and Osswald, Matthias},
+  booktitle={Parallel Problem Solving from Nature-PPSN VIII: 8th International Conference, Birmingham, UK, September 18-22, 2004. Proceedings 8},
+  pages={722--731},
+  date={2004},
+  publisher={Springer}
+}
+
+@inproceedings{hakanen2016connections,
+  title={connections of reference vectors and different types of preference information in interactive multiobjective evolutionary algorithms},
+  author={Hakanen, Jussi and Chugh, Tinkle and Sindhya, Karthik and Jin, Yaochu and Miettinen, Kaisa},
+  booktitle={2016 IEEE Symposium Series on Computational Intelligence (SSCI)},
+  pages={1--8},
+  date={2016},
+  publisher={IEEE}
+}
+
+@inproceedings{gong2011interactive,
+  title={Interactive MOEA/D for multi-objective decision making},
+  author={Gong, Maoguo and Liu, Fang and Zhang, Wei and Jiao, Licheng and Zhang, Qingfu},
+  booktitle={Proceedings of the 13th annual conference on Genetic and evolutionary computation},
+  pages={721--728},
+  date={2011}
+}
+
+@Article{RUIZ2015218,
+  author       = {Ana B. Ruiz and Karthik Sindhya and Kaisa Miettinen and Francisco Ruiz and Mariano Luque},
+  title        = {E-NAUTILUS: A decision support system for complex multiobjective optimization problems based on the NAUTILUS method},
+  issn         = {0377-2217},
+  number       = {1},
+  pages        = {218--231},
+  volume       = {246},
+  abstract     = {Interactive multiobjective optimization methods cannot necessarily be easily used when (industrial) multiobjective optimization problems are involved. There are at least two important factors to be considered with any interactive method: computationally expensive functions and aspects of human behavior. In this paper, we propose a method based on the existing NAUTILUS method and call it the Enhanced NAUTILUS (E-NAUTILUS) method. This method borrows the motivation of NAUTILUS along with the human aspects related to avoiding trading-off and anchoring bias and extends its applicability for computationally expensive multiobjective optimization problems. In the E-NAUTILUS method, a set of Pareto optimal solutions is calculated in a pre-processing stage before the decision maker is involved. When the decision maker interacts with the solution process in the interactive decision making stage, no new optimization problem is solved, thus, avoiding the waiting time for the decision maker to obtain new solutions according to her/his preferences. In this stage, starting from the worst possible objective function values, the decision maker is shown a set of points in the objective space, from which (s)he chooses one as the preferable point. At successive iterations, (s)he always sees points which improve all the objective values achieved by the previously chosen point. In this way, the decision maker remains focused on the solution process, as there is no loss in any objective function value between successive iterations. The last post-processing stage ensures the Pareto optimality of the final solution. A real-life engineering problem is used to demonstrate how E-NAUTILUS works in practice.},
+  date         = {2015},
+  doi          = {10.1016/j.ejor.2015.04.027},
+  journaltitle = {European Journal of Operational Research},
+  keywords     = {Multiple objective programming, Interactive methods, Multiple criteria optimization, Computational cost, Trading-off},
+  url          = {https://www.sciencedirect.com/science/article/pii/S0377221715003203},
+}
+
+@InProceedings{tariq2012intelligent,
+  author    = {Tariq, Ahmad and Rafi, Khan},
+  booktitle = {Information and Knowledge Management},
+  title     = {Intelligent decision support systems-A framework},
+  number    = {6},
+  pages     = {12--20},
+  volume    = {2},
+  date      = {2012},
+}
+
+@Article{razmak2015decision,
+  author       = {Razmak, Jamil and Aouni, Belaid},
+  title        = {Decision support system and multi-criteria decision aid: a state of the art and perspectives},
+  number       = {1-2},
+  pages        = {101--117},
+  volume       = {22},
+  date         = {2015},
+  journaltitle = {Journal of Multi-Criteria Decision Analysis},
+  publisher    = {Wiley Online Library},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

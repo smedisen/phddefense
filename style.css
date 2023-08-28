@@ -1,0 +1,150 @@
+* {
+  background-size: contain;
+}
+
+.subtitle {
+  padding-top: 10%;
+  position: absolute;
+  text-align: left;
+  font-size: 60%;
+}
+
+.backgrounds {
+  background-image: url("logo.jpg");
+  background-repeat: no-repeat;
+  background-position-x: 90vw;
+  background-position-y: 2vw;
+  background-size: 7%;
+}
+
+#TOC li a {
+  color: black;
+}
+
+#title-slide {
+  padding-left: 0px;
+}
+
+#title-slide h1 {
+  text-align: left;
+  text-justify: inter-word;
+}
+
+#title-slide .date {
+  text-align: right;
+  padding-right: 22px;
+}
+
+#title-slide .quarto-title-authors {
+  text-align: right;
+  text-justify: inter-word;
+  display: block;
+  padding-top: 50px;
+  font-size: 125%;
+}
+
+.reveal h1 {
+  color: #c0348b;
+  font-size: 46pt;
+}
+
+.reveal h2 {
+  color: #c0348b;
+  padding-top: 2vw;
+  margin-bottom: 1vw;
+  line-height: 0.8em;
+}
+
+.reveal h2 em {
+  color: black;
+  font-size: 70%;
+}
+
+.reveal ul ::marker,
+.reveal ol ::marker {
+  color: #c0348b;
+}
+
+/* inner list  */
+.reveal li li {
+  font-size: 75%;
+}
+
+.slidecontent {
+  /* margin-left: -100px; */
+  font-family: Georgia;
+  font-size: 85%;
+  width: 100%;
+  /* position: absolute; */
+  /* top: 8vw; */
+}
+
+.v-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slidecontent p {
+  font-size: 110%;
+}
+
+em {
+  color: #c0348b;
+}
+
+.slide-menu-button, .slide-chalkboard-buttons {
+  opacity: 0;
+}
+
+.threequarter {
+  transform: scale(0.75);
+}
+
+.citation {
+  font-size: 75%;
+}
+
+.rqs strong {
+  font-size: 110%;
+}
+
+.rqs p {
+  font-size: 60%;
+}
+
+.papers p {
+  font-size: 60%;
+}
+
+.papers li {
+  font-size: 48%;
+  list-style-type: upper-roman;
+}
+
+.papers li em {
+  color: black;
+}
+
+.papers li p {
+  font-size: 100%;
+}
+
+.tight div p {
+  margin: 0px;
+  padding: 0px;
+}
+
+#refs {
+  font-family: Georgia;
+}
+
+small_text {
+  font-size: 90%;
+}
+
+ssmall {
+  font-size: 60%;
+  color: #c0348b
+}

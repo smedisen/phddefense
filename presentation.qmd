@@ -1,0 +1,1694 @@
+---
+title: "Knowledge Discovery for<br> Interactive Decision Support and<br> Knowledge-Driven Optimization"
+author: "Henrik Smedberg"
+subtitle: "<strong>Main Supervisor:</strong><br>Sunith Bandaru<br><br><strong>Co-supervisors:</strong><br>Amos Ng<br>Maria Riveiro"
+footer: "his.se/smeh &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Final Seminar Presentation"
+bibliography: references.bib
+# title-slide-attributes:
+#     data-background-image: title-background.png
+#     data-background-size: contain
+format: 
+  revealjs:
+    css: style.css
+    # background-image: slide-background.png 
+    # background-size: contain
+    date: 06/05/2023
+    date-format: "MMM D, YYYY"
+    slide-number: true
+    chalkboard: true
+    fig-format: svg
+    margin: 0.15
+    width: 1280
+    height: 720
+---
+
+# Introduction
+::: {.ignore style="display: none"}
+
+@trendmining2
+@infspaper
+@ejorpaper
+@mimerpaper
+@offlinekdo
+@fpmoperator
+@infskdo
+
+<style>
+.reveal .footer {
+  height: 5%;
+  bottom: -2px;
+  background-color: #c0348b;
+}
+
+.reveal .footer p{
+  font-family: Arial;
+  text-align: left;
+  padding-left: 3vw;
+  color: #eeeeee;
+  font-size: 1em;
+  font-size: 1vw;
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  padding: 0;
+  margin: 0;
+  transform-origin: center center;
+  transform: translateX(calc((100% / 2) * (-1))) translateY(calc((100% / 2) * (-1)));
+}
+
+.reveal .slide-number {
+  font-size: 1em;
+  font-size: 1vw;
+  padding: 0;
+  margin: 0;
+  bottom: 1.5%;
+  transform-origin: center center;
+  color: #eeeeee;
+}
+
+.reveal table {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.reveal .header {
+  border-bottom: 2px solid black;
+}
+
+.reveal table td {
+ border-bottom: 0px;
+}
+</style>
+
+:::
+
+
+## Introduction 
+
+::: {.slidecontent .v-center}
+:::: {.columns}
+
+::: {.column width="55%"}
+Optimization Example 
+
+* Design *the best* car
+  * Objectives
+    1. High horsepower
+    1. Low fuel consumption 
+
+  * Variables
+    1. Materials
+    1. Engine size
+    1. Dimensions
+    1. ...
+:::
+
+::: {.column width="40%"}
+
+```{python}
+# type: ignore
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+import matplotlib as mpl
+# import pandas as pd
+from matplotlib import rc
+import random
+# rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
+# rc('font',**{'family':'serif','serif':['Times New Roman']})
+mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['ps.fonttype'] = 42
+
+mpl.rcParams['axes.linewidth'] = 0.5
+mpl.rcParams["mathtext.fontset"] = "cm"
+mpl.rcParams.update({'font.size': 18})
+mpl.rcParams["legend.handletextpad"] = 0.0
+rc('legend', fontsize=14)
+
+rc('text', usetex=True)
+
+def add_arrows(ax = None):
+  if ax == None:
+    ax = plt.gca() 
+
+  ax.spines["left"].set_position(("data", -0.1))
+  ax.spines["bottom"].set_position(("data", -0.1))
+
+  ax.spines["top"].set_visible(False)
+  ax.spines["right"].set_visible(False)
+
+  ax.plot(1, -0.1, ">k", transform=ax.get_yaxis_transform(), clip_on=False)
+  ax.plot(-0.1, 1, "^k", transform=ax.get_xaxis_transform(), clip_on=False)
+
+xs = []
+ys = []
+xs2 = []
+ys2 = []
+
+for x in range(5):
+    x = x/5
+    angle = x*(math.pi/2)
+    xs.append(math.cos(angle)*0.6 );
+    ys.append(math.sin(angle)*0.6 );
+
+random.seed(3)
+for x in range(10):
+  angle = random.random() * (math.pi/2)
+  xs2.append(math.cos(angle) * (random.random() * 0.4) + 0.1);
+  ys2.append(math.sin(angle) * (random.random() * 0.4) + 0.1);
+
+ys = -np.array(ys)
+ysmin = ys.min()
+ys -= ysmin + 0.01
+
+xs = np.array(xs) - 0.15
+
+ys2 = -np.array(ys2)
+ys2 -= ysmin + 0.01
+
+xs2 = np.array(xs2) - 0.15
+
+plt.scatter(xs, ys, c="#c0348b")
+plt.scatter(xs2, ys2, facecolors='none', edgecolors="#c0348b")
+
+plt.xlabel(r'Horsepower')
+plt.ylabel(r'Fuel consumption')
+
+plt.legend(['Optimal', "Dominated"], loc="lower right", bbox_to_anchor = [1, 0.07])
+
+plt.xticks([])
+plt.yticks([])
+add_arrows()
+
+plt.axis('square')
+plt.show()
+```
+
+:::
+::::
+:::
+
+::: {.notes}
+
+1. Set the stage
+1. Optimize to find the best possible car
+1. What is *the best*? **Objectives** point on the figure
+1. We can only change **input variables**
+
+:::
+
+## Introduction
+
+::: {.slidecontent .v-center}
+:::: {.columns}
+
+::: {.column width="55%"}
+* *Trade-offs* in the objective space
+
+::: {style="padding-top: 0.75vw"}
+* Decision Making
+  * How are the cars different?
+  * How are the cars similar?
+  * What is *special* about the optimal cars?
+:::
+
+::: {.fragment .fade-in}
+* Knowledge Discovery
+  * What can we learn from the optimization?
+
+:::
+:::
+
+::: {.column width="40%"}
+
+```{python}
+# type: ignore
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+import random
+
+xs = []
+ys = []
+xs2 = []
+ys2 = []
+
+for x in range(5):
+    x = x/5
+    angle = x*(math.pi/2)
+    xs.append(math.cos(angle)*0.6 );
+    ys.append(math.sin(angle)*0.6 );
+
+random.seed(3)
+for x in range(10):
+  angle = random.random() * (math.pi/2)
+  xs2.append(math.cos(angle) * (random.random() * 0.4) + 0.1);
+  ys2.append(math.sin(angle) * (random.random() * 0.4) + 0.1);
+
+ys = -np.array(ys)
+ysmin = ys.min()
+ys -= ysmin + 0.01
+
+xs = np.array(xs) - 0.15
+
+ys2 = -np.array(ys2)
+ys2 -= ysmin + 0.01
+
+xs2 = np.array(xs2) - 0.15
+
+plt.scatter(xs, ys, c="#c0348b")
+plt.scatter(xs2, ys2, facecolors='none', edgecolors="#c0348b")
+
+plt.xlabel(r'Horsepower')
+plt.ylabel(r'Fuel consumption')
+
+plt.legend(['Optimal', "Dominated"], loc="lower right", bbox_to_anchor = [1, 0.07])
+
+plt.xticks([])
+plt.yticks([])
+add_arrows()
+
+plt.axis('square')
+plt.show()
+```
+:::
+::::
+:::
+
+
+::: {.notes}
+
+1. Considering several objectives at the same time gives Trade-offs
+1. When we choose our final car design...
+1. Knowledge discovery
+1. This presentation will talk about these terms
+
+:::
+
+## Introduction
+
+::: {.slidecontent .v-center}
+
+* Multi-Objective Optimization
+  * Find *optimal* solutions
+
+* Decision Making
+  * *Analysis* to find *preferred solutions*
+  * Determine *final solution* to implement in practice
+
+::: {.fragment .fade-in}
+<ul><li style="list-style-type: none">
+  <ul>
+    <li> Update *problem formulation* </li>
+    <li> *Learn* for *future* optimization cases </li>
+  </ul>
+</li></ul>
+:::
+:::
+
+::: {.notes}
+1. Optimization for finding solutions
+2. Decision making for analysis and choosing a final solution
+3. But that's not all...
+4. You might want to learn the capabilities of the formulation
+5. Learn to improve the next-coming optimization
+:::
+
+## Introduction
+
+::: {.slidecontent .v-center}
+
+* Knowledge Discovery
+  * Data mining and machine learning
+  * Find relationships, patterns, rules, ... 
+  * Describe *good* solutions in terms of the *decision space*  
+    &nbsp;
+  * Inform *DM* to make better decisions
+
+:::
+
+::: {.notes}
+Knowledge Discovery ...
+
+You know your preferred solutions in the objective space, what makes them good?
+
+A more informed DM is able to make more informed, *better*, decisions
+:::
+
+## Introduction
+
+::: {.slidecontent}
+:::: {.columns}
+
+::: {.column width="50%"}
+```{python}
+# type: ignore
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+import random
+
+
+xs = []
+ys = []
+xs2 = []
+ys2 = []
+
+random.seed(13)
+# for x in range(5):
+#   x, y = 1,1
+#   while x > 0.25 or y > 0.25:
+#     x = random.random()
+#     y = random.random()
+#   xs.append(x);
+#   ys.append(y);
+
+xs = [0.0, 0.2, 0.2, 0.0, 0.1]
+ys = [0.0, 0.0, 0.2, 0.2, 0.1]
+
+for x in range(10):
+  x, y = 0,0
+  while x < 0.25 and y < 0.25:
+    x = random.random()
+    y = random.random()
+  xs2.append(x);
+  ys2.append(y);
+
+ys = np.array(ys)
+xs = np.array(xs)
+
+ys2 = np.array(ys2)
+xs2 = np.array(xs2)
+
+plt.scatter(xs, ys, c="#c0348b")
+plt.scatter(xs2, ys2, facecolors='none', edgecolors="#c0348b")
+
+plt.xlabel(r'$x_1$')
+plt.ylabel(r'$x_2$')
+
+
+plt.xticks([0, 0.25, 0.5,0.75,1])
+plt.xlim([0,1])
+plt.yticks([0, 0.25, 0.5,0.75,1])
+plt.ylim([0,1])
+plt.title("Decision Space")
+# plt.yticks([])
+add_arrows()
+
+plt.axis('square')
+plt.show()
+```
+:::
+
+::: {.column width="50%"}
+
+```{python}
+# type: ignore
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+import random
+
+xs = []
+ys = []
+xs2 = []
+ys2 = []
+
+for x in range(5):
+    x = x/5
+    angle = x*(math.pi/2)
+    xs.append(math.cos(angle)*0.6 );
+    ys.append(math.sin(angle)*0.6 );
+
+random.seed(3)
+for x in range(10):
+  angle = random.random() * (math.pi/2)
+  xs2.append(math.cos(angle) * (random.random() * 0.4) + 0.1);
+  ys2.append(math.sin(angle) * (random.random() * 0.4) + 0.1);
+
+ys = -np.array(ys)
+ysmin = ys.min()
+ys -= ysmin + 0.01
+
+xs = np.array(xs) - 0.15
+
+ys2 = -np.array(ys2)
+ys2 -= ysmin + 0.01
+
+xs2 = np.array(xs2) - 0.15
+
+plt.scatter(xs, ys, c="#c0348b")
+plt.scatter(xs2, ys2, facecolors='none', edgecolors="#c0348b")
+
+plt.xlabel(r'Horsepower')
+plt.ylabel(r'Fuel consumption')
+
+plt.legend(['Optimal', "Dominated"], loc="lower right", bbox_to_anchor = [1, 0.07])
+
+plt.xticks([])
+plt.yticks([])
+add_arrows()
+
+plt.title("Objective Space")
+plt.axis('square')
+plt.show()
+```
+:::
+::::
+:::
+
+::: {.notes}
+
+* draw arrows (press 'c')
+
+:::
+
+## Introduction 
+
+
+::: {.slidecontent .v-center}
+::::{.columns}
+::: {.column width="35%"}
+* Optimal solutions
+  * $x_1 < 0.25$
+  * $x_2 < 0.25$
+
+::: {style="padding-top: 70px;"}
+* *Decision rules* as knowledge
+:::
+:::
+
+::: {.column width="50%"}
+::::{.columns}
+::: {.column width="50%" .threequarter style="position: absolute; left: 400px; "}
+```{python}
+# type: ignore
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+import random
+
+
+xs = []
+ys = []
+xs2 = []
+ys2 = []
+
+random.seed(13)
+# for x in range(5):
+#   x, y = 1,1
+#   while x > 0.25 or y > 0.25:
+#     x = random.random()
+#     y = random.random()
+#   xs.append(x);
+#   ys.append(y);
+
+xs = [0.0, 0.2, 0.2, 0.0, 0.1]
+ys = [0.0, 0.0, 0.2, 0.2, 0.1]
+
+for x in range(10):
+  x, y = 0,0
+  while x < 0.25 and y < 0.25:
+    x = random.random()
+    y = random.random()
+  xs2.append(x);
+  ys2.append(y);
+
+ys = np.array(ys)
+xs = np.array(xs)
+
+ys2 = np.array(ys2)
+xs2 = np.array(xs2)
+
+plt.scatter(xs, ys, c="#c0348b")
+plt.scatter(xs2, ys2, facecolors='none', edgecolors="#c0348b")
+
+plt.xlabel(r'$x_1$')
+plt.ylabel(r'$x_2$')
+
+
+plt.xticks([0, 0.25, 0.5,0.75,1])
+plt.xlim([0,1])
+plt.yticks([0, 0.25, 0.5,0.75,1])
+plt.ylim([0,1])
+plt.title("Decision Space")
+# plt.yticks([])
+add_arrows()
+
+plt.axis('square')
+plt.show()
+```
+:::
+
+::: {.column width="50%" .threequarter style="position: absolute; left: 800px"}
+```{python}
+# type: ignore
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+import random
+
+xs = []
+ys = []
+xs2 = []
+ys2 = []
+
+for x in range(5):
+    x = x/5
+    angle = x*(math.pi/2)
+    xs.append(math.cos(angle)*0.6 );
+    ys.append(math.sin(angle)*0.6 );
+
+random.seed(3)
+for x in range(10):
+  angle = random.random() * (math.pi/2)
+  xs2.append(math.cos(angle) * (random.random() * 0.4) + 0.1);
+  ys2.append(math.sin(angle) * (random.random() * 0.4) + 0.1);
+
+ys = -np.array(ys)
+ysmin = ys.min()
+ys -= ysmin + 0.01
+
+xs = np.array(xs) - 0.15
+
+ys2 = -np.array(ys2)
+ys2 -= ysmin + 0.01
+
+xs2 = np.array(xs2) - 0.15
+
+plt.scatter(xs, ys, c="#c0348b")
+plt.scatter(xs2, ys2, facecolors='none', edgecolors="#c0348b")
+
+plt.xlabel(r'Horsepower')
+plt.ylabel(r'Fuel consumption')
+
+plt.legend(['Optimal', "Dominated"], loc="lower right", bbox_to_anchor = [1, 0.07])
+
+plt.xticks([])
+plt.yticks([])
+add_arrows()
+
+plt.title("Objective Space")
+plt.axis('square')
+plt.show()
+```
+:::
+::::
+:::
+::::
+:::
+
+::: {.notes}
+1. Optimal solutions can be described with...
+2. This is the kind of design rule knowledge we want to find.
+:::
+
+## Introduction
+
+::: {.slidecontent .v-center}
+
+::: {}
+Knowledge-Driven Optimization (*KDO*) [@parta]
+
+* Use knowledge in *optimization algorithms*
+* Faster convergence on better solutions
+:::
+
+::: {style="height: 2vw;"}
+:::
+
+:::: {.columns}
+::: {.column width="50%" .fragment .fade-in}
+* *Offline KDO*
+  * Incorporate knowledge from previous optimization, in future optimizations
+  <!-- * Involves the DM -->
+:::
+::: {.column width="50%" .fragment .fade-in}
+* *Online KDO*
+  * Discover and exploit knowledge,  
+    as part of the algorithm
+  * Also generates knowledge for the DM
+:::
+::::
+:::
+
+::: {.notes}
+
+But not only for decision making  
+Also for KDO  
+Can be realized in two ways...
+
+1. Offline
+1. Online
+
+:::
+
+## Introduction
+
+::: {.slidecontent .v-center}
+Motivation 
+
+* Knowledge Discovery
+  * Benefits to *decision support* by offering *insights* into the optimization process and results
+
+* KDO
+  * Benefits to *optimization* by utilizing design rules for *improved convergence behaviors*
+:::
+
+# Background
+
+## Background
+
+::: {.slidecontent}
+
+* Multi-Objective Evolutionary Algorithms (*MOEAs*)
+  * Inspired by behaviors found in nature
+  * Evolve a population of solutions over generations
+  * Balance *convergence* and *diversity*  
+    &nbsp;
+  * Generate many sub-optimal solutions
+
+:::: {.columns}
+::: {.column width="40%"}
+* NSGA-II [@deb2002fast]
+  * Non-Dominated Sorting
+  * Crowding distance
+:::
+
+::: {.column width="60%"}
+::: {layout="[1,1,1]" style="padding-left:60px;"}
+```{python}
+# type: ignore
+
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import pandas as pd
+from matplotlib import rc
+# rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
+# rc('font',**{'family':'serif','serif':['Times New Roman']})
+mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['ps.fonttype'] = 42
+
+mpl.rcParams['axes.linewidth'] = 0.5
+mpl.rcParams["mathtext.fontset"] = "cm"
+mpl.rcParams.update({'font.size': 14})
+mpl.rcParams["legend.handletextpad"] = 0.0
+rc('legend', fontsize=10)
+
+rc('text', usetex=True)
+
+def add_arrows(ax = None):
+  if ax == None:
+    ax = plt.gca() 
+
+  ax.spines["left"].set_position(("data", -0.1))
+  ax.spines["bottom"].set_position(("data", -0.1))
+
+  ax.spines["top"].set_visible(False)
+  ax.spines["right"].set_visible(False)
+
+  ax.plot(1, -0.1, ">k", transform=ax.get_yaxis_transform(), clip_on=False)
+  ax.plot(-0.1, 1, "^k", transform=ax.get_xaxis_transform(), clip_on=False)
+
+import pandas as pd
+
+df = pd.read_csv("../data/nds_example.csv", sep=';')
+df['x'] -= 0.1
+
+plt.figure(figsize=(5.5/2,5.5/2))
+
+plt.scatter(df['x'], df['y'], marker='o', facecolors='none', edgecolors='black', linewidths=0.5)
+
+plt.xlabel(r'$f_1({\bf x })$')
+plt.ylabel(r'$f_2({\bf x })$')
+
+plt.xticks([])
+plt.yticks([])
+add_arrows()
+
+plt.axis('square')
+plt.show()
+```
+```{python}
+
+plt.figure(figsize=(5.5/2,5.5/2))
+
+ax = plt.gca()
+
+ax.text(0,0.5, "$Non$-$dominated\ sorting$\n")
+ax.annotate("", xy=(0.96, 0.53), xycoords='data', xytext=(0., 0.53), textcoords='data', 
+    arrowprops=dict(arrowstyle="->", connectionstyle="arc3"),)
+            
+plt.axis('off')
+
+# add_arrows()
+# plt.xlabel(r'$f_1({\bf x })$')
+# plt.ylabel(r'$f_2({\bf x })$')
+plt.xticks([])
+plt.yticks([])
+
+# plt.axis('square')
+plt.show()
+```
+
+```{python}
+
+plt.figure(figsize=(5.5/2,5.5/2))
+
+colors = ['#e34a33','#fdbb84','#fee8c8']
+cs = [colors[x] for x in df['nds_rank'].values]
+for nds in [0,1,2]:
+  ddf = df[df['nds_rank'] == nds]
+  plt.scatter(ddf['x'], ddf['y'], marker='o', edgecolors='black', c=colors[nds], linewidths=0.5)
+  
+plt.xlabel(r'$f_1({\bf x })$')
+plt.ylabel(r'$f_2({\bf x })$')
+
+plt.legend(['$Rank\ 0$', '$Rank\ 1$', '$Rank\ 2$'], loc="lower left", bbox_to_anchor=(0.05, 0.05))
+
+add_arrows()
+plt.xlabel(r'$f_1({\bf x })$')
+plt.ylabel(r'$f_2({\bf x })$')
+plt.xticks([])
+plt.yticks([])
+
+
+plt.axis('square')
+plt.show()
+```
+
+:::
+:::
+::::
+
+::: {style="position: absolute; right: 250px; top: 380px; font-size: 50%;"}
+Minimize $f_1(\bf x)$ and $f_2(\bf x)$
+:::
+
+:::
+
+::: {.notes}
+Sub-optimal solutions are wasteful  
+    we can use knowledge to reduce number of solutions needed to converge
+
+One of the very common MOEAs is NSGA-II
+:::
+
+## Background
+
+::: {.slidecontent .v-center}
+
+Multi-Criteria Decision Making
+
+* How to involve the DM? [@miettinen1999nonlinear]
+  * *no preference* --- No preferences are available or used
+  * *a priori* --- Express preferences before the optimization 
+  * *a posteriori* --- Express preferences after optimization 
+  * *interactive* --- Update preferences during optimization
+
+:::
+
+::: {.notes}
+1. Optimization is one side of the coin, we also have decision making
+1. incorporating DM's preferences and make decisions 
+1. 4 classes of methods for incorporating DM's preferences
+1. Not directly, but finding interesting solutions like knee-points
+1. ...
+:::
+
+## Background
+
+::: {.slidecontent}
+
+:::: {.columns}
+:::{.column width="35%"}
+* Visualize Solutions
+  * Scatter Plot
+  * Parallel Coordinate Plot
+  * RadViz
+  * Heatmaps
+  * ...
+:::
+::: {.column width="65%"}
+```{python}
+#| layout-ncol: 3
+#| layout-valign: bottom
+
+# type: ignore 
+import pandas as pd
+import math
+
+def set_3d_scatter(ax):
+  for axis in [ax.xaxis,ax.yaxis,ax.zaxis]:
+    axis.pane.fill = False
+    axis.pane.set_edgecolor('#000')
+    axis.pane.set_alpha(1)
+    axis.pane.set_linewidth(0.5)
+    axis._axinfo["grid"]['linestyle'] = ":"
+    axis._axinfo["grid"]['linewidth'] = 0.25
+  
+  ax.spines["top"].set_linewidth(0.5)
+  ax.spines["right"].set_linewidth(0.5)
+  ax.spines["left"].set_linewidth(0.5)
+  ax.spines["bottom"].set_linewidth(0.5)
+
+  ax.set_proj_type('ortho')
+  ax.view_init(30, 45)
+
+df = pd.read_csv("../data/dtlz1space.csv", sep=' ')
+colors = []
+for index, d in df.iterrows():
+  colors.append((d['r'], d['g'], d['b']))
+
+
+fig = plt.figure(figsize=(5.5/2,5.5/2))
+ax = fig.add_subplot(projection='3d')
+
+set_3d_scatter(ax)
+ax.scatter(df['f1'], df['f2'], df['f3'], c=colors, linewidths=0.5, alpha=0.75)
+
+ax.set_xlabel('$f_1$')
+ax.set_ylabel('$f_2$')
+ax.set_zlabel('$f_3$')
+
+ax.set_box_aspect((1,1,1))
+plt.title('3D Scatter Plot', y=-0.5)
+plt.show()
+
+
+
+plt.figure(figsize=(5.5/2,5.5/2))
+
+labels =['f1','f2','f3']
+print_labels =['$f_1$','$f_2$','$f_3$']
+objectives = df[labels]
+
+for index, d in df.iterrows():
+  plt.plot(d[labels], c=colors[index], alpha=0.25)
+
+plt.gca().set_xmargin(0)
+plt.gca().set_ymargin(0)
+
+plt.gca().set_xticklabels(print_labels)
+
+plt.gca().set_yticks([0,1,2,3,4,5,6])
+plt.gca().set_yticklabels(["$0$","","$2$","","$4$","","$6$"])
+
+ax2 = plt.gca().twinx()
+
+ax2.set_yticks([0,1,2,3,4,5,6])
+ax2.set_yticklabels([])
+ax2.spines['left'].set_position('center')
+ax2.yaxis.set_ticks_position('both')
+
+plt.gca().set_box_aspect(0.85)
+plt.title('PCP', y=-0.5)
+plt.show()
+
+
+
+plt.figure(figsize=(6.5/2,6.5/2))
+
+
+circle1 = plt.Circle((0, 0), 1.1, fill = False, color='k', linewidth=0.5)
+plt.gca().add_patch(circle1)
+
+xs = []; ys = []
+txs = []; tys = []
+for i in range(3):
+  xs.append(math.cos(2*math.pi * i / 3) * 1.1)
+  ys.append(math.sin(2*math.pi * i / 3) * 1.1)
+  txs.append(math.cos(2*math.pi * i / 3) * 1.3)
+  tys.append(math.sin(2*math.pi * i / 3) * 1.3)
+
+plt.scatter(x=xs, y=ys, color='black')
+plt.gca().annotate("$f_1$", xy=(0,0), xycoords='data', xytext=(txs[0], tys[0]), textcoords='data', ha='center', va='center', fontsize=12)
+plt.gca().annotate("$f_2$", xy=(0,0), xycoords='data', xytext=(txs[1], tys[1]), textcoords='data', ha='center', va='center', fontsize=12)
+plt.gca().annotate("$f_3$", xy=(0,0), xycoords='data', xytext=(txs[2], tys[2]), textcoords='data', ha='center', va='center', fontsize=12)
+
+s = []; ls = []
+for i in range(3):
+    ls.append(2.0 * math.pi * (i / 3))
+for t in ls:
+  s.append([math.cos(t), math.sin(t)])
+
+X = (df[labels] - df[labels].min()) / (df[labels].max() - df[labels].min())
+
+xx = []; yy = []
+
+for i, row in X.iterrows():
+  SIG = 0
+  for r in row:
+    SIG += r
+  sig = 0
+  for i in range(len(row)):
+    sig += row[i]*s[i][0]
+  x = sig/SIG
+  sig = 0
+  for i in range(len(row)):
+    sig += row[i]*s[i][1]
+  y = sig/SIG
+  xx.append(x)
+  yy.append(y)
+
+plt.scatter(xx,yy, color=colors, marker='o', linewidths=0.5, s=15, alpha=0.75)
+
+a = 1.5
+
+plt.xlim([-(a),a])
+plt.ylim([-a,a])
+plt.xticks([])
+plt.yticks([])
+ax = plt.gca()
+ax.spines["top"].set_color("white")
+ax.spines["right"].set_color("white")
+ax.spines["left"].set_color("white")
+ax.spines["bottom"].set_color("white")
+
+ax.set_box_aspect(1)
+# plt.axis('square')
+plt.title('RadViz', y=-0.2)
+plt.show()
+
+```
+:::
+::::
+
+* How to visualize *many* objectives?
+* How to visualize the *decision space*?
+* How to visualize *knowledge*?
+
+:::
+
+::: {.notes}
+Many ways to visualize the same solutions  
+No method is better or worse for all solution sets
+
+There are challenges to consider...
+:::
+
+## Background
+
+::: {.slidecontent .v-center}
+Knowledge Discovery in MOO
+
+:::: {.columns}
+::: {.column width="50%"}
+
+* *Implicit* knowledge
+  * Clustering
+  * Manifold learning
+  * ...
+
+:::
+::: {.column width="50%"}
+
+* *Explicit* knowledge
+  * Innovization [@deb2006innovization]
+  * Decision rules
+  * ...
+
+:::
+::::
+
+:::: {.columns .fragment .fade-in}
+::: {.column width="50%"}
+
+<ul>
+  <li style="list-style-type: none">
+    <Ul>
+      <li>Require interpretation</li>
+      <li>Does *not* answer ***what?***</li>
+    </ul>
+  </li>
+</ul>
+
+:::
+::: {.column width="50%"}
+
+<ul>
+  <li style="list-style-type: none">
+    <Ul>
+      <li>Has a clear, formal notation</li>
+      <li>Can be transferred</li>
+      <li>Used both for *decision support* and *algorithmically*</li>
+    </ul>
+  </li>
+</ul>
+
+:::
+::::
+:::
+
+::: {.notes}
+* Implicit  
+    clustering may find similar solutions but does not answer **how** they are similar
+
+This thesis work focused on explicit knowledge representations
+:::
+
+# Research Approach
+
+## Research Approach
+
+::: {.slidecontent .v-center}
+
+* Motivation
+  * *Knowledge discovery* can benefit optimization and decision making
+
+::: {style="height: 1vw;"}
+:::
+
+* Aim
+  * Develop methods for meaningful *knowledge discovery* MOO
+  * Appropriate for decision support and KDO
+  * *Simple* and easy to understand knowledge 
+
+:::
+
+## Research Approach
+
+::: {.slidecontent .rqs .v-center}
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {}
+::: {style="position: absolute; "}
+**RQ1**
+:::
+::: {style="position:absolute; padding-left: 70px; width: 55%"}
+**Knowledge Discovery.** How can different *representations of knowledge* be extracted from the solutions of multi-objective objective optimization problems, while considering diverse multi-objective optimization problems?
+:::
+:::
+
+::: {style="padding-top: 120px"}
+::: {style="position: absolute; "}
+**RQ2**
+:::
+
+::: {style="position:absolute; padding-left: 70px; width: 45%"}
+**Decision Support.** How can different representations of knowledge be processed and presented to the decision maker in an *interactive* manner for better *decision support*?
+:::
+:::
+
+::: {style="padding-top: 120px"}
+::: {style="position: absolute; "}
+**RQ3**
+:::
+
+
+::: {style="position:absolute; padding-left: 70px; "}
+**Knowledge-Driven Optimization.** 
+:::
+
+::: {style="padding-top: 30px"}
+::: {style="position: absolute; padding-left: 70px;"}
+**a**
+:::
+
+::: {style="position:absolute; padding-left: 100px; width: 52%"}
+**Offline KDO.** How can knowledge extracted from completed optimization runs be utilized *offline* in *future optimizations* of similar problem scenarios to focus the search towards preferred solutions?
+:::
+:::
+
+::: {style="padding-top: 110px"}
+::: {style="position: absolute; padding-left: 70px;"}
+**b**
+:::
+
+::: {style="position:absolute; padding-left: 100px; width: 52%"}
+**Online KDO.** How can knowledge extracted during an optimization run be utilized *online* to improve the *convergence behavior* of optimization algorithms?
+:::
+:::
+:::
+:::
+
+::: {.column width="50%"}
+
+![](figures/map.drawio.svg){style="padding-left: 40px; padding-top: 20px;"}
+:::
+:::
+:::
+
+::: {.notes} 
+* RQ1 - finding appropriate and meaningful knowledge representations for MOO
+* RQ2 - use knowledge discovery for decision support, how can it be used in a meaningful way?
+* RQ3a - offline KDO, an important question is also to find appropriate use-cases for Offline KDO
+* RQ3b - online KDO
+:::
+
+## Research Approach
+
+::: {.slidecontent .v-center}
+
+Research Methodology
+
+* Design Science [@hevner2008design]
+  * Designing *artifacts* motivated by *business needs*
+  * Rigorous *testing and development* and a clear *contribution*
+  * *Communicate results* with scientific communities and stakeholders  
+    &nbsp;
+
+  * Produce useful *artifacts*
+:::
+
+::: {.notes}
+Design Science  
+Produce useful artifacts by iteratively developing and testing them  
+And they should have a contribution both to industrial needs and to the literature
+
+Algorithms, frameworks, instantiations, ...
+:::
+
+# Included Papers
+
+## Included Papers
+
+::: {.slidecontent .papers}
+
+:::: {.columns}
+::: {.column width="50%"}
+<!-- Publications with High Relevance -->
+
+(@) **Smedberg, Henrik**, Bandaru, Sunith, Ng, Amos H.C., and Deb, Kalyanmoy (2020). “Trend Mining 2.0: Automating the Discovery of Variable Trends in the Objective Space”. In: *2020 IEEE Congress on Evolutionary Computation (CEC)*, pp. 1–8
+
+
+(@) **Smedberg, Henrik** and Bandaru, Sunith (2020). “Finding Influential Variables in Multi-Objective optimization Problems”. In: *2020 IEEE Symposium Series on Computational Intelligence (SSCI)*, pp. 173–180 
+
+(@) **Smedberg, Henrik** and Bandaru, Sunith (2023). “Interactive Knowledge Discovery and Knowledge Visualization for Decision Support in Multi-Objective Optimization”. In: *European Journal of Operational Research 306.3*, pp. 1311–1329
+
+(@) **Smedberg, Henrik**, Bandaru, Sunith, Riveiro, Maria, and Ng, Amos H.C. (2023). “Mimer: A Web-Based Tool for Knowledge Discovery in Multi-Criteria Decision Support”. Submitted to: *IEEE Computational Intelligence Magazine*
+
+(@) **Smedberg, Henrik**, Barrera-Diaz, Carlos Alberto, Nourmohammadi, Amir, Bandaru, Sunith, and Ng, Amos H. C. (2022). “Knowledge-Driven Multi-Objective Optimization for Reconfigurable Manufacturing Systems”. In: *Mathematical and Computational Applications 27.6*
+
+(@) **Smedberg, Henrik** and Bandaru, Sunith (2022). “A Modular Knowledge-Driven Mutation Operator for Reference-Point Based Evolutionary Algorithms”. In: *2022 IEEE Congress on Evolutionary Computation (CEC)*, pp. 1–8
+
+(@) **Smedberg, Henrik**, Bandaru, Sunith, and Ng, Amos H.C (2023). “Knowledge-Driven Multi-Objective Optimization Using Variable Importance”. *Manuscript ready for submission to international journal*
+:::
+
+::: {.column width="50%"}
+::: {style="font-size: 55%; padding-top: 15%;"}
+|  | RQ1<br><ssmall>Knowledge Discovery</ssmall> | RQ2<br><ssmall>Decision Support</ssmall> | RQ3a<br><ssmall>Offline KDO</ssmall> | RQ3b<br><ssmall>Online KDO</ssmall> |
+| ---       | :---:    | :---:    | :---:    | :---:    |
+| Paper I   | $\times$ |          |          |          |
+| Paper II  | $\times$ |          |          |          |
+| Paper III | $\times$ | $\times$ |          |          |
+| Paper IV  |          | $\times$ |          |          |
+| Paper V   |          | $\times$ | $\times$ |          |
+| Paper VI  |          |          |          | $\times$ |
+| Paper VII |          |          | $\times$ | $\times$ |
+
+: {tbl-colwidths="[20, 25, 22, 22, 22]"}
+:::
+:::
+::::
+:::
+
+::: {.notes} 
+7 main papers to answer the RQs
+:::
+
+## Paper I: *Trend Mining 2.0: Automating the Discovery of Variable Trends in the Objective Space*
+
+::: {.slidecontent}
+
+
+:::: {.columns}
+::: {.column width="50%"}
+* Trend Mining
+  * Find if *variables affect* the *objective space* according to a trend
+  * Monotonic trends
+  * How do different *variables change* along different directions in the *objective space*?
+  <!-- * Relative score between variables & reference vector in the objective space -->
+
+::: {style="height: 2vw;"}
+:::
+
+* Contribution
+  * *RQ1*: Variable trends as knowledge representation
+:::
+
+::: {.column width="50%" style="margin-top: -30px"}
+::: {layout="[[0.5,1,0.1],[1,1],[1,1]]" layout-valign="bottom"}
+
+$\quad$
+
+```{python}
+# type: ignore
+
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import pandas as pd
+from matplotlib import rc
+#rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
+# rc('font',**{'family':'serif','serif':['Times New Roman']})
+mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['ps.fonttype'] = 42
+
+mpl.rcParams['axes.linewidth'] = 0.5
+mpl.rcParams["mathtext.fontset"] = "cm"
+mpl.rcParams.update({'font.size': 10})
+mpl.rcParams["legend.handletextpad"] = 0.0
+rc('legend', fontsize=10)
+
+rc('text', usetex=True)
+
+
+data = [
+	[22.4405, 20.3723, 20.1655, 19.3382, 21.6132, 22.0269, 21.6132, 20.9928, 19.7518, 19.9586],
+	[21.6132, 21.6132, 21.1996, 21.6132, 21.6132, 21.4064, 21.6132, 18.9245, 20.9928, 21.4064],
+	[72.0786, 72.2854, 72.6991, 71.6649, 71.8718, 72.0786, 72.0786, 71.8718, 72.2854, 72.2854],
+	[23.4747, 23.6815, 23.8883, 23.8883, 23.6815, 23.8883, 23.6815, 22.4405, 23.6815, 23.4747],
+	[64.8397, 66.0807, 66.2875, 65.8738, 66.2875, 66.0807, 66.0807, 64.4261, 64.0124, 64.8397]]
+
+def box_plot(data, edge_color):
+    bp = plt.gca().boxplot(data, patch_artist=True, whis=50)
+    
+    for element in ['boxes', 'whiskers', 'fliers', 'means', 'medians', 'caps']:
+        plt.setp(bp[element], color=edge_color, linewidth=0.5)  
+        
+    for patch in bp['boxes']:
+        patch.set(facecolor='white')       
+
+    return bp
+    
+plt.figure(figsize=(5.5/2,2/2))
+
+# fig, ax = plt.subplots()
+bp1 = box_plot(data, 'black')
+
+plt.gca().set_xticklabels(['$x_'+str(i)+'$' for i in range(1,6)])
+
+plt.show()
+```
+
+$\quad$
+
+![](figures/trendmining-space-x3.svg)
+
+![](figures/trendmining-space-x5.svg)
+
+![](figures/trendmining-trend-x3.svg)
+
+![](figures/trendmining-trend-x5.svg)
+
+:::
+:::
+::::
+:::
+
+::: {.notes} 
+1. We develop Trend Mining to find interesting variable trends in the objective space
+1. We try to find if the variables follow a monotonic trend along a reference vector
+1. answer how changing a variable affects the objective space
+1. procdues a score, and direction for each variable
+:::
+
+## Paper II: *Finding Influential Variables in Multi-Objective Optimization Problems*
+::: {.slidecontent}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+* Influence Score
+  * Quantify variables' relations to  
+    *diversity* or *convergence*
+  * InfS-P <small_text>(INFluence Score by *Pareto-front*)</small_text>
+  * InfS-R <small_text>(INFluence Score by *Rank*)<small_text>
+  * Able to find expected groups of variables  
+    in tested problem cases
+
+::: {style="height: 2vw;"}
+:::
+
+* Contribution
+  * *RQ1*: Variable importance as knowledge representation
+
+:::
+::: {.column width="50%" style="text-align: center;"}
+::: {layout="[[1,1],[1,1],[1,1],[1,1]]" layout-valign="bottom" .tight}
+
+::: {.threequarter}
+*InfS-P*
+:::
+
+::: {.threequarter}
+*InfS-R*
+:::
+
+![](figures/infs-dtlz2-3-p.svg)
+
+![](figures/infs-dtlz2-3-r.svg)
+
+![](figures/infs-dtlz2-5-p.svg)
+
+![](figures/infs-dtlz2-5-r.svg)
+
+![](figures/infs-dtlz2-7-p.svg)
+
+![](figures/infs-dtlz2-7-r.svg)
+
+:::
+:::
+::::
+:::
+
+::: {.notes}
+DTLZ problems have a number of **positional** and **directional** variables
+:::
+
+## Paper III: *Interactive knowledge discovery and knowledge visualization for decision support in multi-objective optimization*
+
+::: {.slidecontent}
+<!-- Paper III: *Interactive knowledge discovery and knowledge visualization for decision support in multi-objective optimization* -->
+
+:::: {.columns}
+::: {.column width="50%"}
+* DSS for knowledge discovery
+  * Solution exploration
+  * Preference elicitation
+  * Knowledge discovery
+  * Knowledge visualization
+
+::: {style="height: 1vw;"}
+:::
+
+* Contribution
+  * *RQ1*: Decision rules as knowledge <br>representation
+  * *RQ2*: Framework for interactive knowledge discovery
+
+:::
+
+::: {.column width="50%"}
+* Flexible Pattern Mining (*FPM*)  
+    [@partb]
+  * Finds decision rules in the *decision space*
+  * *Selected* and *Unselected* sets of solutions in the *objective space*  
+    $\;$
+  * Interactive graph-based visualization interface  
+    &nbsp;
+
+::: {layout="[1,1]" layout-valign="center" style="width: 175%; margin-left: -10%;"}
+![](figures\ejor-1.png){style="width: 80%"}
+
+![](figures\ejor-2.png){style="width: 40%; margin-left: -4vw;"}
+:::
+:::
+::::
+:::
+
+::: {.notes}
+1. We present a DSS for knowledge discovery in MOO that enables...
+2. We use FPM to find decision rules, based on selected and unselected sets
+3. Interactive graph-based interface for FPM-rules
+:::
+
+## Paper IV: *Mimer: A Web-Based Tool for Knowledge Discovery in Multi-Criteria Decision Support*
+
+::: {.slidecontent}
+:::: {.columns}
+::: {.column width="40%"}
+* Mimer
+  * Instantiation of DSS in Paper III
+  * Openly available web tool
+  * [https://assar.his.se/mimer/](https://assar.his.se/mimer/html/index.html){target="popup" onclick="window.open('https://assar.his.se/mimer/html/index.html','Mimer','width=1920,height=1080')"}
+
+  * User study
+    * 20 participants
+    * Representative real-world tasks
+    * Positive feedback
+
+::: {style="height: 0.5vw;"}
+:::
+
+* Contribution
+  * *RQ2*: Open DSS platform for interactive knowledge discovery
+:::
+::: {.column width="60%"}
+
+![](figures\mimerresponses.png){style="z-index: -1;"}
+
+:::
+::::
+:::
+
+::: {.notes}
+* DSS - framework for knowledge discovery
+* ...
+* Mimer demo
+* User study... positive feedback that FPM rules and graph-interface is a useful tool
+:::
+
+## Paper V: *Knowledge-Driven Multi-Objective Optimization for Reconfigurable Manufacturing Systems*
+
+::: {.slidecontent}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::: {style="width: 200%;"}
+* Knowledge discovery in industrial application
+    * Reconfigurable manufacturing system
+      * Considered *different scenarios* of same RMS
+      * *Grouped scenarios together* based on operators and proportions  
+      between parts
+      * *Discovered knowledge* among the groups
+      * Used *Mimer* for interactive knowledge discovery  
+
+  * Offline KDO
+    * Applied knowledge in optimization of new scenarios
+    * Obtained better convergence
+
+* Contribution
+  * *RQ2*: Applied Mimer on RMS use-case
+  * *RQ3a*: RMS as appropriate use-cases for offline KDO
+:::
+:::
+::: {.column width="50%" style="padding-top: 3vw;"}
+
+::: {style="font-size: 35%;"}
+| $\begin{gathered} \textbf{Group} \\ \textbf{NO} \;\; \textbf{Proportion} \end{gathered}$ | Rule Interaction | Sig.  | Unsig.  |
+| :------------------: | :--------------------------------------------: | :-------: | :-------: |
+| 7 <span style="opacity:0;">Proppportion</span> | $A_{10} = 2 ∧ B_4 \neq 3 ∧ B_5 = 2 ∧ B_{23} = 1$ | 100%   | 10.13% |
+| 8 <span style="opacity:0;">Proppportion</span> | $A_{17} = 2 ∧ A_{27} \neq 3 ∧ B7 = 1 ∧ B16 = 2$  | 96.43% | 12.89% |
+| 9 <span style="opacity:0;">Proppportion</span> | $A_{28} = 1 ∧ B_7 = 1 ∧ B_8 = 3 ∧ B_9 \neq 1$             | 91.67% | 4.89%  |
+| <span style="opacity:0;">NO</span>$\;\;$ 30%/70%   | $A_{14} = 3 ∧ B_3 = 1 ∧ B_{10} \neq 1 ∧ B_{23} \neq 3$         | 97.06% | 29.23% |
+| <span style="opacity:0;">NO</span>$\;\;$ 70%/30%   | $A_{14} = 2 ∧ A_{17} = 2 ∧ B_4 \neq 3 ∧ B_{11} \neq 2$         | 92.11% | 10.89% |
+
+: {}
+
+:::
+::: {}
+![](figures\offlinekdopaper.png){width="90%" style="z-index: -1; position: relative;"}
+:::
+:::
+::::
+:::
+
+::: {.notes}
+Industrial cases that validate this workflow  
+Different scenarios for an RMS, with different NO and proportions between two parts  
+We used Mimer to find this knowledge about task assignment to workstations
+
+offline KDO  
+we used this knowledge in optimization of new scenarios  
+found better convergence 
+:::
+
+## Paper VI: *A Modular Knowledge-Driven Mutation Operator for Reference-Point Based Evolutionary Algorithms*
+
+::: {.slidecontent}
+
+:::: {.columns}
+::: {.column width="50%"}
+* Online KDO
+  * Modular *knowledge-driven* mutation operator
+  * Sample an empirical distribution model from FPM rules  
+  * Preference-based MOEAs
+  * R-metric [@li2017r]
+  * EH-metric [@ehmetric]
+  * Better convergence in the majority of cases
+
+::: {style="width: 2vw;"}
+:::
+
+* Contribution
+  * *RQ3b*: FPM rules for online KDO
+:::
+::: {.column width="50%"}
+
+![](figures\kdoflow.drawio.svg){style="width: 60%; margin-left: 2vw;"}
+
+
+![](figures\onlinekdopaper.png){style="width: 80%; margin-top: -1vw"}
+
+:::
+::::
+:::
+
+::: {.notes}
+Online KDO approach following **this** general online KDO MOEA flow  
+In this paper we sample an empirical distribution model from FPM rules as new mutation operator  
+For preference-based MOEAs using a reference point
+
+We call it *modular* since it can be implemented for any preference-based moea   
+We compared 3 different ones and found better convergence rates
+:::
+
+## Paper VII: *Knowledge-Driven Multi-Objective Optimization Using Variable Importance*
+
+::: {.slidecontent}
+:::: {.columns}
+:::{.column width="50%"}
+
+::: {style="width: 200%;"}
+* Variable importance for *Offline* and *Online KDO*
+  * Variable importance (*InfS-R*)
+  * Discovered either *offline* or *online*
+  * Apply *stricter* convergence for  
+  *convergence-related* variables
+  * Improvement in terms of HV and  
+    convergence rate (AUC)
+:::
+
+::: {style="height: 1vw;"}
+:::
+
+* Contribution
+  * *RQ3a & RQ3b*: Variable importance for offline and online KDO 
+:::
+::: {.column width="50%" style="padding-top: 80px;"}
+
+![](figures\infskdopaper.png)
+
+:::
+::::
+:::
+
+::: {.notes}
+This paper looks at the same approach for both offline and online KDO  
+We use variable importance (infs-r) to find convergence-related variables 
+And try to converge those variables more  
+in benchmark problems we can see and improvement (lower is better in the figure)
+
+Offline KDO is the best, online KDO is the second best
+:::
+
+# Conclusions
+
+## Conclusions
+
+::: {.slidecontent}
+:::: {.columns}
+::: {.column width="50%"}
+
+* Motivation
+  * *Knowledge discovery* can benefit optimization and decision making
+
+* Aim
+  * Develop methods for meaningful *knowledge discovery* MOO
+  * Appropriate for decision support and KDO
+  * *Simple* and easy to understand knowledge 
+
+:::
+::: {.column width="50%" style="font-size: 85%;" .fragment .fade-in}
+* *Knowledge discovery* (RQ1)
+  * Appropriate knowledge representations?
+    * Trend mining (*Paper I*)
+    * Influence score (*Paper II*)
+    * Graph-based visualization of FPM-rules (*Paper III*)
+
+* *Interactive Decision Support* (RQ2)
+  * How to apply knowledge for decision support?
+    * Interactive knowledge discovery (*Paper III*)
+    * Mimer (*Paper IV*)
+    * RMS use-case (*Paper V*)
+
+* *KDO* (RQ3)
+  * *Offline KDO* (RQ3a)
+    * RMS use-case (*Paper V*)
+    * Variable importance (*Paper VII*)
+
+  * *Online KDO* (RQ3b)
+    * Rule-driven mutation (*Paper VI*)
+    * Variable importance (*Paper VII*)
+
+:::
+::::
+:::
+
+
+## Future Research Directions
+
+::: {.slidecontent .v-center}
+:::: {.columns}
+
+:::: {style="height: 2vw;"}
+:::
+
+::: {.column width="50%"}
+* RQs
+  * Design science to develop artifacts
+  * Posed as open questions, can be approached in many ways 
+  * Future research can consider same RQs  
+:::
+::: {.column width="50%"}
+* Mimer
+  * Add more knowledge discovery methods
+  * Add more visualization methods
+  * Add compatability with existing optimization engines
+:::
+::::
+
+::: {style="height: 50px"}
+:::
+
+:::: {.columns}
+::: {.column width="50%"}
+* Knowledge discovery
+  * More knowledge representations
+  * Design knowledge base for different knowledge representations
+:::
+::: {.column width="50%"}
+* KDO
+  * Algorithms centered around knowledge
+  * Knowledge-based metaphors to drive the search
+:::
+::::
+:::
+
+::: {.notes}
+RQ: Used DS to develop artifacts to investigate the RQs  
+Posed as open questions, future research can investigate the same RQs
+
+For example, we can find more novel knowledge representations  
+And something I didn't investigate in my thesis is how we can store and retrieve knowledge efficiently 
+
+We got a lot of good feedback from the Mimer user study  
+And we can add more functionality and plots, and good ideas for the user interface
+
+For online KDO, we applied knowledge discovery as an extra step of the algorithm  
+It would be interesting to investigate algorithms centered around knowledge to drive the search  
+Instead of a metaphor like *survival of the fittest* (NSGA-II), something like *learning from your mistakes*
+:::
+
+## References
+
+<script>
+function myFunction() {
+  var element = document.getElementById("references");
+  element.classList.remove("scrollable");
+} 
+myFunction();
+</script>
+
+::: {#refs style="font-size: 55%;"}
+:::
+
+# Thank you
+
+Please attend the final defense  
+*September 27*, 13.00--16.00
+
+
+
