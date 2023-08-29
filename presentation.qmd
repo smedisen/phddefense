@@ -1554,27 +1554,54 @@ Algorithms, frameworks, instantiations, ...
 7 main papers to answer the RQs
 :::
 
-## Paper I: *Trend Mining 2.0: Automating the Discovery of Variable Trends in the Objective Space*
+## RQ1: *Knowledge Discovery*
+
+::: {.slidecontent}
+
+::: {style="padding-left: 100px; width: 100%; scale: 75%; padding-top: 20px; padding-bottom: 20px;"}
+<italic>How can different *representations of knowledge* be extracted from the solutions of multi-objective objective optimization problems, while considering diverse multi-objective optimization problems?</italic>
+:::
+
+::: {style=""}
+* Variable trends 
+    * Finding interesting trends for variables in the objective space
+    * *Trend Mining 2.0* <psmall>(Paper I)</psmall>
+
+* Variable importance
+    * Finding important variables for convergence and diversity
+    * *InfS-P* <psmall>(Paper II)</psmall>
+    * *InfS-R* <psmall>(Paper II)</psmall>
+:::
+:::
+
+## Variable Trends
 
 ::: {.slidecontent}
 
 
 :::: {.columns}
-::: {.column width="50%"}
+::: {.column}
+::: {.v-center style="width: 50%"}
 * Trend Mining
   * Find if *variables affect* the *objective space* according to a trend
   * Monotonic trends
-  * How do different *variables change* along different directions in the *objective space*?
-  <!-- * Relative score between variables & reference vector in the objective space -->
+  * How do different *variables change* along different directions in the *objective space*?  
+    &nbsp;
+  1. <lsmall>Finding an optimized reference direction</lsmall>
+  2. <lsmall>Projection of solutions on to the reference direction</lsmall>
+  3. <lsmall>Calculation of interestingness scores</lsmall>
+  4. <lsmall>Boxplot visualization of interestingness scores</lsmall>
 
 ::: {style="height: 2vw;"}
 :::
 
-* Contribution
-  * *RQ1*: Variable trends as knowledge representation
+<!-- * Contribution -->
+<!--   * *RQ1*: Variable trends as knowledge representation -->
+
+:::
 :::
 
-::: {.column width="50%" style="margin-top: -30px"}
+::: {.column style="margin-top: -30px"}
 ::: {layout="[[0.5,1,0.1],[1,1],[1,1]]" layout-valign="bottom"}
 
 $\quad$
@@ -1641,6 +1668,10 @@ $\quad$
 :::
 :::
 ::::
+
+::: {style="font-size: 50%;"}
+***Paper I***: Smedberg, Henrik, Bandaru, Sunith, Ng, Amos H.C., and Deb, Kalyanmoy (2020). “Trend Mining 2.0: Automating the Discovery of Variable Trends in the Objective Space”. In: *2020 IEEE Congress on Evolutionary Computation (CEC)*, pp. 1–8
+:::
 :::
 
 ::: {.notes} 
