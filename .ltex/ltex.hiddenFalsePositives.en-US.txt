@@ -31,3 +31,5 @@
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q:::: {.columns .fragment .fade-in} ::: {.column width=\"50%\"}\\E$"}
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q::: ::: {.column width=\"50%\" style=\"font-size: 85%;\" .fragment .fade-in}\nKnowledge discovery (RQ1)\nAppropriate knowledge representations?\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QHow to visualize knowledge?\\E$"}
+{"rule":"WHITESPACE_RULE","sentence":"^\\Q|  | RQ1Knowledge Discovery | RQ2Decision Support | RQ3aOffline KDO | RQ3bOnline KDO |.\\E$"}
+{"rule":"EN_UNPAIRED_BRACKETS","sentence":"^\\Q::: {.slidecontent} :::: {.columns} ::: {.column width=\"40%\"}\nMimer\nInstantiation of DSS in Paper III\nOpenly available web tool\nhttps://assar.his.se/mimer/{target=\"popup\" onclick=\"window.open('https://assar.his.se/mimer/html/index.html','Mimer','width=1920,height=1080')\"}\\E$"}

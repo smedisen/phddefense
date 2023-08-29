@@ -8,7 +8,7 @@
 <link href="presentation_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="presentation_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.290">
+  <meta name="generator" content="quarto-1.4.330">
 
   <meta name="author" content="Henrik Smedberg">
   <title>Knowledge Discovery for  Interactive Decision Support and  Knowledge-Driven Optimization</title>
@@ -49,7 +49,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="style.css">
   <link href="presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -178,7 +178,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -365,7 +366,6 @@ Henrik Smedberg
 <h1>Introduction</h1>
 <div class="ignore" style="display: none">
 <p><span class="citation" data-cites="trendmining2">Smedberg et al. (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span> <span class="citation" data-cites="infspaper">Smedberg and Bandaru (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span> <span class="citation" data-cites="ejorpaper">Smedberg and Bandaru (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> <span class="citation" data-cites="mimerpaper">Smedberg et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> <span class="citation" data-cites="offlinekdo">Smedberg et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span> <span class="citation" data-cites="fpmoperator">Smedberg and Bandaru (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span> <span class="citation" data-cites="infskdo">Smedberg, Bandaru, and Ng (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></p>
-
 <style>
 .reveal .footer {
   height: 5%;
@@ -405,7 +405,7 @@ Henrik Smedberg
 }
 
 .reveal .header {
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid black;
 }
 
 .reveal table td {
@@ -438,9 +438,9 @@ Henrik Smedberg
 </ul></li>
 </ul>
 </div><div class="column" style="width:40%;">
-<div class="cell" data-execution_count="1">
+<div id="85187175" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
-<p><img data-src="presentation_files/figure-revealjs/cell-2-output-1.svg" class="quarto-discovered-preview-image"></p>
+<p><img data-src="presentation_files/figure-revealjs/cell-2-output-1.svg"></p>
 </div>
 </div>
 </div>
@@ -492,7 +492,7 @@ Henrik Smedberg
 </ul>
 </div>
 </div><div class="column" style="width:40%;">
-<div class="cell" data-execution_count="2">
+<div id="7bc9b2c7" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-3-output-1.svg"></p>
 </div>
@@ -527,6 +527,11 @@ Henrik Smedberg
 <ul>
 <li>Find <em>optimal</em> solutions</li>
 </ul></li>
+</ul>
+<div>
+
+</div>
+<ul>
 <li>Decision Making
 <ul>
 <li><em>Analysis</em> to find <em>preferred solutions</em></li>
@@ -600,16 +605,16 @@ Update <em>problem formulation</em>
 </section>
 <section id="introduction-5" class="slide level2">
 <h2>Introduction</h2>
-<div class="slidecontent">
+<div class="slidecontent v-center">
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell" data-execution_count="3">
+<div id="61aa5f15" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-4-output-1.svg"></p>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="cell" data-execution_count="4">
+<div id="e9875833" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-5-output-1.svg"></p>
 </div>
@@ -617,6 +622,94 @@ Update <em>problem formulation</em>
 </div>
 </div>
 </div>
+<!-- lTex: enabled=false -->
+<canvas id="canvas" style="width: 1000px; height: 500px; position: absolute;" class="fragment fade-in visible current-fragment" data-fragment-index="0">
+</canvas>
+<script>
+function getBezierXY(t, sx, sy, cp1x, cp1y, cp2x, cp2y, ex, ey) {
+  return {
+    x: Math.pow(1-t,3) * sx + 3 * t * Math.pow(1 - t, 2) * cp1x + 3 * t * t * (1 - t) * cp2x + t * t * t * ex,
+    y: Math.pow(1-t,3) * sy + 3 * t * Math.pow(1 - t, 2) * cp1y + 3 * t * t * (1 - t) * cp2y + t * t * t * ey
+  };
+}
+
+function getBezierAngle(t, sx, sy, cp1x, cp1y, cp2x, cp2y, ex, ey) {
+  var dx = Math.pow(1-t, 2)*(cp1x-sx) + 2*t*(1-t)*(cp2x-cp1x) + t * t * (ex - cp2x);
+  var dy = Math.pow(1-t, 2)*(cp1y-sy) + 2*t*(1-t)*(cp2y-cp1y) + t * t * (ey - cp2y);
+  return -Math.atan2(dx, dy) + 0.5*Math.PI;
+}
+
+function drawLine(start_point, end_point, ctrl_point1, ctrl_point2, draw_dots = false, draw_arrow = true) {
+    line_color = "#c0348b";
+
+    ctx.beginPath();
+    ctx.moveTo(start_point[0], start_point[1]);
+    ctx.bezierCurveTo(ctrl_point1[0], ctrl_point1[1], ctrl_point2[0], ctrl_point2[1], end_point[0], end_point[1]);
+    ctx.strokeStyle = line_color;
+    ctx.lineWidth = 5;
+    ctx.stroke();
+    
+    if (draw_dots) {
+        ctx.beginPath();
+        ctx.fillStyle = '#88f';
+        // start point
+        ctx.arc(start_point[0], start_point[1], 5, 0, Math.PI * 2);
+        // end point
+        ctx.arc(end_point[0], end_point[1], 5, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = '#f88';
+        // control point one
+        ctx.arc(ctrl_point1[0], ctrl_point1[1], 5, 0, Math.PI * 2);
+        // control point two
+        ctx.arc(ctrl_point2[0], ctrl_point2[1], 5, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    if (draw_arrow) {
+        var coord = getBezierXY(0.995, start_point[0], start_point[1], ctrl_point1[0], ctrl_point1[1], ctrl_point2[0], ctrl_point2[1], end_point[0], end_point[1]);
+        var angle = getBezierAngle(0.995, start_point[0], start_point[1], ctrl_point1[0], ctrl_point1[1], ctrl_point2[0], ctrl_point2[1], end_point[0], end_point[1]);
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.translate(coord.x, coord.y);
+        ctx.rotate(angle);
+        ctx.moveTo(-10, -10);
+        ctx.lineTo(10, 0);
+        ctx.lineTo(-10, 10);
+        ctx.lineTo(-10, -10);
+        ctx.fillStyle = line_color;
+        ctx.fill();
+        ctx.restore();
+    }
+}
+
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+
+var displayWidth = 1000;
+var displayHeight = 500;
+var scale = 2;
+canvas.style.width = displayWidth + 'px';
+canvas.style.height = displayHeight + 'px';
+canvas.width = displayWidth * scale;
+canvas.height = displayHeight * scale;
+
+
+start_point = [438, 502];
+end_point = [1638, 500];
+ctrl_point1 = [800, 60];
+ctrl_point2 = [1000, 120];
+drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
+
+start_point = [375, 795];
+end_point = [1688, 689];
+ctrl_point1 = [800, 1100];
+ctrl_point2 = [1500, 920];
+drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
+</script>
+<!-- lTex: enabled=true -->
 <aside class="notes">
 <ul>
 <li>draw arrows (press ‘c’)</li>
@@ -653,13 +746,13 @@ Update <em>problem formulation</em>
 </div><div class="column" style="width:50%;">
 <div class="columns">
 <div class="column threequarter" style="position: absolute; left: 400px; ">
-<div class="cell" data-execution_count="5">
+<div id="5ebf67d8" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-6-output-1.svg"></p>
 </div>
 </div>
 </div><div class="column threequarter" style="position: absolute; left: 800px">
-<div class="cell" data-execution_count="6">
+<div id="930fde52" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-7-output-1.svg"></p>
 </div>
@@ -669,6 +762,60 @@ Update <em>problem formulation</em>
 </div>
 </div>
 </div>
+<canvas id="canvas2" width="650" height="347" style="top: 200px; left: 544px; position: absolute" class="fragment fade-in visible current-fragment" data-fragment-index="0">
+</canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById('canvas2');
+    var ctx = canvas.getContext('2d');
+
+    var displayWidth = 650;
+    var displayHeight = 347;
+    var scale = 2;
+    canvas.style.width = displayWidth + 'px';
+    canvas.style.height = displayHeight + 'px';
+    canvas.width = displayWidth * scale;
+    canvas.height = displayHeight * scale;
+
+    ctx.beginPath();
+    ctx.moveTo(0, 180*2 +160);
+    ctx.lineTo(90*2, 180*2 + 160);
+    ctx.lineTo(90*2, 270*2 + 160);
+    ctx.strokeStyle = '#c0348b';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    ctx.drawImage(canvas, 0, 0);
+
+    start_point = [850, 490+160];
+    end_point = [1193, 5+160];
+    ctrl_point1 = [(start_point[0]+end_point[0])/2, start_point[1]];
+    ctrl_point2 = [end_point[0], (start_point[1]+end_point[1])/2];
+    drawLine(start_point, end_point, ctrl_point1, ctrl_point2, false, false);
+
+    sp1 = start_point;
+    ep1 = end_point;
+
+    start_point = [850, 490-60 + 160];
+    end_point = [1193-50, 5+160];
+    ctrl_point1 = [(start_point[0]+end_point[0])/2, start_point[1]];
+    ctrl_point2 = [end_point[0], (start_point[1]+end_point[1])/2];
+    drawLine(start_point, end_point, ctrl_point1, ctrl_point2, false, false);
+
+    sp2 = start_point;
+    ep2 = end_point;
+
+    start_point = sp1;
+    end_point = sp2;
+    ctrl_point1 = [(start_point[0]+end_point[0])/2-50, start_point[1]];
+    ctrl_point2 = [(start_point[0]+end_point[0])/2-50, end_point[1]];
+    drawLine(start_point, end_point, ctrl_point1, ctrl_point2, false, false);
+
+    start_point = ep1;
+    end_point = ep2;
+    ctrl_point1 = [start_point[0], (start_point[1]+end_point[1])/2-50];
+    ctrl_point2 = [end_point[0], (start_point[1]+end_point[1])/2-50];
+    drawLine(start_point, end_point, ctrl_point1, ctrl_point2, false, false);
+</script>
 <aside class="notes">
 <ol type="1">
 <li>Optimal solutions can be described with…</li>
@@ -763,6 +910,8 @@ Can be realized in two ways…</p>
 <section id="background-1" class="slide level2">
 <h2>Background</h2>
 <div class="slidecontent">
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
 <li>Multi-Objective Evolutionary Algorithms (<em>MOEAs</em>)
 <ul>
@@ -773,6 +922,21 @@ Can be realized in two ways…</p>
 <li>Generate many sub-optimal solutions</li>
 </ul></li>
 </ul>
+</div><div class="column" style="width:40%;">
+<div style="font-size: 50%; padding-top: 50px;">
+<div style="padding-left: 100px;">
+<p>MOOP formulation:</p>
+</div>
+<!-- lTex: enabled=false -->
+<p><span class="math display">\[\begin{align*}
+\text{Minimize} &amp;\qquad \textbf{F}(\textbf{x}) = [f_1(\textbf{x}), f_2(\textbf{x}), \dots, f_M(\textbf{x})]^T \\
+\text{Subject to} &amp;\qquad g_j(\textbf{x}) \geq 0 \ \forall j = 1, 2, \dots, J \\
+&amp;\qquad h_k(\textbf{x}) = 0 \ \forall k = 1, 2, \dots, K \\
+&amp;\qquad \textbf{x}^{(L)} \leq \textbf{x} \leq \textbf{x}^{(U)}
+\end{align*}\]</span> <!-- lTex: enabled=true --></p>
+</div>
+</div>
+</div>
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
@@ -785,17 +949,17 @@ Can be realized in two ways…</p>
 </div><div class="column" style="width:60%;">
 <div class="quarto-layout-panel" style="padding-left:60px;">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-execution_count="7" style="flex-basis: 33.3%;justify-content: center;">
+<div id="bee04532" class="cell quarto-layout-cell" data-execution_count="7" style="flex-basis: 33.3%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-8-output-1.svg"></p>
 </div>
 </div>
-<div class="cell quarto-layout-cell" data-execution_count="8" style="flex-basis: 33.3%;justify-content: center;">
+<div id="38fe1556" class="cell quarto-layout-cell" data-execution_count="8" style="flex-basis: 33.3%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-9-output-1.svg"></p>
 </div>
 </div>
-<div class="cell quarto-layout-cell" data-execution_count="9" style="flex-basis: 33.3%;justify-content: center;">
+<div id="22cd2110" class="cell quarto-layout-cell" data-execution_count="9" style="flex-basis: 33.3%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-10-output-1.svg"></p>
 </div>
@@ -804,7 +968,7 @@ Can be realized in two ways…</p>
 </div>
 </div>
 </div>
-<div style="position: absolute; right: 250px; top: 380px; font-size: 50%;">
+<div style="position: relative; right: -800px; top: -320px; font-size: 50%;">
 <p>Minimize <span class="math inline">\(f_1(\bf x)\)</span> and <span class="math inline">\(f_2(\bf x)\)</span></p>
 </div>
 </div>
@@ -830,13 +994,39 @@ we can use knowledge to reduce number of solutions needed to converge</p>
 <p>Multi-Criteria Decision Making</p>
 <ul>
 <li>How to involve the DM? <span class="citation" data-cites="miettinen1999nonlinear">(<a href="#/references" role="doc-biblioref" onclick="">Miettinen 1999</a>)</span>
-<ul>
+<ol type="1">
 <li><em>no preference</em> — No preferences are available or used</li>
 <li><em>a priori</em> — Express preferences before the optimization</li>
 <li><em>a posteriori</em> — Express preferences after optimization</li>
 <li><em>interactive</em> — Update preferences during optimization</li>
-</ul></li>
+</ol></li>
 </ul>
+<div class="quarto-layout-panel" style="scale: 100%; position: absolute; top: -100px; right: 0px;">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="b184297f" class="cell quarto-layout-cell" data-execution_count="10" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/cell-11-output-1.svg"></p>
+</div>
+</div>
+<div id="291ab976" class="cell quarto-layout-cell" data-execution_count="11" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/cell-12-output-1.svg"></p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="46ff7d4d" class="cell quarto-layout-cell" data-execution_count="12" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/cell-13-output-1.svg"></p>
+</div>
+</div>
+<div id="e683d4da" class="cell quarto-layout-cell" data-execution_count="13" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/cell-14-output-1.svg"></p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <aside class="notes">
 <ol type="1">
@@ -874,26 +1064,50 @@ we can use knowledge to reduce number of solutions needed to converge</p>
 </ul></li>
 </ul>
 </div><div class="column" style="width:65%;">
-<div class="cell quarto-layout-panel" data-execution_count="10">
+<div id="b03624a9" class="cell quarto-layout-panel" data-execution_count="14">
 <div class="quarto-layout-row quarto-layout-valign-bottom">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="presentation_files/figure-revealjs/cell-11-output-1.svg"></p>
+<p><img data-src="presentation_files/figure-revealjs/cell-15-output-1.svg"></p>
 </div>
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="presentation_files/figure-revealjs/cell-11-output-2.svg"></p>
+<p><img data-src="presentation_files/figure-revealjs/cell-15-output-2.svg"></p>
 </div>
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="presentation_files/figure-revealjs/cell-11-output-3.svg"></p>
+<p><img data-src="presentation_files/figure-revealjs/cell-15-output-3.svg"></p>
 </div>
 </div>
 </div>
 </div>
 </div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Challenges
 <ul>
 <li>How to visualize <em>many</em> objectives?</li>
+<li>How to visualize <em>many</em> solutions?</li>
 <li>How to visualize the <em>decision space</em>?</li>
-<li>How to visualize <em>knowledge</em>?</li>
+</ul></li>
 </ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li style="list-style-type: none">
+<hidden>test</hidden>
+<ul>
+<li>
+How to visualize <em>preferences</em>?
+</li>
+<li>
+How to visualize <em>constraints</em>?
+</li>
+<li>
+How to visualize <em>knowledge</em>?
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <aside class="notes">
 <p>Many ways to visualize the same solutions<br>
@@ -942,7 +1156,13 @@ No method is better or worse for all solution sets</p>
 <li style="list-style-type: none">
 <ul>
 <li>
-Require interpretation
+Does <em>not</em> have a clear, formal notation
+</li>
+<li>
+Can <em>not</em> easily be transferred
+</li>
+<li>
+Requires interpretation
 </li>
 <li>
 Does <em>not</em> answer <strong><em>what?</em></strong>
@@ -961,7 +1181,10 @@ Has a clear, formal notation
 Can be transferred
 </li>
 <li>
-Used both for <em>decision support</em> and <em>algorithmically</em>
+Does <em>not</em> require interpretation
+</li>
+<li>
+Used both <em>algorithmically</em> and for <br><em>decision support</em>
 </li>
 </ul>
 </li>
@@ -1125,6 +1348,7 @@ And they should have a contribution both to industrial needs and to the literatu
 <div class="slidecontent papers">
 <div class="columns">
 <div class="column" style="width:50%;">
+<div style="width: 95%">
 <!-- Publications with High Relevance -->
 <ol class="example" type="1">
 <li><p><strong>Smedberg, Henrik</strong>, Bandaru, Sunith, Ng, Amos H.C., and Deb, Kalyanmoy (2020). “Trend Mining 2.0: Automating the Discovery of Variable Trends in the Objective Space”. In: <em>2020 IEEE Congress on Evolutionary Computation (CEC)</em>, pp.&nbsp;1–8</p></li>
@@ -1133,10 +1357,11 @@ And they should have a contribution both to industrial needs and to the literatu
 <li><p><strong>Smedberg, Henrik</strong>, Bandaru, Sunith, Riveiro, Maria, and Ng, Amos H.C. (2023). “Mimer: A Web-Based Tool for Knowledge Discovery in Multi-Criteria Decision Support”. Submitted to: <em>IEEE Computational Intelligence Magazine</em></p></li>
 <li><p><strong>Smedberg, Henrik</strong>, Barrera-Diaz, Carlos Alberto, Nourmohammadi, Amir, Bandaru, Sunith, and Ng, Amos H. C. (2022). “Knowledge-Driven Multi-Objective Optimization for Reconfigurable Manufacturing Systems”. In: <em>Mathematical and Computational Applications 27.6</em></p></li>
 <li><p><strong>Smedberg, Henrik</strong> and Bandaru, Sunith (2022). “A Modular Knowledge-Driven Mutation Operator for Reference-Point Based Evolutionary Algorithms”. In: <em>2022 IEEE Congress on Evolutionary Computation (CEC)</em>, pp.&nbsp;1–8</p></li>
-<li><p><strong>Smedberg, Henrik</strong>, Bandaru, Sunith, and Ng, Amos H.C (2023). “Knowledge-Driven Multi-Objective Optimization Using Variable Importance”. <em>Manuscript ready for submission to international journal</em></p></li>
+<li><p><strong>Smedberg, Henrik</strong>, Bandaru, Sunith, and Ng, Amos H.C (2023). “Knowledge-Driven Multi-Objective Optimization Using Variable Importance”. <em>Completed Manuscript</em></p></li>
 </ol>
+</div>
 </div><div class="column" style="width:50%;">
-<div style="font-size: 55%; padding-top: 15%;">
+<div class="v-center" style="font-size: 55%;">
 <table>
 <colgroup>
 <col style="width: 18%">
@@ -1252,9 +1477,9 @@ And they should have a contribution both to industrial needs and to the literatu
 <div class="quarto-layout-cell" style="flex-basis: 31.3%;justify-content: center;">
 <p><span class="math inline">\(\quad\)</span></p>
 </div>
-<div class="cell quarto-layout-cell" data-execution_count="11" style="flex-basis: 62.5%;justify-content: center;">
+<div id="0ad69091" class="cell quarto-layout-cell" data-execution_count="15" style="flex-basis: 62.5%;justify-content: center;">
 <div class="cell-output cell-output-display">
-<p><img data-src="presentation_files/figure-revealjs/cell-12-output-1.svg"></p>
+<p><img data-src="presentation_files/figure-revealjs/cell-16-output-1.svg"></p>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 6.3%;justify-content: center;">
@@ -1286,7 +1511,7 @@ And they should have a contribution both to industrial needs and to the literatu
 <li>We develop Trend Mining to find interesting variable trends in the objective space</li>
 <li>We try to find if the variables follow a monotonic trend along a reference vector</li>
 <li>answer how changing a variable affects the objective space</li>
-<li>procdues a score, and direction for each variable</li>
+<li>produces a score, and direction for each variable</li>
 </ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1529,6 +1754,7 @@ between parts</li>
 </div>
 </div><div class="column" style="padding-top: 3vw;">
 <div style="font-size: 35%;">
+<!-- LTeX: enabled=false -->
 <table>
 <caption></caption>
 <colgroup>
@@ -1578,6 +1804,7 @@ between parts</li>
 </tr>
 </tbody>
 </table>
+<!-- LTeX: enabled=true -->
 </div>
 <div>
 <p><img data-src="figures\offlinekdopaper.png" style="z-index: -1; position: relative;;width:90.0%"></p>
@@ -1640,7 +1867,7 @@ found better convergence</p>
 <p>Online KDO approach following <strong>this</strong> general online KDO MOEA flow<br>
 In this paper we sample an empirical distribution model from FPM rules as new mutation operator<br>
 For preference-based MOEAs using a reference point</p>
-<p>We call it <em>modular</em> since it can be implemented for any preference-based moea<br>
+<p>We call it <em>modular</em> since it can be implemented for any preference-based MOEA<br>
 We compared 3 different ones and found better convergence rates</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1785,7 +2012,7 @@ in benchmark problems we can see and improvement (lower is better in the figure)
 <ul>
 <li>Add more knowledge discovery methods</li>
 <li>Add more visualization methods</li>
-<li>Add compatability with existing optimization engines</li>
+<li>Add compatibility with existing optimization engines</li>
 </ul></li>
 </ul>
 </div>
@@ -1844,7 +2071,7 @@ function myFunction() {
 } 
 myFunction();
 </script>
-<div id="refs" class="references csl-bib-body hanging-indent" style="font-size: 55%;" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" style="font-size: 55%; padding-top: 50px;" role="list">
 <div id="ref-parta" class="csl-entry" role="listitem">
 Bandaru, Sunith, Amos HC Ng, and Kalyanmoy Deb. 2017a. <span>“Data Mining Methods for Knowledge Discovery in Multi-Objective Optimization: Part a-Survey.”</span> <em>Expert Systems with Applications</em> 70: 139–59.
 </div>
@@ -1894,10 +2121,8 @@ Smedberg, Henrik, Carlos Alberto Barrera-Diaz, Amir Nourmohammadi, Sunith Bandar
 </section></section>
 <section id="thank-you" class="title-slide slide level1 center">
 <h1>Thank you</h1>
-<p>Please attend the final defense<br>
-<em>September 27</em>, 13.00–16.00</p>
 <div class="footer footer-default">
-<p>his.se/smeh &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Final Seminar Presentation</p>
+<p>his.se/smeh &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PhD Defense Presentation</p>
 </div>
 </section>
     </div>
@@ -1927,7 +2152,6 @@ Smedberg, Henrik, Carlos Alberto Barrera-Diaz, Amir Nourmohammadi, Sunith Bandar
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -2189,10 +2413,9 @@ Smedberg, Henrik, Carlos Alberto Barrera-Diaz, Amir Nourmohammadi, Sunith Bandar
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -2202,8 +2425,17 @@ Smedberg, Henrik, Carlos Alberto Barrera-Diaz, Amir Nourmohammadi, Sunith Bandar
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 

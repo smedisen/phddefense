@@ -24,3 +24,13 @@ Aslam
 Tehseen
 InfS-P
 InfS-R
+rqs
+tbl-colwidths
+layout-valign
+INFluence
+onclick
+MOEA
+infs-r
+HV
+threequarter
+MOOP

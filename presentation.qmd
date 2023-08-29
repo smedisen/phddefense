@@ -2,7 +2,7 @@
 title: "Knowledge Discovery for<br> Interactive Decision Support and<br> Knowledge-Driven Optimization"
 author: "Henrik Smedberg"
 subtitle: "<strong>Main Supervisor:</strong><br>Sunith Bandaru<br><br><strong>Co-supervisors:</strong><br>Amos Ng<br>Maria Riveiro"
-footer: "his.se/smeh &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Final Seminar Presentation"
+footer: "his.se/smeh &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PhD Defense Presentation"
 bibliography: references.bib
 # title-slide-attributes:
 #     data-background-image: title-background.png
@@ -72,7 +72,7 @@ format:
 }
 
 .reveal .header {
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid black;
 }
 
 .reveal table td {
@@ -292,6 +292,10 @@ plt.show()
 * Multi-Objective Optimization
   * Find *optimal* solutions
 
+::: {}
+
+:::
+
 * Decision Making
   * *Analysis* to find *preferred solutions*
   * Determine *final solution* to implement in practice
@@ -337,7 +341,7 @@ A more informed DM is able to make more informed, *better*, decisions
 
 ## Introduction
 
-::: {.slidecontent}
+::: {.slidecontent .v-center}
 :::: {.columns}
 
 ::: {.column width="50%"}
@@ -456,6 +460,97 @@ plt.show()
 :::
 ::::
 :::
+
+<!-- lTex: enabled=false -->
+
+<canvas id="canvas" style="width: 1000px; height: 500px; position: absolute;" class="fragment fade-in visible current-fragment" data-fragment-index="0">
+</canvas>
+<script>
+function getBezierXY(t, sx, sy, cp1x, cp1y, cp2x, cp2y, ex, ey) {
+  return {
+    x: Math.pow(1-t,3) * sx + 3 * t * Math.pow(1 - t, 2) * cp1x + 3 * t * t * (1 - t) * cp2x + t * t * t * ex,
+    y: Math.pow(1-t,3) * sy + 3 * t * Math.pow(1 - t, 2) * cp1y + 3 * t * t * (1 - t) * cp2y + t * t * t * ey
+  };
+}
+
+function getBezierAngle(t, sx, sy, cp1x, cp1y, cp2x, cp2y, ex, ey) {
+  var dx = Math.pow(1-t, 2)*(cp1x-sx) + 2*t*(1-t)*(cp2x-cp1x) + t * t * (ex - cp2x);
+  var dy = Math.pow(1-t, 2)*(cp1y-sy) + 2*t*(1-t)*(cp2y-cp1y) + t * t * (ey - cp2y);
+  return -Math.atan2(dx, dy) + 0.5*Math.PI;
+}
+
+function drawLine(start_point, end_point, ctrl_point1, ctrl_point2, draw_dots = false, draw_arrow = true) {
+    line_color = "#c0348b";
+
+    ctx.beginPath();
+    ctx.moveTo(start_point[0], start_point[1]);
+    ctx.bezierCurveTo(ctrl_point1[0], ctrl_point1[1], ctrl_point2[0], ctrl_point2[1], end_point[0], end_point[1]);
+    ctx.strokeStyle = line_color;
+    ctx.lineWidth = 5;
+    ctx.stroke();
+    
+    if (draw_dots) {
+        ctx.beginPath();
+        ctx.fillStyle = '#88f';
+        // start point
+        ctx.arc(start_point[0], start_point[1], 5, 0, Math.PI * 2);
+        // end point
+        ctx.arc(end_point[0], end_point[1], 5, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = '#f88';
+        // control point one
+        ctx.arc(ctrl_point1[0], ctrl_point1[1], 5, 0, Math.PI * 2);
+        // control point two
+        ctx.arc(ctrl_point2[0], ctrl_point2[1], 5, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    if (draw_arrow) {
+        var coord = getBezierXY(0.995, start_point[0], start_point[1], ctrl_point1[0], ctrl_point1[1], ctrl_point2[0], ctrl_point2[1], end_point[0], end_point[1]);
+        var angle = getBezierAngle(0.995, start_point[0], start_point[1], ctrl_point1[0], ctrl_point1[1], ctrl_point2[0], ctrl_point2[1], end_point[0], end_point[1]);
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.translate(coord.x, coord.y);
+        ctx.rotate(angle);
+        ctx.moveTo(-10, -10);
+        ctx.lineTo(10, 0);
+        ctx.lineTo(-10, 10);
+        ctx.lineTo(-10, -10);
+        ctx.fillStyle = line_color;
+        ctx.fill();
+        ctx.restore();
+    }
+}
+
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+
+var displayWidth = 1000;
+var displayHeight = 500;
+var scale = 2;
+canvas.style.width = displayWidth + 'px';
+canvas.style.height = displayHeight + 'px';
+canvas.width = displayWidth * scale;
+canvas.height = displayHeight * scale;
+
+
+start_point = [438, 502];
+end_point = [1638, 500];
+ctrl_point1 = [800, 60];
+ctrl_point2 = [1000, 120];
+drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
+
+start_point = [375, 795];
+end_point = [1688, 689];
+ctrl_point1 = [800, 1100];
+ctrl_point2 = [1500, 920];
+drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
+</script>
+
+<!-- lTex: enabled=true -->
 
 ::: {.notes}
 
@@ -598,6 +693,63 @@ plt.show()
 ::::
 :::
 
+<canvas id="canvas2" width="650" height="347" style="top: 200px; left: 544px; position: absolute" class="fragment fade-in visible current-fragment" data-fragment-index="0">
+</canvas>
+
+<script type="text/javascript">
+    var canvas = document.getElementById('canvas2');
+    var ctx = canvas.getContext('2d');
+
+    var displayWidth = 650;
+    var displayHeight = 347;
+    var scale = 2;
+    canvas.style.width = displayWidth + 'px';
+    canvas.style.height = displayHeight + 'px';
+    canvas.width = displayWidth * scale;
+    canvas.height = displayHeight * scale;
+
+    ctx.beginPath();
+    ctx.moveTo(0, 180*2 +160);
+    ctx.lineTo(90*2, 180*2 + 160);
+    ctx.lineTo(90*2, 270*2 + 160);
+    ctx.strokeStyle = '#c0348b';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    ctx.drawImage(canvas, 0, 0);
+
+    start_point = [850, 490+160];
+    end_point = [1193, 5+160];
+    ctrl_point1 = [(start_point[0]+end_point[0])/2, start_point[1]];
+    ctrl_point2 = [end_point[0], (start_point[1]+end_point[1])/2];
+    drawLine(start_point, end_point, ctrl_point1, ctrl_point2, false, false);
+
+    sp1 = start_point;
+    ep1 = end_point;
+
+    start_point = [850, 490-60 + 160];
+    end_point = [1193-50, 5+160];
+    ctrl_point1 = [(start_point[0]+end_point[0])/2, start_point[1]];
+    ctrl_point2 = [end_point[0], (start_point[1]+end_point[1])/2];
+    drawLine(start_point, end_point, ctrl_point1, ctrl_point2, false, false);
+
+    sp2 = start_point;
+    ep2 = end_point;
+
+    start_point = sp1;
+    end_point = sp2;
+    ctrl_point1 = [(start_point[0]+end_point[0])/2-50, start_point[1]];
+    ctrl_point2 = [(start_point[0]+end_point[0])/2-50, end_point[1]];
+    drawLine(start_point, end_point, ctrl_point1, ctrl_point2, false, false);
+
+    start_point = ep1;
+    end_point = ep2;
+    ctrl_point1 = [start_point[0], (start_point[1]+end_point[1])/2-50];
+    ctrl_point2 = [end_point[0], (start_point[1]+end_point[1])/2-50];
+    drawLine(start_point, end_point, ctrl_point1, ctrl_point2, false, false);
+</script>
+
+
 ::: {.notes}
 1. Optimal solutions can be described with...
 2. This is the kind of design rule knowledge we want to find.
@@ -660,13 +812,32 @@ Motivation
 ## Background
 
 ::: {.slidecontent}
-
+:::: {.columns}
+::: {.column width="60%"}
 * Multi-Objective Evolutionary Algorithms (*MOEAs*)
   * Inspired by behaviors found in nature
   * Evolve a population of solutions over generations
   * Balance *convergence* and *diversity*  
     &nbsp;
   * Generate many sub-optimal solutions
+:::
+::: {.column width="40%"}
+::: {style="font-size: 50%; padding-top: 50px;"}
+::: {style="padding-left: 100px;"}
+MOOP formulation:
+:::
+<!-- lTex: enabled=false -->
+\begin{align*}
+\text{Minimize} &\qquad \textbf{F}(\textbf{x}) = [f_1(\textbf{x}), f_2(\textbf{x}), \dots, f_M(\textbf{x})]^T \\
+\text{Subject to} &\qquad g_j(\textbf{x}) \geq 0 \ \forall j = 1, 2, \dots, J \\
+&\qquad h_k(\textbf{x}) = 0 \ \forall k = 1, 2, \dots, K \\
+&\qquad \textbf{x}^{(L)} \leq \textbf{x} \leq \textbf{x}^{(U)}
+\end{align*}
+<!-- lTex: enabled=true -->
+
+:::
+:::
+::::
 
 :::: {.columns}
 ::: {.column width="40%"}
@@ -712,8 +883,9 @@ def add_arrows(ax = None):
 
 import pandas as pd
 
-df = pd.read_csv("../data/nds_example.csv", sep=';')
-df['x'] -= 0.1
+df = pd.read_csv("data/nds_example.csv", sep=';')
+df['x'] += 0.5
+df['y'] += 0.45
 
 plt.figure(figsize=(5.5/2,5.5/2))
 
@@ -725,6 +897,8 @@ plt.ylabel(r'$f_2({\bf x })$')
 plt.xticks([])
 plt.yticks([])
 add_arrows()
+
+plt.scatter([1.1], [1.1], facecolors='none', edgecolors='none')
 
 plt.axis('square')
 plt.show()
@@ -764,7 +938,8 @@ for nds in [0,1,2]:
 plt.xlabel(r'$f_1({\bf x })$')
 plt.ylabel(r'$f_2({\bf x })$')
 
-plt.legend(['$Rank\ 0$', '$Rank\ 1$', '$Rank\ 2$'], loc="lower left", bbox_to_anchor=(0.05, 0.05))
+# plt.legend(['$Rank\ 0$', '$Rank\ 1$', '$Rank\ 2$'], loc="lower left", bbox_to_anchor=(0.05, 0.05))
+plt.legend(['$Rank\ 0$', '$Rank\ 1$', '$Rank\ 2$'], loc="upper right")
 
 add_arrows()
 plt.xlabel(r'$f_1({\bf x })$')
@@ -772,6 +947,7 @@ plt.ylabel(r'$f_2({\bf x })$')
 plt.xticks([])
 plt.yticks([])
 
+plt.scatter([1.1], [1.1], facecolors='none', edgecolors='none')
 
 plt.axis('square')
 plt.show()
@@ -781,7 +957,7 @@ plt.show()
 :::
 ::::
 
-::: {style="position: absolute; right: 250px; top: 380px; font-size: 50%;"}
+::: {style="position: relative; right: -800px; top: -320px; font-size: 50%;"}
 Minimize $f_1(\bf x)$ and $f_2(\bf x)$
 :::
 
@@ -798,13 +974,161 @@ One of the very common MOEAs is NSGA-II
 
 ::: {.slidecontent .v-center}
 
+
 Multi-Criteria Decision Making
 
 * How to involve the DM? [@miettinen1999nonlinear]
-  * *no preference* --- No preferences are available or used
-  * *a priori* --- Express preferences before the optimization 
-  * *a posteriori* --- Express preferences after optimization 
-  * *interactive* --- Update preferences during optimization
+  1. *no preference* --- No preferences are available or used
+  1. *a priori* --- Express preferences before the optimization 
+  1. *a posteriori* --- Express preferences after optimization 
+  1. *interactive* --- Update preferences during optimization
+
+::: {layout="[[1, 1],[1, 1]]" style="scale: 100%; position: absolute; top: -100px; right: 0px;"}
+```{python}
+# type: ignore
+
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import pandas as pd
+from matplotlib import rc
+import pandas as pd
+
+df = pd.read_csv("data/fewpoints.csv", sep=';')
+df = (df - df.min()) / (df.max() - df.min())
+
+for i, val in enumerate([0.25,0.15,0.,0.15,0.25]):
+    df['x'][i] += val
+    df['y'][i] += val
+
+df['x'] -= 0.15
+df['y'] -= 0.15
+
+plt.figure(figsize=(5.5/2,5.5/2))
+
+plt.scatter(df['x'], df['y'], marker='o', facecolors='#e34a33', edgecolors='black', linewidths=0.5)
+
+plt.xlabel(r'$f_1({\bf x })$')
+plt.ylabel(r'$f_2({\bf x })$')
+
+plt.xticks([])
+plt.yticks([])
+add_arrows()
+
+plt.scatter([1.9], [1.9], facecolors='none', edgecolors='none', label="1.")
+plt.gca().legend(loc="upper right", fancybox=False, frameon=False)
+
+plt.axis('square')
+plt.show()
+```
+
+```{python}
+# type: ignore
+
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import pandas as pd
+from matplotlib import rc
+import pandas as pd
+
+df = pd.read_csv("data/fewpoints.csv", sep=';')
+df = (df - df.min()) / (df.max() - df.min())
+
+df['x'] *= 0.25
+df['y'] *= 0.5
+df['y'] += 0.25
+df['x'] += 0.1
+
+plt.figure(figsize=(5.5/2,5.5/2))
+
+plt.scatter(df['x'], df['y'], marker='o', facecolors='#e34a33', edgecolors='black', linewidths=0.5)
+plt.scatter([0.1], [0.35], facecolors='#47ff7e', edgecolors='none', marker='*', s=150)
+
+plt.xlabel(r'$f_1({\bf x })$')
+plt.ylabel(r'$f_2({\bf x })$')
+
+plt.xticks([])
+plt.yticks([])
+add_arrows()
+
+plt.scatter([1.3], [1.3], facecolors='none', edgecolors='none', label="2.")
+
+plt.gca().legend(loc="upper right", fancybox=False, frameon=False)
+
+plt.axis('square')
+plt.show()
+```
+
+```{python}
+# type: ignore
+
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import pandas as pd
+from matplotlib import rc
+import pandas as pd
+from matplotlib.patches import Ellipse
+
+df = pd.read_csv("data/fewpoints.csv", sep=';')
+df = (df - df.min()) / (df.max() - df.min())
+
+plt.figure(figsize=(5.5/2,5.5/2))
+
+plt.scatter(df['x'], df['y'], marker='o', facecolors='#e34a33', edgecolors='black', linewidths=0.5)
+
+ax = plt.gca()
+ellipse = Ellipse(xy=(0.3, 0.55), width=0.56, height=0.32, edgecolor='#47ff7e', fc='None', lw=2, angle=-45)
+ax.add_patch(ellipse)
+
+plt.xlabel(r'$f_1({\bf x })$')
+plt.ylabel(r'$f_2({\bf x })$')
+
+plt.xticks([])
+plt.yticks([])
+add_arrows()
+
+plt.scatter([1.3], [1.3], facecolors='none', edgecolors='none', label="3.")
+plt.gca().legend(loc="upper right", fancybox=False, frameon=False)
+
+plt.axis('square')
+plt.show()
+```
+```{python}
+# type: ignore
+
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import pandas as pd
+from matplotlib import rc
+import pandas as pd
+
+df = pd.read_csv("data/fewpoints.csv", sep=';')
+df = (df - df.min()) / (df.max() - df.min())
+
+df['y'] *= 0.25
+df['x'] *= 0.5
+df['x'] += 0.25
+df['y'] += 0.1
+
+plt.figure(figsize=(5.5/2,5.5/2))
+
+plt.scatter(df['x'], df['y'], marker='o', facecolors='#e34a33', edgecolors='black', linewidths=0.5)
+plt.plot([1.0, 0.4, 0.7, 0.5], [1.0,0.95, 0.5, 0.3], c='#47ff7e')
+# plt.scatter([0.30], [0.55], facecolors='none', edgecolors='#47ff7e', s=2550)
+
+plt.xlabel(r'$f_1({\bf x })$')
+plt.ylabel(r'$f_2({\bf x })$')
+
+plt.xticks([])
+plt.yticks([])
+add_arrows()
+
+plt.scatter([1.3], [1.3], facecolors='none', edgecolors='none', label="4.")
+plt.gca().legend(loc="upper right", fancybox=False, frameon=False)
+
+plt.axis('square')
+plt.show()
+```
+:::
 
 :::
 
@@ -855,7 +1179,7 @@ def set_3d_scatter(ax):
   ax.set_proj_type('ortho')
   ax.view_init(30, 45)
 
-df = pd.read_csv("../data/dtlz1space.csv", sep=' ')
+df = pd.read_csv("data/dtlz1space.csv", sep=' ')
 colors = []
 for index, d in df.iterrows():
   colors.append((d['r'], d['g'], d['b']))
@@ -974,9 +1298,27 @@ plt.show()
 :::
 ::::
 
-* How to visualize *many* objectives?
-* How to visualize the *decision space*?
-* How to visualize *knowledge*?
+:::: {.columns}
+::: {.column width="50%"}
+
+* Challenges
+    * How to visualize *many* objectives?
+    * How to visualize *many* solutions?
+    * How to visualize the *decision space*?
+:::
+::: {.column width="50%"}
+<ul>
+    <li style="list-style-type: none"> 
+        <hidden>test</hidden>
+    <ul>
+    <li>How to visualize *preferences*?</li>
+    <li>How to visualize *constraints*?</li>
+    <li>How to visualize *knowledge*?</li>
+    </ul>
+    </li>
+</ul>
+:::
+::::
 
 :::
 
@@ -1017,7 +1359,9 @@ Knowledge Discovery in MOO
 <ul>
   <li style="list-style-type: none">
     <Ul>
-      <li>Require interpretation</li>
+      <li>Does *not* have a clear, formal notation</li>
+      <li>Can *not* easily be transferred</li>
+      <li>Requires interpretation</li>
       <li>Does *not* answer ***what?***</li>
     </ul>
   </li>
@@ -1031,7 +1375,8 @@ Knowledge Discovery in MOO
     <Ul>
       <li>Has a clear, formal notation</li>
       <li>Can be transferred</li>
-      <li>Used both for *decision support* and *algorithmically*</li>
+      <li>Does *not* require interpretation</li>
+      <li>Used both *algorithmically* and for <br>*decision support*</li>
     </ul>
   </li>
 </ul>
@@ -1168,10 +1513,10 @@ Algorithms, frameworks, instantiations, ...
 
 :::: {.columns}
 ::: {.column width="50%"}
+::: {style="width: 95%"}
 <!-- Publications with High Relevance -->
 
 (@) **Smedberg, Henrik**, Bandaru, Sunith, Ng, Amos H.C., and Deb, Kalyanmoy (2020). “Trend Mining 2.0: Automating the Discovery of Variable Trends in the Objective Space”. In: *2020 IEEE Congress on Evolutionary Computation (CEC)*, pp. 1–8
-
 
 (@) **Smedberg, Henrik** and Bandaru, Sunith (2020). “Finding Influential Variables in Multi-Objective optimization Problems”. In: *2020 IEEE Symposium Series on Computational Intelligence (SSCI)*, pp. 173–180 
 
@@ -1183,11 +1528,12 @@ Algorithms, frameworks, instantiations, ...
 
 (@) **Smedberg, Henrik** and Bandaru, Sunith (2022). “A Modular Knowledge-Driven Mutation Operator for Reference-Point Based Evolutionary Algorithms”. In: *2022 IEEE Congress on Evolutionary Computation (CEC)*, pp. 1–8
 
-(@) **Smedberg, Henrik**, Bandaru, Sunith, and Ng, Amos H.C (2023). “Knowledge-Driven Multi-Objective Optimization Using Variable Importance”. *Manuscript ready for submission to international journal*
+(@) **Smedberg, Henrik**, Bandaru, Sunith, and Ng, Amos H.C (2023). “Knowledge-Driven Multi-Objective Optimization Using Variable Importance”. *Completed Manuscript*
+:::
 :::
 
 ::: {.column width="50%"}
-::: {style="font-size: 55%; padding-top: 15%;"}
+::: {style="font-size: 55%;" .v-center}
 |  | RQ1<br><ssmall>Knowledge Discovery</ssmall> | RQ2<br><ssmall>Decision Support</ssmall> | RQ3a<br><ssmall>Offline KDO</ssmall> | RQ3b<br><ssmall>Online KDO</ssmall> |
 | ---       | :---:    | :---:    | :---:    | :---:    |
 | Paper I   | $\times$ |          |          |          |
@@ -1301,7 +1647,7 @@ $\quad$
 1. We develop Trend Mining to find interesting variable trends in the objective space
 1. We try to find if the variables follow a monotonic trend along a reference vector
 1. answer how changing a variable affects the objective space
-1. procdues a score, and direction for each variable
+1. produces a score, and direction for each variable
 :::
 
 ## Paper II: *Finding Influential Variables in Multi-Objective Optimization Problems*
@@ -1467,6 +1813,9 @@ DTLZ problems have a number of **positional** and **directional** variables
 ::: {.column width="50%" style="padding-top: 3vw;"}
 
 ::: {style="font-size: 35%;"}
+
+<!-- LTeX: enabled=false -->
+
 | $\begin{gathered} \textbf{Group} \\ \textbf{NO} \;\; \textbf{Proportion} \end{gathered}$ | Rule Interaction | Sig.  | Unsig.  |
 | :------------------: | :--------------------------------------------: | :-------: | :-------: |
 | 7 <span style="opacity:0;">Proppportion</span> | $A_{10} = 2 ∧ B_4 \neq 3 ∧ B_5 = 2 ∧ B_{23} = 1$ | 100%   | 10.13% |
@@ -1476,6 +1825,8 @@ DTLZ problems have a number of **positional** and **directional** variables
 | <span style="opacity:0;">NO</span>$\;\;$ 70%/30%   | $A_{14} = 2 ∧ A_{17} = 2 ∧ B_4 \neq 3 ∧ B_{11} \neq 2$         | 92.11% | 10.89% |
 
 : {}
+
+<!-- LTeX: enabled=true -->
 
 :::
 ::: {}
@@ -1531,7 +1882,7 @@ Online KDO approach following **this** general online KDO MOEA flow
 In this paper we sample an empirical distribution model from FPM rules as new mutation operator  
 For preference-based MOEAs using a reference point
 
-We call it *modular* since it can be implemented for any preference-based moea   
+We call it *modular* since it can be implemented for any preference-based MOEA   
 We compared 3 different ones and found better convergence rates
 :::
 
@@ -1636,7 +1987,7 @@ Offline KDO is the best, online KDO is the second best
 * Mimer
   * Add more knowledge discovery methods
   * Add more visualization methods
-  * Add compatability with existing optimization engines
+  * Add compatibility with existing optimization engines
 :::
 ::::
 
@@ -1682,13 +2033,11 @@ function myFunction() {
 myFunction();
 </script>
 
-::: {#refs style="font-size: 55%;"}
+::: {#refs style="font-size: 55%; padding-top: 50px;"}
 :::
 
 # Thank you
 
-Please attend the final defense  
-*September 27*, 13.00--16.00
 
 
 
