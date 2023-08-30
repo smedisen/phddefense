@@ -1558,11 +1558,12 @@ Algorithms, frameworks, instantiations, ...
 
 ::: {.slidecontent}
 
-::: {style="padding-left: 100px; width: 100%; scale: 75%; padding-top: 20px; padding-bottom: 20px;"}
+::: {style="scale: 75%; padding-top: 10px; padding-bottom: 10px;"}
 <italic>How can different *representations of knowledge* be extracted from the solutions of multi-objective objective optimization problems, while considering diverse multi-objective optimization problems?</italic>
 :::
 
-::: {style=""}
+:::: {.columns}
+::: {.column}
 * Variable trends 
     * Finding interesting trends for variables in the objective space
     * *Trend Mining 2.0* <psmall>(Paper I)</psmall>
@@ -1572,6 +1573,15 @@ Algorithms, frameworks, instantiations, ...
     * *InfS-P* <psmall>(Paper II)</psmall>
     * *InfS-R* <psmall>(Paper II)</psmall>
 :::
+::: {.column}
+* Decision rules
+    * Flexible Pattern Mining (*FPM*)  
+    [@partb]
+    * Finds rules describing the *decision space*
+    * *Selected* and *Unselected* sets of solutions in the *objective space*
+    * Interactive graph-based visualization <psmall>(Paper III)</psmall>
+:::
+::::
 :::
 
 ## Variable Trends
@@ -1669,7 +1679,7 @@ $\quad$
 :::
 ::::
 
-::: {style="font-size: 50%;"}
+::: {style="font-size: 50%; position: absolute; bottom: 0px;"}
 ***Paper I***: Smedberg, Henrik, Bandaru, Sunith, Ng, Amos H.C., and Deb, Kalyanmoy (2020). “Trend Mining 2.0: Automating the Discovery of Variable Trends in the Objective Space”. In: *2020 IEEE Congress on Evolutionary Computation (CEC)*, pp. 1–8
 :::
 :::
@@ -1681,12 +1691,12 @@ $\quad$
 1. produces a score, and direction for each variable
 :::
 
-## Paper II: *Finding Influential Variables in Multi-Objective Optimization Problems*
+## Variable Importance
 ::: {.slidecontent}
 
 :::: {.columns}
 ::: {.column width="50%"}
-
+::: {.v-center style="width: 50%"}
 * Influence Score
   * Quantify variables' relations to  
     *diversity* or *convergence*
@@ -1695,12 +1705,7 @@ $\quad$
   * Able to find expected groups of variables  
     in tested problem cases
 
-::: {style="height: 2vw;"}
 :::
-
-* Contribution
-  * *RQ1*: Variable importance as knowledge representation
-
 :::
 ::: {.column width="50%" style="text-align: center;"}
 ::: {layout="[[1,1],[1,1],[1,1],[1,1]]" layout-valign="bottom" .tight}
@@ -1728,10 +1733,48 @@ $\quad$
 :::
 :::
 ::::
+
+::: {style="font-size: 50%; position: absolute; bottom: 0px;"}
+***Paper II***: Smedberg, Henrik and Bandaru, Sunith (2020). “Finding Influential Variables in Multi-Objective optimization Problems”. In: *2020 IEEE Symposium Series on Computational Intelligence (SSCI)*, pp. 173–180
+:::
 :::
 
 ::: {.notes}
 DTLZ problems have a number of **positional** and **directional** variables
+:::
+
+## RQ2: *Decision Support*
+
+::: {.slidecontent}
+::: {style="scale: 75%; padding-top: 10px; padding-bottom: 10px;"}
+<italic>How can different representations of knowledge be processed and presented to the decision maker in an *interactive* manner for better *decision support*?</italic>
+:::
+
+:::: {.columns}
+::: {.column}
+::: {.v-center style="width: 50%"}
+* Interactive DSS for knowledge discovery with *FPM rules*
+  * Solution exploration
+  * Preference elicitation
+  * Knowledge discovery
+  * Knowledge visualization
+:::
+:::
+::::
+
+::: {style="position: absolute; left: 500px; top: 300px;"}
+<span style="font-size: 75%; padding-left: 60px;">FPM rule visualization using graph-based interface</span>
+
+::: {layout="[1,1]" layout-valign="center" style="width:150%;"}
+![](figures\ejor-1.png){style="width: 80%"}
+
+![](figures\ejor-2.png){style="width: 40%; margin-left: -4vw;"}
+:::
+
+:::
+::: {style="font-size: 50%; position: absolute; bottom: 0px;"}
+***Paper III***: Smedberg, Henrik and Bandaru, Sunith (2023). “Interactive Knowledge Discovery and Knowledge Visualization for Decision Support in Multi-Objective Optimization”. In: *European Journal of Operational Research* 306.3, pp. 1311–1329
+:::
 :::
 
 ## Paper III: *Interactive knowledge discovery and knowledge visualization for decision support in multi-objective optimization*
