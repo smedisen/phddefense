@@ -1752,17 +1752,15 @@ DTLZ problems have a number of **positional** and **directional** variables
 
 :::: {.columns}
 ::: {.column}
-::: {.v-center style="width: 50%"}
 * Interactive DSS for knowledge discovery with *FPM rules*
   * Solution exploration
   * Preference elicitation
   * Knowledge discovery
   * Knowledge visualization
 :::
-:::
 ::::
 
-::: {style="position: absolute; left: 500px; top: 300px;"}
+::: {style="position: absolute; left: 500px; top: 320px;"}
 <span style="font-size: 75%; padding-left: 60px;">FPM rule visualization using graph-based interface</span>
 
 ::: {layout="[1,1]" layout-valign="center" style="width:150%;"}
@@ -1777,79 +1775,33 @@ DTLZ problems have a number of **positional** and **directional** variables
 :::
 :::
 
-## Paper III: *Interactive knowledge discovery and knowledge visualization for decision support in multi-objective optimization*
-
-::: {.slidecontent}
-<!-- Paper III: *Interactive knowledge discovery and knowledge visualization for decision support in multi-objective optimization* -->
-
-:::: {.columns}
-::: {.column width="50%"}
-* DSS for knowledge discovery
-  * Solution exploration
-  * Preference elicitation
-  * Knowledge discovery
-  * Knowledge visualization
-
-::: {style="height: 1vw;"}
-:::
-
-* Contribution
-  * *RQ1*: Decision rules as knowledge <br>representation
-  * *RQ2*: Framework for interactive knowledge discovery
-
-:::
-
-::: {.column width="50%"}
-* Flexible Pattern Mining (*FPM*)  
-    [@partb]
-  * Finds decision rules in the *decision space*
-  * *Selected* and *Unselected* sets of solutions in the *objective space*  
-    $\;$
-  * Interactive graph-based visualization interface  
-    &nbsp;
-
-::: {layout="[1,1]" layout-valign="center" style="width: 175%; margin-left: -10%;"}
-![](figures\ejor-1.png){style="width: 80%"}
-
-![](figures\ejor-2.png){style="width: 40%; margin-left: -4vw;"}
-:::
-:::
-::::
-:::
-
-::: {.notes}
-1. We present a DSS for knowledge discovery in MOO that enables...
-2. We use FPM to find decision rules, based on selected and unselected sets
-3. Interactive graph-based interface for FPM-rules
-:::
-
-## Paper IV: *Mimer: A Web-Based Tool for Knowledge Discovery in Multi-Criteria Decision Support*
+## Mimer: *Openly Available Instantiation of DSS*
 
 ::: {.slidecontent}
 :::: {.columns}
-::: {.column width="40%"}
+::: {.column width="50%"}
 * Mimer
-  * Instantiation of DSS in Paper III
   * Openly available web tool
   * [https://assar.his.se/mimer/](https://assar.his.se/mimer/html/index.html){target="popup" onclick="window.open('https://assar.his.se/mimer/html/index.html','Mimer','width=1920,height=1080')"}
 
-  * User study
-    * 20 participants
+![](figures\mimer_screenshot.jpg)
+
+:::
+::: {.column width="50%"}
+
+* User study
     * Representative real-world tasks
-    * Positive feedback
+    * 20 participants, Positive feedback
 
-::: {style="height: 0.5vw;"}
-:::
 
-* Contribution
-  * *RQ2*: Open DSS platform for interactive knowledge discovery
-:::
-::: {.column width="60%"}
-
-![](figures\mimerresponses.png){style="z-index: -1;"}
+![](figures\mimerresponses.png){style="z-index: -1; position: absolute; margin-top: -35px; width: 50%;"}
 
 :::
 ::::
+
+::: {style="font-size: 50%; position: absolute; bottom: 0px;"}
+***Paper IV***: Smedberg, Henrik, Bandaru, Sunith, Riveiro, Maria, and Ng, Amos H.C. (2023). “Mimer: A Web-Based Tool for Knowledge Discovery in Multi-Criteria Decision Support”. Submitted to: *IEEE Computational Intelligence Magazine*
+:::
 :::
 
 ::: {.notes}
