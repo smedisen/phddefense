@@ -2,6 +2,15 @@
   background-size: contain;
 }
 
+#title-slide::before {
+    content: url("logo.jpg");
+    scale: 0.13;
+    position: absolute;
+    top: -400px;
+    right: -435px;
+    mix-blend-mode: multiply;
+}
+
 section:not(section section):not(#title-slide):not(#thank-you)::before {
     content: url("logo.jpg");
     scale: 0.13;
@@ -10,7 +19,7 @@ section:not(section section):not(#title-slide):not(#thank-you)::before {
     right: -435px;
 }
 
-#title-slide::before, section.title-slide:not(#thank-you)::before {
+#title-slide::after, section.title-slide:not(#thank-you)::before {
     content: url("logonotext.jpg"); 
     position: fixed;
     top: -20px;

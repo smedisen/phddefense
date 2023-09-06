@@ -12,7 +12,7 @@ format:
     css: style.css
     # background-image: slide-background.png 
     # background-size: contain
-    date: 06/05/2023
+    date: 27/09/2023
     date-format: "MMM D, YYYY"
     slide-number: true
     chalkboard: true
@@ -1743,7 +1743,7 @@ $\quad$
 DTLZ problems have a number of **positional** and **directional** variables
 :::
 
-## RQ2: *Decision Support*
+## RQ2: *Interactive Decision Support*
 
 ::: {.slidecontent}
 ::: {style="scale: 75%; padding-top: 10px; padding-bottom: 10px;"}
@@ -1811,29 +1811,60 @@ DTLZ problems have a number of **positional** and **directional** variables
 * User study... positive feedback that FPM rules and graph-interface is a useful tool
 :::
 
-## Paper V: *Knowledge-Driven Multi-Objective Optimization for Reconfigurable Manufacturing Systems*
+## RQ3: *Knowledge-Driven Optimization*
+
+::: {.slidecontent}
+
+::: {style="scale: 75%; padding-top: 10px; "}
+<italic>**Offline KDO.** How can knowledge extracted from completed optimization runs be utilized *offline* in *future optimizations* of similar problem scenarios to focus the search towards preferred solutions?</italic>
+:::
+
+
+::: {style="scale: 75%; margin-top: -20px; padding-bottom: 10px;"}
+<italic>**Online KDO.** How can knowledge extracted during an optimization run be utilized *online* to improve the *convergence behavior* of optimization algorithms?</italic>
+:::
+
+:::: {.columns}
+::: {.column}
+* Offline KDO
+    * Discovery knowledge from *previous* optimizations
+    * Apply this knowledge in *future* optimizations
+:::
+
+::: {.column}
+*  Online KDO
+    * Discover knowledge about the *current* optimization
+    * Feed this knowledge *back into* the optimization
+:::
+
+::: {style="scale:75%; text-align: center;"}
+Either form of knowledge can *inform* the decision maker
+:::
+
+::::
+
+:::
+
+
+
+## Offline KDO: *Reconfigurable Manufacturing System use-case*
 
 ::: {.slidecontent}
 
 :::: {.columns}
 ::: {.column width="50%"}
 
-::: {style="width: 200%;"}
-* Knowledge discovery in industrial application
-    * Reconfigurable manufacturing system
-      * Considered *different scenarios* of same RMS
-      * *Grouped scenarios together* based on operators and proportions  
-      between parts
-      * *Discovered knowledge* among the groups
-      * Used *Mimer* for interactive knowledge discovery  
+::: {style=""}
+* Reconfigurable manufacturing system (RMS)
+    * Considered *different scenarios* of same RMS
+    * *Grouped scenarios together* based on operators and proportions between parts
+    * *Discovered knowledge* among the groups
+    * Used *Mimer* for interactive knowledge discovery  
 
-  * Offline KDO
+* Offline KDO
     * Applied knowledge in optimization of new scenarios
     * Obtained better convergence
 
-* Contribution
-  * *RQ2*: Applied Mimer on RMS use-case
-  * *RQ3a*: RMS as appropriate use-cases for offline KDO
 :::
 :::
 ::: {.column width="50%" style="padding-top: 3vw;"}
@@ -1843,12 +1874,12 @@ DTLZ problems have a number of **positional** and **directional** variables
 <!-- LTeX: enabled=false -->
 
 | $\begin{gathered} \textbf{Group} \\ \textbf{NO} \;\; \textbf{Proportion} \end{gathered}$ | Rule Interaction | Sig.  | Unsig.  |
-| :------------------: | :--------------------------------------------: | :-------: | :-------: |
-| 7 <span style="opacity:0;">Proppportion</span> | $A_{10} = 2 ∧ B_4 \neq 3 ∧ B_5 = 2 ∧ B_{23} = 1$ | 100%   | 10.13% |
-| 8 <span style="opacity:0;">Proppportion</span> | $A_{17} = 2 ∧ A_{27} \neq 3 ∧ B7 = 1 ∧ B16 = 2$  | 96.43% | 12.89% |
-| 9 <span style="opacity:0;">Proppportion</span> | $A_{28} = 1 ∧ B_7 = 1 ∧ B_8 = 3 ∧ B_9 \neq 1$             | 91.67% | 4.89%  |
-| <span style="opacity:0;">NO</span>$\;\;$ 30%/70%   | $A_{14} = 3 ∧ B_3 = 1 ∧ B_{10} \neq 1 ∧ B_{23} \neq 3$         | 97.06% | 29.23% |
-| <span style="opacity:0;">NO</span>$\;\;$ 70%/30%   | $A_{14} = 2 ∧ A_{17} = 2 ∧ B_4 \neq 3 ∧ B_{11} \neq 2$         | 92.11% | 10.89% |
+| :------------------:                             | :--------------------------------------------:         | :-------: | :-------: |
+| 7 <span style="opacity:0;">Proppportion</span>   | $A_{10} = 2 ∧ B_4 \neq 3 ∧ B_5 = 2 ∧ B_{23} = 1$       | 100%      | 10.13%    |
+| 8 <span style="opacity:0;">Proppportion</span>   | $A_{17} = 2 ∧ A_{27} \neq 3 ∧ B7 = 1 ∧ B16 = 2$        | 96.43%    | 12.89%    |
+| 9 <span style="opacity:0;">Proppportion</span>   | $A_{28} = 1 ∧ B_7 = 1 ∧ B_8 = 3 ∧ B_9 \neq 1$          | 91.67%    | 4.89%     |
+| <span style="opacity:0;">NO</span>$\;\;$ 30%/70% | $A_{14} = 3 ∧ B_3 = 1 ∧ B_{10} \neq 1 ∧ B_{23} \neq 3$ | 97.06%    | 29.23%    |
+| <span style="opacity:0;">NO</span>$\;\;$ 70%/30% | $A_{14} = 2 ∧ A_{17} = 2 ∧ B_4 \neq 3 ∧ B_{11} \neq 2$ | 92.11%    | 10.89%    |
 
 : {}
 
@@ -1860,6 +1891,11 @@ DTLZ problems have a number of **positional** and **directional** variables
 :::
 :::
 ::::
+
+::: {style="font-size: 50%; position: absolute; bottom: 0px;"}
+***Paper V***: Smedberg, Henrik, Barrera-Diaz, Carlos Alberto, Nourmohammadi, Amir, Bandaru, Sunith, and Ng, Amos H. C. (2022). “Knowledge-Driven Multi-Objective Optimization for Reconfigurable Manufacturing Systems”. In: *Mathematical and Computational Applications 27.6*
+:::
+
 :::
 
 ::: {.notes}
@@ -1872,35 +1908,31 @@ we used this knowledge in optimization of new scenarios
 found better convergence 
 :::
 
-## Paper VI: *A Modular Knowledge-Driven Mutation Operator for Reference-Point Based Evolutionary Algorithms*
+## Online KDO: *Knowledge-Driven Genetic Operator for Preference-Based MOEAs*
 
 ::: {.slidecontent}
 
 :::: {.columns}
 ::: {.column width="50%"}
-* Online KDO
-  * Modular *knowledge-driven* mutation operator
-  * Sample an empirical distribution model from FPM rules  
-  * Preference-based MOEAs
+* *Knowledge-driven* mutation operator
+  * Sample an empirical distribution model from FPM rules
+  * Modular, for Preference-based MOEAs
   * R-metric [@li2017r]
   * EH-metric [@ehmetric]
-  * Better convergence in the majority of cases
 
-::: {style="width: 2vw;"}
-:::
+![](figures\onlinekdopaper.png){style="width: 80%; margin-top: -10px; padding-left: 200px;"}
 
-* Contribution
-  * *RQ3b*: FPM rules for online KDO
 :::
 ::: {.column width="50%"}
 
-![](figures\kdoflow.drawio.svg){style="width: 60%; margin-left: 2vw;"}
-
-
-![](figures\onlinekdopaper.png){style="width: 80%; margin-top: -1vw"}
+![](figures\kdoflow.drawio.svg){style="width: 90%; margin-left: 2vw;"}
 
 :::
 ::::
+::: {style="font-size: 50%; position: absolute; bottom: 0px;"}
+***Paper VI***: Smedberg, Henrik and Bandaru, Sunith (2022). “A Modular Knowledge-Driven Mutation Operator for Reference-Point Based Evolutionary Algorithms”. In: *2022 IEEE Congress on Evolutionary Computation (CEC)*, pp. 1–8
+:::
+
 :::
 
 ::: {.notes}
@@ -1912,7 +1944,7 @@ We call it *modular* since it can be implemented for any preference-based MOEA
 We compared 3 different ones and found better convergence rates
 :::
 
-## Paper VII: *Knowledge-Driven Multi-Objective Optimization Using Variable Importance*
+## KDO Using Variable Importance
 
 ::: {.slidecontent}
 :::: {.columns}
@@ -1926,13 +1958,10 @@ We compared 3 different ones and found better convergence rates
   *convergence-related* variables
   * Improvement in terms of HV and  
     convergence rate (AUC)
+
+![](./figures/infskdo_plots.jpg){style="width:50%;"}
 :::
 
-::: {style="height: 1vw;"}
-:::
-
-* Contribution
-  * *RQ3a & RQ3b*: Variable importance for offline and online KDO 
 :::
 ::: {.column width="50%" style="padding-top: 80px;"}
 
@@ -1940,6 +1969,11 @@ We compared 3 different ones and found better convergence rates
 
 :::
 ::::
+
+::: {style="font-size: 50%; position: absolute; bottom: 0px;"}
+***Paper VII***: Smedberg, Henrik, Bandaru, Sunith, and Ng, Amos H.C (2023). “Knowledge-Driven Multi-Objective Optimization Using Variable Importance”. *Completed Manuscript*
+:::
+
 :::
 
 ::: {.notes}
