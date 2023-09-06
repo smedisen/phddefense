@@ -206,7 +206,9 @@ plt.show()
 * *Trade-offs* in the objective space
 
 ::: {style="padding-top: 0.75vw"}
-* Decision Making
+* Decision Making 
+  * Choose the final car to implement in practice  
+    &nbsp;
   * How are the cars different?
   * How are the cars similar?
   * What is *special* about the optimal cars?
@@ -327,7 +329,7 @@ plt.show()
   * Find relationships, patterns, rules, ... 
   * Describe *good* solutions in terms of the *decision space*  
     &nbsp;
-  * Inform *DM* to make better decisions
+  * Inform *Decision Maker* (DM) to make better decisions
 
 :::
 
@@ -770,12 +772,12 @@ Knowledge-Driven Optimization (*KDO*) [@parta]
 :::
 
 :::: {.columns}
-::: {.column width="50%" .fragment .fade-in}
+::: {.column .fragment .fade-in}
 * *Offline KDO*
   * Incorporate knowledge from previous optimization, in future optimizations
-  <!-- * Involves the DM -->
+  * Involves the DM
 :::
-::: {.column width="50%" .fragment .fade-in}
+::: {.column .fragment .fade-in}
 * *Online KDO*
   * Discover and exploit knowledge,  
     as part of the algorithm
@@ -1113,7 +1115,7 @@ plt.figure(figsize=(5.5/2,5.5/2))
 
 plt.scatter(df['x'], df['y'], marker='o', facecolors='#e34a33', edgecolors='black', linewidths=0.5)
 plt.plot([1.0, 0.4, 0.7, 0.5], [1.0,0.95, 0.5, 0.3], c='#47ff7e')
-# plt.scatter([0.30], [0.55], facecolors='none', edgecolors='#47ff7e', s=2550)
+plt.scatter([0.40, 0.7, 0.5], [0.95, 0.5, 0.3], facecolors='#47ff7e', edgecolors='none', marker='*', s=150)
 
 plt.xlabel(r'$f_1({\bf x })$')
 plt.ylabel(r'$f_2({\bf x })$')
@@ -1298,7 +1300,7 @@ plt.show()
 :::
 ::::
 
-:::: {.columns}
+:::: {.columns .fragment .fade-in}
 ::: {.column width="50%"}
 
 * Challenges
@@ -1500,7 +1502,7 @@ Research Methodology
 ::: {.notes}
 Design Science  
 Produce useful artifacts by iteratively developing and testing them  
-And they should have a contribution both to industrial needs and to the literature
+And they should have a contribution both to industrial needs and to the scientific literature
 
 Algorithms, frameworks, instantiations, ...
 :::
@@ -1569,7 +1571,7 @@ Algorithms, frameworks, instantiations, ...
     * *Trend Mining 2.0* <psmall>(Paper I)</psmall>
 
 * Variable importance
-    * Finding important variables for convergence and diversity
+    * Finding important variables for *diversity* and *convergence*
     * *InfS-P* <psmall>(Paper II)</psmall>
     * *InfS-R* <psmall>(Paper II)</psmall>
 :::
@@ -1667,19 +1669,19 @@ plt.show()
 
 $\quad$
 
-![](figures/trendmining-space-x3.svg)
-
-![](figures/trendmining-space-x5.svg)
-
 ![](figures/trendmining-trend-x3.svg)
 
 ![](figures/trendmining-trend-x5.svg)
+
+![](figures/trendmining-space-x3.svg)
+
+![](figures/trendmining-space-x5.svg)
 
 :::
 :::
 ::::
 
-::: {style="font-size: 50%; position: absolute; bottom: 0px;"}
+::: {style="font-size: 50%; position: absolute; bottom: -20px;"}
 ***Paper I***: Smedberg, Henrik, Bandaru, Sunith, Ng, Amos H.C., and Deb, Kalyanmoy (2020). “Trend Mining 2.0: Automating the Discovery of Variable Trends in the Objective Space”. In: *2020 IEEE Congress on Evolutionary Computation (CEC)*, pp. 1–8
 :::
 :::
@@ -1702,6 +1704,7 @@ $\quad$
     *diversity* or *convergence*
   * InfS-P <small_text>(INFluence Score by *Pareto-front*)</small_text>
   * InfS-R <small_text>(INFluence Score by *Rank*)<small_text>
+  * Finds a *score* for each variable
   * Able to find expected groups of variables  
     in tested problem cases
 
@@ -1734,7 +1737,7 @@ $\quad$
 :::
 ::::
 
-::: {style="font-size: 50%; position: absolute; bottom: 0px;"}
+::: {style="font-size: 50%; position: absolute; bottom: -20px;"}
 ***Paper II***: Smedberg, Henrik and Bandaru, Sunith (2020). “Finding Influential Variables in Multi-Objective optimization Problems”. In: *2020 IEEE Symposium Series on Computational Intelligence (SSCI)*, pp. 173–180
 :::
 :::
@@ -1747,7 +1750,7 @@ DTLZ problems have a number of **positional** and **directional** variables
 
 ::: {.slidecontent}
 ::: {style="scale: 75%; padding-top: 10px; padding-bottom: 10px;"}
-<italic>How can different representations of knowledge be processed and presented to the decision maker in an *interactive* manner for better *decision support*?</italic>
+<italic>How can different *representations of knowledge* be processed and *presented* to the decision maker in an *interactive* manner for better *decision support*?</italic>
 :::
 
 :::: {.columns}
@@ -1770,7 +1773,7 @@ DTLZ problems have a number of **positional** and **directional** variables
 :::
 
 :::
-::: {style="font-size: 50%; position: absolute; bottom: 0px;"}
+::: {style="font-size: 50%; position: absolute; bottom: -20px;"}
 ***Paper III***: Smedberg, Henrik and Bandaru, Sunith (2023). “Interactive Knowledge Discovery and Knowledge Visualization for Decision Support in Multi-Objective Optimization”. In: *European Journal of Operational Research* 306.3, pp. 1311–1329
 :::
 :::
@@ -1799,7 +1802,7 @@ DTLZ problems have a number of **positional** and **directional** variables
 :::
 ::::
 
-::: {style="font-size: 50%; position: absolute; bottom: 0px;"}
+::: {style="font-size: 50%; position: absolute; bottom: -20px;"}
 ***Paper IV***: Smedberg, Henrik, Bandaru, Sunith, Riveiro, Maria, and Ng, Amos H.C. (2023). “Mimer: A Web-Based Tool for Knowledge Discovery in Multi-Criteria Decision Support”. Submitted to: *IEEE Computational Intelligence Magazine*
 :::
 :::
@@ -1838,7 +1841,7 @@ DTLZ problems have a number of **positional** and **directional** variables
 :::
 
 ::: {style="scale:75%; text-align: center;"}
-Either form of knowledge can *inform* the decision maker
+Both forms of KDO can *inform* the decision maker
 :::
 
 ::::
@@ -1892,7 +1895,7 @@ Either form of knowledge can *inform* the decision maker
 :::
 ::::
 
-::: {style="font-size: 50%; position: absolute; bottom: 0px;"}
+::: {style="font-size: 50%; position: absolute; bottom: -20px;"}
 ***Paper V***: Smedberg, Henrik, Barrera-Diaz, Carlos Alberto, Nourmohammadi, Amir, Bandaru, Sunith, and Ng, Amos H. C. (2022). “Knowledge-Driven Multi-Objective Optimization for Reconfigurable Manufacturing Systems”. In: *Mathematical and Computational Applications 27.6*
 :::
 
@@ -1929,7 +1932,7 @@ found better convergence
 
 :::
 ::::
-::: {style="font-size: 50%; position: absolute; bottom: 0px;"}
+::: {style="font-size: 50%; position: absolute; bottom: -20px;"}
 ***Paper VI***: Smedberg, Henrik and Bandaru, Sunith (2022). “A Modular Knowledge-Driven Mutation Operator for Reference-Point Based Evolutionary Algorithms”. In: *2022 IEEE Congress on Evolutionary Computation (CEC)*, pp. 1–8
 :::
 
@@ -1970,7 +1973,7 @@ We compared 3 different ones and found better convergence rates
 :::
 ::::
 
-::: {style="font-size: 50%; position: absolute; bottom: 0px;"}
+::: {style="font-size: 50%; position: absolute; bottom: -20px;"}
 ***Paper VII***: Smedberg, Henrik, Bandaru, Sunith, and Ng, Amos H.C (2023). “Knowledge-Driven Multi-Objective Optimization Using Variable Importance”. *Completed Manuscript*
 :::
 
