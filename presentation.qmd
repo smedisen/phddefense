@@ -1994,18 +1994,22 @@ Offline KDO is the best, online KDO is the second best
 
 ::: {.slidecontent}
 :::: {.columns}
-::: {.column width="50%"}
+::: {.column}
 
 * Motivation
   * *Knowledge discovery* can benefit optimization and decision making
+:::
 
+::: {.column}
 * Aim
   * Develop methods for meaningful *knowledge discovery* MOO
   * Appropriate for decision support and KDO
   * *Simple* and easy to understand knowledge 
 
 :::
-::: {.column width="50%" style="font-size: 85%;" .fragment .fade-in}
+::::
+:::: {.columns .fragment .fade-in}
+::: {.column style="font-size: 85%;"}
 * *Knowledge discovery* (RQ1)
   * Appropriate knowledge representations?
     * Trend mining (*Paper I*)
@@ -2017,8 +2021,9 @@ Offline KDO is the best, online KDO is the second best
     * Interactive knowledge discovery (*Paper III*)
     * Mimer (*Paper IV*)
     * RMS use-case (*Paper V*)
-
-* *KDO* (RQ3)
+:::
+::: {.column style="font-size: 85%; margin-top: 50px;"}
+* *Knowledge-Driven Optimization* (RQ3)
   * *Offline KDO* (RQ3a)
     * RMS use-case (*Paper V*)
     * Variable importance (*Paper VII*)
@@ -2026,7 +2031,6 @@ Offline KDO is the best, online KDO is the second best
   * *Online KDO* (RQ3b)
     * Rule-driven mutation (*Paper VI*)
     * Variable importance (*Paper VII*)
-
 :::
 ::::
 :::
@@ -2041,13 +2045,13 @@ Offline KDO is the best, online KDO is the second best
 :::
 
 ::: {.column width="50%"}
-* RQs
+* *RQs*
   * Design science to develop artifacts
   * Posed as open questions, can be approached in many ways 
   * Future research can consider same RQs  
 :::
 ::: {.column width="50%"}
-* Mimer
+* *Mimer and decision support*
   * Add more knowledge discovery methods
   * Add more visualization methods
   * Add compatibility with existing optimization engines
@@ -2059,12 +2063,13 @@ Offline KDO is the best, online KDO is the second best
 
 :::: {.columns}
 ::: {.column width="50%"}
-* Knowledge discovery
+* *Knowledge discovery*
   * More knowledge representations
   * Design knowledge base for different knowledge representations
 :::
 ::: {.column width="50%"}
-* KDO
+* *KDO*
+  * Find appropriate use-cases
   * Algorithms centered around knowledge
   * Knowledge-based metaphors to drive the search
 :::
