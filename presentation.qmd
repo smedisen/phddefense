@@ -85,10 +85,10 @@ format:
 
 ## Introduction 
 
-::: {.slidecontent .v-center}
+::: {.slidecontent style="position: absolute; top: 120px;"}
 :::: {.columns}
 
-::: {.column width="55%"}
+::: {.column width="50%"}
 Optimization Example 
 
 * Design *the best* car
@@ -103,7 +103,7 @@ Optimization Example
     1. ...
 :::
 
-::: {.column width="40%"}
+::: {.column width="50%"}
 
 ```{python}
 # type: ignore
@@ -199,10 +199,10 @@ plt.show()
 
 ## Introduction
 
-::: {.slidecontent .v-center}
+::: {.slidecontent style="position: absolute; top: 120px;"}
 :::: {.columns}
 
-::: {.column width="55%"}
+::: {.column width="50%"}
 * *Trade-offs* in the objective space
 
 ::: {style="padding-top: 0.75vw"}
@@ -221,7 +221,7 @@ plt.show()
 :::
 :::
 
-::: {.column width="40%"}
+::: {.column width="50%"}
 
 ```{python}
 # type: ignore
@@ -281,9 +281,10 @@ plt.show()
 ::: {.notes}
 
 1. Considering several objectives at the same time gives Trade-offs
-1. When we choose our final car design...
-1. Knowledge discovery
-1. This presentation will talk about these terms
+2. We need to analyze and decide which solution to implement
+3. But we might also consider...
+4. Knowledge discovery
+5. This presentation will talk about these terms
 
 :::
 
@@ -556,7 +557,11 @@ drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
 
 ::: {.notes}
 
-* draw arrows (press 'c')
+* If we consider the same solutions as before
+* we also have the decision space for the solutions
+* this solution here, might be here...
+* Solutions down here might be optimal
+* We can see a pattern for the optimal solutions
 
 :::
 
@@ -754,7 +759,8 @@ plt.show()
 
 ::: {.notes}
 1. Optimal solutions can be described with...
-2. This is the kind of design rule knowledge we want to find.
+1. **Click**
+2. This is the kind of design rule knowledge we want to find in this thesis
 :::
 
 ## Introduction
@@ -800,7 +806,7 @@ Can be realized in two ways...
 ## Introduction
 
 ::: {.slidecontent .v-center}
-Motivation 
+<span style="font-size: 125%;">Motivation</span>
 
 * Knowledge Discovery
   * Benefits to *decision support* by offering *insights* into the optimization process and results
@@ -966,10 +972,11 @@ Minimize $f_1(\bf x)$ and $f_2(\bf x)$
 :::
 
 ::: {.notes}
-Sub-optimal solutions are wasteful  
-    we can use knowledge to reduce number of solutions needed to converge
-
-One of the very common MOEAs is NSGA-II
+* We use MOEAs to solve MOOPs...
+* ...
+* Sub-optimal solutions are wasteful  
+* we can use knowledge to reduce number of solutions needed to converge
+* One of the very common MOEAs is NSGA-II
 :::
 
 ## Background
@@ -1315,7 +1322,7 @@ plt.show()
     <ul>
     <li>How to visualize *preferences*?</li>
     <li>How to visualize *constraints*?</li>
-    <li>How to visualize *knowledge*?</li>
+    <li>How to visualize ***knowledge***?</li>
     </ul>
     </li>
 </ul>
@@ -1325,6 +1332,7 @@ plt.show()
 :::
 
 ::: {.notes}
+Visualizations are a good tool for decision support    
 Many ways to visualize the same solutions  
 No method is better or worse for all solution sets
 
@@ -1364,7 +1372,7 @@ Knowledge Discovery in MOO
       <li>Does *not* have a clear, formal notation</li>
       <li>Can *not* easily be transferred</li>
       <li>Requires interpretation</li>
-      <li>Does *not* answer ***what?***</li>
+      <li>Does *not* answer ***how?***</li>
     </ul>
   </li>
 </ul>
@@ -1396,6 +1404,10 @@ This thesis work focused on explicit knowledge representations
 
 # Research Approach
 
+::: {.notes}
+so what did I actually do?
+:::
+
 ## Research Approach
 
 ::: {.slidecontent .v-center}
@@ -1411,6 +1423,10 @@ This thesis work focused on explicit knowledge representations
   * Appropriate for decision support and KDO
   * *Simple* and easy to understand knowledge 
 
+:::
+
+::: {.notes}
+The whole work is motivated by the belief that knowledge discovery can benefit optimization and decision making
 :::
 
 ## Research Approach
