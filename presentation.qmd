@@ -2,7 +2,7 @@
 title: "Knowledge Discovery for<br> Interactive Decision Support and<br> Knowledge-Driven Optimization"
 author: "Henrik Smedberg"
 subtitle: "<strong>Main Supervisor:</strong><br>Sunith Bandaru<br><br><strong>Co-supervisors:</strong><br>Amos Ng<br>Maria Riveiro"
-footer: "his.se/smeh &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PhD Defense Presentation"
+footer: "<span style='padding-left: 300px;'>his.se/smeh</span> <span style='padding-left: 150px; padding-right: 15px;'>PhD Defense Presentation</span> | <span style='padding-left: 15px;'>Henrik Smedberg</span>"
 bibliography: references.bib
 # title-slide-attributes:
 #     data-background-image: title-background.png
@@ -12,8 +12,8 @@ format:
     css: style.css
     # background-image: slide-background.png 
     # background-size: contain
-    date: 27/09/2023
-    date-format: "MMM D, YYYY"
+    date: 09/27/2023
+    date-format: "DD MMM, YYYY"
     slide-number: true
     chalkboard: true
     fig-format: svg
@@ -1348,8 +1348,10 @@ Knowledge Discovery in MOO
 ::: {.column width="50%"}
 
 * *Implicit* knowledge
-  * Clustering
-  * Manifold learning
+  * Clustering [@jeong2008multidimensional]
+  * Manifold learning 
+    * Self-Organizing Maps [@kobayashi2016pareto]
+    * t-SNE [@van2008visualizing]
   * ...
 
 :::
@@ -1357,7 +1359,8 @@ Knowledge Discovery in MOO
 
 * *Explicit* knowledge
   * Innovization [@deb2006innovization]
-  * Decision rules
+  * Decision rules [@sugimura2009kriging]
+  * Variable trends [@bandaru2019trend]
   * ...
 
 :::
@@ -1371,8 +1374,8 @@ Knowledge Discovery in MOO
     <Ul>
       <li>Does *not* have a clear, formal notation</li>
       <li>Can *not* easily be transferred</li>
-      <li>Requires interpretation</li>
-      <li>Does *not* answer ***how?***</li>
+      <li>Can *not* be diectrly applied without further interpretation</li>
+      <!-- <li>Does *not* answer ***how?***</li> -->
     </ul>
   </li>
 </ul>
@@ -1384,9 +1387,8 @@ Knowledge Discovery in MOO
   <li style="list-style-type: none">
     <Ul>
       <li>Has a clear, formal notation</li>
-      <li>Can be transferred</li>
-      <li>Does *not* require interpretation</li>
-      <li>Used both *algorithmically* and for <br>*decision support*</li>
+      <li>Can be transferred between processees</li>
+      <li>Can be applied directly both *algorithmically* and for *decision support*</li>
     </ul>
   </li>
 </ul>
@@ -1411,18 +1413,29 @@ so what did I actually do?
 ## Research Approach
 
 ::: {.slidecontent .v-center}
-
+:::: {.columns}
+::: {.column }
 * Motivation
   * *Knowledge discovery* can benefit optimization and decision making
-
-::: {style="height: 1vw;"}
-:::
 
 * Aim
   * Develop methods for meaningful *knowledge discovery* MOO
   * Appropriate for decision support and KDO
   * *Simple* and easy to understand knowledge 
+:::
+::: {.column .fragment .fade-in}
 
+* Research Methodology
+  * Design Science [@hevner2008design]
+    * Designing *artifacts* motivated by *business needs*
+    * Rigorous *testing and development* and a clear *contribution*
+    * *Communicate results* with scientific communities and stakeholders  
+
+::: {.fragment .fade-in}
+* Produce useful *artifacts*
+:::
+:::
+::::
 :::
 
 ::: {.notes}
@@ -1500,7 +1513,7 @@ The whole work is motivated by the belief that knowledge discovery can benefit o
 * RQ3b - online KDO
 :::
 
-## Research Approach
+<!-- ## Research Approach
 
 ::: {.slidecontent .v-center}
 
@@ -1512,8 +1525,11 @@ Research Methodology
   * *Communicate results* with scientific communities and stakeholders  
     &nbsp;
 
-  * Produce useful *artifacts*
+::: {.fragment .fade-in}
+* Produce useful *artifacts*
 :::
+::: -->
+
 
 ::: {.notes}
 Design Science  
@@ -1595,9 +1611,9 @@ Algorithms, frameworks, instantiations, ...
 * Decision rules
     * Flexible Pattern Mining (*FPM*)  
     [@partb]
-    * Finds rules describing the *decision space*
-    * *Selected* and *Unselected* sets of solutions in the *objective space*
-    * Interactive graph-based visualization <psmall>(Paper III)</psmall>
+    * DM specifies *selected* and *unselected* sets of solutions in the *objective space*
+    * FPM finds rules in the *decision space* that describes DM's *preferences*
+    * Interactive *graph-based visualization* of FPM rules <psmall>(Paper III)</psmall>
 :::
 ::::
 :::
@@ -1611,8 +1627,8 @@ Algorithms, frameworks, instantiations, ...
 ::: {.column}
 ::: {.v-center style="width: 50%"}
 * Trend Mining
-  * Find if *variables affect* the *objective space* according to a trend
-  * Monotonic trends
+  * <span style="width: 150%; display: block;">Find if *variables* follow a trend in the *objective space*</span>
+  * Limited to monotonic trends
   * How do different *variables change* along different directions in the *objective space*?  
     &nbsp;
   1. <lsmall>Finding an optimized reference direction</lsmall>
@@ -1718,15 +1734,16 @@ $\quad$
 * Influence Score
   * Quantify variables' relations to  
     *diversity* or *convergence*
-  * InfS-P <small_text>(INFluence Score by *Pareto-front*)</small_text>
-  * InfS-R <small_text>(INFluence Score by *Rank*)<small_text>
-  * Finds a *score* for each variable
+  * InfS-P <small_text>(INFluence Score for *Pareto-front*)</small_text>
+  * InfS-R <small_text>(INFluence Score for *Ranks*)<small_text>
+  * Finds a *normalized score* for each variable
   * Able to find expected groups of variables  
     in tested problem cases
+  * Applied to an industiral use-case
 
 :::
 :::
-::: {.column width="50%" style="text-align: center;"}
+::: {.column width="50%" style="text-align: center; padding-top: 50px;"}
 ::: {layout="[[1,1],[1,1],[1,1],[1,1]]" layout-valign="bottom" .tight}
 
 ::: {.threequarter}
@@ -1810,7 +1827,7 @@ DTLZ problems have a number of **positional** and **directional** variables
 
 * User study
     * Representative real-world tasks
-    * 20 participants, Positive feedback
+    * 20 participants, overall positive feedback
 
 
 ![](figures\mimerresponses.png){style="z-index: -1; position: absolute; margin-top: -35px; width: 50%;"}
@@ -1852,8 +1869,8 @@ DTLZ problems have a number of **positional** and **directional** variables
 
 ::: {.column}
 *  Online KDO
-    * Discover knowledge about the *current* optimization
-    * Feed this knowledge *back into* the optimization
+    * Discover knowledge *during* optimization
+    * Apply this knowledge in *current* optimization
 :::
 
 ::: {style="scale:75%; text-align: center;"}
@@ -1871,17 +1888,20 @@ Both forms of KDO can *inform* the decision maker
 ::: {.slidecontent}
 
 :::: {.columns}
-::: {.column width="50%"}
+::: {.column style="padding-top: 20px;"}
 
 ::: {style=""}
-* Reconfigurable manufacturing system (RMS)
+* <span style="display: block; width: 150%;">Reconfigurable manufacturing system (RMS)</span>
     * Considered *different scenarios* of same RMS
     * *Grouped scenarios together* based on operators and proportions between parts
     * *Discovered knowledge* among the groups
     * Used *Mimer* for interactive knowledge discovery  
 
+::: {style="height:10px;"}
+:::
+
 * Offline KDO
-    * Applied knowledge in optimization of new scenarios
+    * Applied knowledge as constraints in the optimization of *new scenarios*
     * Obtained better convergence
 
 :::
@@ -1934,17 +1954,17 @@ found better convergence
 :::: {.columns}
 ::: {.column width="50%"}
 * *Knowledge-driven* mutation operator
-  * Sample an empirical distribution model from FPM rules
-  * Modular, for Preference-based MOEAs
+  * Sample an empirical distribution model built from FPM rules
+  * Modular approach for preference-based MOEAs
   * R-metric [@li2017r]
   * EH-metric [@ehmetric]
 
-![](figures\onlinekdopaper.png){style="width: 80%; margin-top: -10px; padding-left: 200px;"}
+![](figures\onlinekdopaper.png){style="width: 100%; margin-top: -10px; padding-left: 100px;"}
 
 :::
 ::: {.column width="50%"}
 
-![](figures\kdoflow.drawio.svg){style="width: 90%; margin-left: 2vw;"}
+![](figures\kdoflow.drawio.svg){style="width: 85%; margin-left: 2vw;"}
 
 :::
 ::::
@@ -1973,9 +1993,9 @@ We compared 3 different ones and found better convergence rates
 * Variable importance for *Offline* and *Online KDO*
   * Variable importance (*InfS-R*)
   * Discovered either *offline* or *online*
-  * Apply *stricter* convergence for  
+  * Apply knowledge to restrict  
   *convergence-related* variables
-  * Improvement in terms of HV and  
+  * Improvement in terms of Hypervolume (HV) and  
     convergence rate (AUC)
 
 ![](./figures/infskdo_plots.jpg){style="width:50%;"}
@@ -2070,7 +2090,7 @@ Offline KDO is the best, online KDO is the second best
 * *Mimer and decision support*
   * Add more knowledge discovery methods
   * Add more visualization methods
-  * Add compatibility with existing optimization engines
+  * Add compatibility with existing optimization platforms
 :::
 ::::
 
@@ -2117,7 +2137,7 @@ function myFunction() {
 myFunction();
 </script>
 
-::: {#refs style="font-size: 55%; padding-top: 50px;"}
+::: {#refs style="font-size: 50%; padding-top: 50px;"}
 :::
 
 # Thank you
