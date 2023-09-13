@@ -477,19 +477,32 @@ Henrik Smedberg
 <ul>
 <li>Decision Making
 <ul>
-<li>Choose the final car to implement in practice<br>
-&nbsp;</li>
-<li>How are the cars different?</li>
-<li>How are the cars similar?</li>
-<li>What is <em>special</em> about the optimal cars?</li>
+<li>Choose the final car to implement in practice</li>
 </ul></li>
 </ul>
+<div class="fragment fade-in">
+<ul>
+<li style="list-style-type: none">
+<ul>
+<li>
+How are the cars different?
+</li>
+<li>
+How are the cars similar?
+</li>
+<li>
+What is <em>special</em> about the optimal cars?
+</li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div class="fragment fade-in">
 <ul>
 <li>Knowledge Discovery
 <ul>
-<li>What can we learn from the optimization?</li>
+<li>What can we <em>learn</em> from the optimization?</li>
 </ul></li>
 </ul>
 </div>
@@ -585,8 +598,10 @@ Update <em>problem formulation</em>
 <li>Data mining and machine learning</li>
 <li>Find relationships, patterns, rules, …</li>
 <li>Describe <em>good</em> solutions in terms of the <em>decision space</em><br>
-&nbsp;</li>
-<li>Inform <em>Decision Maker</em> (DM) to make better decisions</li>
+&nbsp;
+</li><li class="important-li">
+Inform <em>Decision Maker</em> (DM) to make better decisions
+</li>
 </ul></li>
 </ul>
 </div>
@@ -671,8 +686,8 @@ function drawLine(start_point, end_point, ctrl_point1, ctrl_point2, draw_dots = 
     }
 
     if (draw_arrow) {
-        var coord = getBezierXY(0.995, start_point[0], start_point[1], ctrl_point1[0], ctrl_point1[1], ctrl_point2[0], ctrl_point2[1], end_point[0], end_point[1]);
-        var angle = getBezierAngle(0.995, start_point[0], start_point[1], ctrl_point1[0], ctrl_point1[1], ctrl_point2[0], ctrl_point2[1], end_point[0], end_point[1]);
+        var coord = getBezierXY(0.999, start_point[0], start_point[1], ctrl_point1[0], ctrl_point1[1], ctrl_point2[0], ctrl_point2[1], end_point[0], end_point[1]);
+        var angle = getBezierAngle(0.999, start_point[0], start_point[1], ctrl_point1[0], ctrl_point1[1], ctrl_point2[0], ctrl_point2[1], end_point[0], end_point[1]);
 
         ctx.save();
         ctx.beginPath();
@@ -701,13 +716,13 @@ canvas.height = displayHeight * scale;
 
 
 start_point = [438, 502];
-end_point = [1638, 500];
+end_point = [1642, 496];
 ctrl_point1 = [800, 60];
 ctrl_point2 = [1000, 120];
 drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
 
 start_point = [375, 795];
-end_point = [1688, 689];
+end_point = [1690, 695];
 ctrl_point1 = [800, 1100];
 ctrl_point2 = [1500, 920];
 drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
@@ -745,20 +760,20 @@ drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
 <li><span class="math inline">\(x_2 &lt; 0.25\)</span></li>
 </ul></li>
 </ul>
-<div style="padding-top: 70px;">
+<div style="padding-top: 70px;  width: 200%; display: block;">
 <ul>
 <li><em>Decision rules</em> as knowledge</li>
 </ul>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="columns">
-<div class="column threequarter" style="position: absolute; left: 400px; ">
+<div class="column threequarter" style="position: absolute; left: 400px; top: -72px;">
 <div class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-6-output-1.svg"></p>
 </div>
 </div>
-</div><div class="column threequarter" style="position: absolute; left: 800px">
+</div><div class="column threequarter" style="position: absolute; left: 800px; top: -72px;">
 <div class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-7-output-1.svg"></p>
@@ -769,7 +784,7 @@ drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
 </div>
 </div>
 </div>
-<canvas id="canvas2" width="650" height="347" style="top: 200px; left: 544px; position: absolute" class="fragment fade-in visible current-fragment" data-fragment-index="0">
+<canvas id="canvas2" width="650" height="347" style="top: 150px; left: 544px; position: absolute" class="fragment fade-in visible current-fragment" data-fragment-index="0">
 </canvas>
 <script type="text/javascript">
     var canvas = document.getElementById('canvas2');
@@ -794,7 +809,7 @@ drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
     ctx.drawImage(canvas, 0, 0);
 
     start_point = [850, 490+160];
-    end_point = [1193, 5+160];
+    end_point = [1193, 20+160];
     ctrl_point1 = [(start_point[0]+end_point[0])/2, start_point[1]];
     ctrl_point2 = [end_point[0], (start_point[1]+end_point[1])/2];
     drawLine(start_point, end_point, ctrl_point1, ctrl_point2, false, false);
@@ -803,7 +818,7 @@ drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
     ep1 = end_point;
 
     start_point = [850, 490-60 + 160];
-    end_point = [1193-50, 5+160];
+    end_point = [1193-50, 20+160];
     ctrl_point1 = [(start_point[0]+end_point[0])/2, start_point[1]];
     ctrl_point2 = [end_point[0], (start_point[1]+end_point[1])/2];
     drawLine(start_point, end_point, ctrl_point1, ctrl_point2, false, false);
@@ -859,7 +874,7 @@ drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
 <ul>
 <li><em>Offline KDO</em>
 <ul>
-<li>Incorporate knowledge from previous optimization, in future optimizations</li>
+<li>Incorporate knowledge from <em>previous</em> optimizations, in <em>future</em> optimizations</li>
 <li>Involves the DM</li>
 </ul></li>
 </ul>
@@ -867,7 +882,7 @@ drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
 <ul>
 <li><em>Online KDO</em>
 <ul>
-<li>Discover and exploit knowledge,<br>
+<li><em>Discover</em> and <em>exploit</em> knowledge,<br>
 as part of the algorithm</li>
 <li>Also generates knowledge for the DM</li>
 </ul></li>
@@ -902,9 +917,14 @@ Can be realized in two ways…</p>
 <ul>
 <li>Knowledge Discovery
 <ul>
-<li>Benefits to <em>decision support</em> by offering <em>insights</em> into the optimization process and results</li>
+<li>Benefits to <em>decision support</em> by offering <em>insights</em> into the optimization process, and results</li>
 </ul></li>
-<li>KDO
+</ul>
+<div style="height: 20px;">
+
+</div>
+<ul>
+<li>Knowledge-Driven Optimization
 <ul>
 <li>Benefits to <em>optimization</em> by utilizing design rules for <em>improved convergence behaviors</em></li>
 </ul></li>
@@ -922,17 +942,19 @@ Can be realized in two ways…</p>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li>Multi-Objective Evolutionary Algorithms (<em>MOEAs</em>)
+<li><span style="width:200%; display:block;">Multi-Objective Evolutionary Algorithms (<em>MOEAs</em>)</span>
 <ul>
 <li>Inspired by behaviors found in nature</li>
 <li>Evolve a population of solutions over generations</li>
 <li>Balance <em>convergence</em> and <em>diversity</em><br>
-&nbsp;</li>
-<li>Generate many sub-optimal solutions</li>
+&nbsp;
+</li><li class="minus-li">
+Generate many sub-optimal solutions
+</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:40%;">
-<div style="font-size: 50%; padding-top: 50px;">
+<div style="font-size: 50%; padding-top: 75px;">
 <div style="padding-left: 100px;">
 <p>MOOP formulation:</p>
 </div>
@@ -947,7 +969,7 @@ Can be realized in two ways…</p>
 </div>
 </div>
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="padding-top: 50px; width:40%;">
 <ul>
 <li>NSGA-II <span class="citation" data-cites="deb2002fast">(<a href="#/references" role="doc-biblioref" onclick="">Deb et al. 2002</a>)</span>
 <ul>
@@ -956,7 +978,7 @@ Can be realized in two ways…</p>
 </ul></li>
 </ul>
 </div><div class="column" style="width:60%;">
-<div class="quarto-layout-panel" style="padding-left:60px;">
+<div class="quarto-layout-panel" style="padding-left:60px; padding-top:40px;">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell quarto-layout-cell" data-execution_count="7" style="flex-basis: 33.3%;justify-content: center;">
 <div class="cell-output cell-output-display">
@@ -1254,12 +1276,12 @@ clustering may find similar solutions but does not answer <strong>how</strong> t
 </ul></li>
 <li>Aim
 <ul>
-<li>Develop methods for meaningful <em>knowledge discovery</em> MOO</li>
+<li>Develop methods for meaningful <em>knowledge discovery</em> in MOO solutions</li>
 <li>Appropriate for decision support and KDO</li>
 <li><em>Simple</em> and easy to understand knowledge</li>
 </ul></li>
 </ul>
-</div><div class="column fragment fade-in">
+</div><div class="column fragment fade-in" style="padding-top: 10px;">
 <ul>
 <li>Research Methodology
 <ul>
@@ -1267,15 +1289,14 @@ clustering may find similar solutions but does not answer <strong>how</strong> t
 <ul>
 <li>Designing <em>artifacts</em> motivated by <em>business needs</em></li>
 <li>Rigorous <em>testing and development</em> and a clear <em>contribution</em></li>
-<li><em>Communicate results</em> with scientific communities and stakeholders</li>
+<li><em>Communicate results</em> with scientific communities and stakeholders<br>
+&nbsp;
+</li><li class="important-li">
+Produce useful <em>artifacts</em>
+</li>
 </ul></li>
 </ul></li>
 </ul>
-<div class="fragment fade-in">
-<ul>
-<li>Produce useful <em>artifacts</em></li>
-</ul>
-</div>
 </div>
 </div>
 </div>
@@ -1303,7 +1324,7 @@ clustering may find similar solutions but does not answer <strong>how</strong> t
 <p><strong>RQ1</strong></p>
 </div>
 <div style="position:absolute; padding-left: 70px; width: 55%">
-<p><strong>Knowledge Discovery.</strong> How can different <em>representations of knowledge</em> be extracted from the solutions of multi-objective objective optimization problems, while considering diverse multi-objective optimization problems?</p>
+<p><strong>Knowledge Discovery.</strong> How can different <em>representations of knowledge</em> be extracted from the solutions of multi-objective optimization problems, while considering diverse multi-objective optimization scenarios?</p>
 </div>
 </div>
 <div style="padding-top: 120px">
@@ -1509,7 +1530,7 @@ And they should have a contribution both to industrial needs and to the scientif
 <h2>RQ1: <em>Knowledge Discovery</em></h2>
 <div class="slidecontent">
 <div style="scale: 75%; padding-top: 10px; padding-bottom: 10px;">
-<p><italic>How can different <em>representations of knowledge</em> be extracted from the solutions of multi-objective objective optimization problems, while considering diverse multi-objective optimization problems?</italic></p>
+<p><italic>How can different <em>representations of knowledge</em> be extracted from the solutions of multi-objective optimization problems, while considering diverse multi-objective optimization scenarios?</italic></p>
 </div>
 <div class="columns">
 <div class="column">
@@ -2086,21 +2107,18 @@ in benchmark problems we can see and improvement (lower is better in the figure)
 
 </div><div class="column" style="width:50%;">
 <ul>
-<li><em>RQs</em>
+<li><em>Knowledge discovery</em>
 <ul>
-<li>Design science to develop artifacts</li>
-<li>Posed as open questions, can be approached in many ways</li>
-<li>Future research can consider same RQs<br>
-</li>
+<li>More knowledge representations</li>
+<li>Design knowledge base for different knowledge representations</li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:50%;">
+</div><div class="column fragment fade-in" style="width:50%;">
 <ul>
-<li><em>Mimer and decision support</em>
+<li><em>Decision support</em>
 <ul>
-<li>Add more knowledge discovery methods</li>
-<li>Add more visualization methods</li>
-<li>Add compatibility with existing optimization platforms</li>
+<li>Efficient storing and retrevial of knoweldge</li>
+<li>Group decision making</li>
 </ul></li>
 </ul>
 </div>
@@ -2109,19 +2127,20 @@ in benchmark problems we can see and improvement (lower is better in the figure)
 
 </div>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column fragment fade-in" style="width:50%;">
 <ul>
-<li><em>Knowledge discovery</em>
+<li><em>Mimer</em>
 <ul>
-<li>More knowledge representations</li>
-<li>Design knowledge base for different knowledge representations</li>
+<li>Add more knowledge discovery methods</li>
+<li>Add more visualization methods</li>
+<li>Add compatibility with existing optimization platforms</li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:50%;">
+</div><div class="column fragment fade-in" style="width:50%;">
 <ul>
 <li><em>KDO</em>
 <ul>
-<li>Find appropriate use-cases</li>
+<li>Find more appropriate use-cases</li>
 <li>Algorithms centered around knowledge</li>
 <li>Knowledge-based metaphors to drive the search</li>
 </ul></li>

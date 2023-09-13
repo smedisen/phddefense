@@ -83,7 +83,7 @@ format:
 :::
 
 
-## Introduction 
+## Introduction
 
 ::: {.slidecontent style="position: absolute; top: 120px;"}
 :::: {.columns}
@@ -207,16 +207,22 @@ plt.show()
 
 ::: {style="padding-top: 0.75vw"}
 * Decision Making 
-  * Choose the final car to implement in practice  
-    &nbsp;
-  * How are the cars different?
-  * How are the cars similar?
-  * What is *special* about the optimal cars?
+  * Choose the final car to implement in practice
+
+::: {.fragment .fade-in}
+<ul><li style="list-style-type: none">
+  <ul>
+    <li> How are the cars different? </li>
+    <li> How are the cars similar? </li>
+    <li> What is *special* about the optimal cars? </li>
+  </ul>
+</li></ul>
+:::
 :::
 
 ::: {.fragment .fade-in}
 * Knowledge Discovery
-  * What can we learn from the optimization?
+  * What can we *learn* from the optimization?
 
 :::
 :::
@@ -330,7 +336,7 @@ plt.show()
   * Find relationships, patterns, rules, ... 
   * Describe *good* solutions in terms of the *decision space*  
     &nbsp;
-  * Inform *Decision Maker* (DM) to make better decisions
+  <li class="important-li"> Inform *Decision Maker* (DM) to make better decisions</li>
 
 :::
 
@@ -511,8 +517,8 @@ function drawLine(start_point, end_point, ctrl_point1, ctrl_point2, draw_dots = 
     }
 
     if (draw_arrow) {
-        var coord = getBezierXY(0.995, start_point[0], start_point[1], ctrl_point1[0], ctrl_point1[1], ctrl_point2[0], ctrl_point2[1], end_point[0], end_point[1]);
-        var angle = getBezierAngle(0.995, start_point[0], start_point[1], ctrl_point1[0], ctrl_point1[1], ctrl_point2[0], ctrl_point2[1], end_point[0], end_point[1]);
+        var coord = getBezierXY(0.999, start_point[0], start_point[1], ctrl_point1[0], ctrl_point1[1], ctrl_point2[0], ctrl_point2[1], end_point[0], end_point[1]);
+        var angle = getBezierAngle(0.999, start_point[0], start_point[1], ctrl_point1[0], ctrl_point1[1], ctrl_point2[0], ctrl_point2[1], end_point[0], end_point[1]);
 
         ctx.save();
         ctx.beginPath();
@@ -541,13 +547,13 @@ canvas.height = displayHeight * scale;
 
 
 start_point = [438, 502];
-end_point = [1638, 500];
+end_point = [1642, 496];
 ctrl_point1 = [800, 60];
 ctrl_point2 = [1000, 120];
 drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
 
 start_point = [375, 795];
-end_point = [1688, 689];
+end_point = [1690, 695];
 ctrl_point1 = [800, 1100];
 ctrl_point2 = [1500, 920];
 drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
@@ -575,14 +581,14 @@ drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
   * $x_1 < 0.25$
   * $x_2 < 0.25$
 
-::: {style="padding-top: 70px;"}
+::: {style="padding-top: 70px;  width: 200%; display: block;"}
 * *Decision rules* as knowledge
 :::
 :::
 
 ::: {.column width="50%"}
 ::::{.columns}
-::: {.column width="50%" .threequarter style="position: absolute; left: 400px; "}
+::: {.column width="50%" .threequarter style="position: absolute; left: 400px; top: -72px;"}
 ```{python}
 # type: ignore
 import numpy as np
@@ -642,7 +648,7 @@ plt.show()
 ```
 :::
 
-::: {.column width="50%" .threequarter style="position: absolute; left: 800px"}
+::: {.column width="50%" .threequarter style="position: absolute; left: 800px; top: -72px;"}
 ```{python}
 # type: ignore
 import numpy as np
@@ -700,7 +706,7 @@ plt.show()
 ::::
 :::
 
-<canvas id="canvas2" width="650" height="347" style="top: 200px; left: 544px; position: absolute" class="fragment fade-in visible current-fragment" data-fragment-index="0">
+<canvas id="canvas2" width="650" height="347" style="top: 150px; left: 544px; position: absolute" class="fragment fade-in visible current-fragment" data-fragment-index="0">
 </canvas>
 
 <script type="text/javascript">
@@ -726,7 +732,7 @@ plt.show()
     ctx.drawImage(canvas, 0, 0);
 
     start_point = [850, 490+160];
-    end_point = [1193, 5+160];
+    end_point = [1193, 20+160];
     ctrl_point1 = [(start_point[0]+end_point[0])/2, start_point[1]];
     ctrl_point2 = [end_point[0], (start_point[1]+end_point[1])/2];
     drawLine(start_point, end_point, ctrl_point1, ctrl_point2, false, false);
@@ -735,7 +741,7 @@ plt.show()
     ep1 = end_point;
 
     start_point = [850, 490-60 + 160];
-    end_point = [1193-50, 5+160];
+    end_point = [1193-50, 20+160];
     ctrl_point1 = [(start_point[0]+end_point[0])/2, start_point[1]];
     ctrl_point2 = [end_point[0], (start_point[1]+end_point[1])/2];
     drawLine(start_point, end_point, ctrl_point1, ctrl_point2, false, false);
@@ -780,12 +786,12 @@ Knowledge-Driven Optimization (*KDO*) [@parta]
 :::: {.columns}
 ::: {.column .fragment .fade-in}
 * *Offline KDO*
-  * Incorporate knowledge from previous optimization, in future optimizations
+  * Incorporate knowledge from *previous* optimizations, in *future* optimizations
   * Involves the DM
 :::
 ::: {.column .fragment .fade-in}
 * *Online KDO*
-  * Discover and exploit knowledge,  
+  * *Discover* and *exploit* knowledge,  
     as part of the algorithm
   * Also generates knowledge for the DM
 :::
@@ -809,9 +815,12 @@ Can be realized in two ways...
 <span style="font-size: 125%;">Motivation</span>
 
 * Knowledge Discovery
-  * Benefits to *decision support* by offering *insights* into the optimization process and results
+  * Benefits to *decision support* by offering *insights* into the optimization process, and results
 
-* KDO
+::: {style="height: 20px;"}
+:::
+
+* Knowledge-Driven Optimization
   * Benefits to *optimization* by utilizing design rules for *improved convergence behaviors*
 :::
 
@@ -822,15 +831,15 @@ Can be realized in two ways...
 ::: {.slidecontent}
 :::: {.columns}
 ::: {.column width="60%"}
-* Multi-Objective Evolutionary Algorithms (*MOEAs*)
+* <span style="width:200%; display:block;">Multi-Objective Evolutionary Algorithms (*MOEAs*)</span>
   * Inspired by behaviors found in nature
   * Evolve a population of solutions over generations
   * Balance *convergence* and *diversity*  
     &nbsp;
-  * Generate many sub-optimal solutions
+  <li class="minus-li"> Generate many sub-optimal solutions</li>
 :::
 ::: {.column width="40%"}
-::: {style="font-size: 50%; padding-top: 50px;"}
+::: {style="font-size: 50%; padding-top: 75px;"}
 ::: {style="padding-left: 100px;"}
 MOOP formulation:
 :::
@@ -848,14 +857,14 @@ MOOP formulation:
 ::::
 
 :::: {.columns}
-::: {.column width="40%"}
+::: {.column style="padding-top: 50px; width:40%;"}
 * NSGA-II [@deb2002fast]
   * Non-Dominated Sorting
   * Crowding distance
 :::
 
 ::: {.column width="60%"}
-::: {layout="[1,1,1]" style="padding-left:60px;"}
+::: {layout="[1,1,1]" style="padding-left:60px; padding-top:40px;"}
 ```{python}
 # type: ignore
 
@@ -1419,21 +1428,19 @@ so what did I actually do?
   * *Knowledge discovery* can benefit optimization and decision making
 
 * Aim
-  * Develop methods for meaningful *knowledge discovery* MOO
+  * Develop methods for meaningful *knowledge discovery* in MOO solutions
   * Appropriate for decision support and KDO
   * *Simple* and easy to understand knowledge 
 :::
-::: {.column .fragment .fade-in}
+::: {.column style="padding-top: 10px;" .fragment .fade-in}
 
 * Research Methodology
   * Design Science [@hevner2008design]
     * Designing *artifacts* motivated by *business needs*
     * Rigorous *testing and development* and a clear *contribution*
     * *Communicate results* with scientific communities and stakeholders  
-
-::: {.fragment .fade-in}
-* Produce useful *artifacts*
-:::
+    &nbsp;
+  <li class="important-li"> Produce useful *artifacts*</li>
 :::
 ::::
 :::
@@ -1453,7 +1460,7 @@ The whole work is motivated by the belief that knowledge discovery can benefit o
 **RQ1**
 :::
 ::: {style="position:absolute; padding-left: 70px; width: 55%"}
-**Knowledge Discovery.** How can different *representations of knowledge* be extracted from the solutions of multi-objective objective optimization problems, while considering diverse multi-objective optimization problems?
+**Knowledge Discovery.** How can different *representations of knowledge* be extracted from the solutions of multi-objective optimization problems, while considering diverse multi-objective optimization scenarios?
 :::
 :::
 
@@ -1593,7 +1600,7 @@ Algorithms, frameworks, instantiations, ...
 ::: {.slidecontent}
 
 ::: {style="scale: 75%; padding-top: 10px; padding-bottom: 10px;"}
-<italic>How can different *representations of knowledge* be extracted from the solutions of multi-objective objective optimization problems, while considering diverse multi-objective optimization problems?</italic>
+<italic>How can different *representations of knowledge* be extracted from the solutions of multi-objective optimization problems, while considering diverse multi-objective optimization scenarios?</italic>
 :::
 
 :::: {.columns}
@@ -2081,16 +2088,14 @@ Offline KDO is the best, online KDO is the second best
 :::
 
 ::: {.column width="50%"}
-* *RQs*
-  * Design science to develop artifacts
-  * Posed as open questions, can be approached in many ways 
-  * Future research can consider same RQs  
+* *Knowledge discovery*
+  * More knowledge representations
+  * Design knowledge base for different knowledge representations
 :::
-::: {.column width="50%"}
-* *Mimer and decision support*
-  * Add more knowledge discovery methods
-  * Add more visualization methods
-  * Add compatibility with existing optimization platforms
+::: {.column width="50%" .fragment .fade-in}
+* *Decision support*
+  * Efficient storing and retrevial of knoweldge
+  * Group decision making
 :::
 ::::
 
@@ -2098,14 +2103,16 @@ Offline KDO is the best, online KDO is the second best
 :::
 
 :::: {.columns}
-::: {.column width="50%"}
-* *Knowledge discovery*
-  * More knowledge representations
-  * Design knowledge base for different knowledge representations
+::: {.column width="50%" .fragment .fade-in}
+* *Mimer*
+  * Add more knowledge discovery methods
+  * Add more visualization methods
+  * Add compatibility with existing optimization platforms
+
 :::
-::: {.column width="50%"}
+::: {.column width="50%" .fragment .fade-in}
 * *KDO*
-  * Find appropriate use-cases
+  * Find more appropriate use-cases
   * Algorithms centered around knowledge
   * Knowledge-based metaphors to drive the search
 :::

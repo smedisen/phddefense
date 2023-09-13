@@ -198,3 +198,12 @@ color: transparent;
 italic {
     font-style: italic;
 }
+
+.important-li::marker {
+    content: '▶   ';
+    font-size: 60%;
+}
+
+.minus-li::marker {
+    content: "-  ";
+}
