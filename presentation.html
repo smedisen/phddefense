@@ -8,7 +8,7 @@
 <link href="presentation_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="presentation_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.290">
+  <meta name="generator" content="quarto-1.4.330">
 
   <meta name="author" content="Henrik Smedberg">
   <title>Knowledge Discovery for  Interactive Decision Support and  Knowledge-Driven Optimization</title>
@@ -49,7 +49,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="style.css">
   <link href="presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -178,7 +178,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -365,7 +366,6 @@ Henrik Smedberg
 <h1>Introduction</h1>
 <div class="ignore" style="display: none">
 <p><span class="citation" data-cites="trendmining2">Smedberg et al. (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span> <span class="citation" data-cites="infspaper">Smedberg and Bandaru (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span> <span class="citation" data-cites="ejorpaper">Smedberg and Bandaru (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> <span class="citation" data-cites="mimerpaper">Smedberg et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> <span class="citation" data-cites="offlinekdo">Smedberg et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span> <span class="citation" data-cites="fpmoperator">Smedberg and Bandaru (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span> <span class="citation" data-cites="infskdo">Smedberg, Bandaru, and Ng (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></p>
-
 <style>
 .reveal .footer {
   height: 5%;
@@ -438,9 +438,9 @@ Henrik Smedberg
 </ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="cell" data-execution_count="1">
+<div id="a92334fd" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
-<p><img data-src="presentation_files/figure-revealjs/cell-2-output-1.svg" class="quarto-discovered-preview-image"></p>
+<p><img data-src="presentation_files/figure-revealjs/cell-2-output-1.svg"></p>
 </div>
 </div>
 </div>
@@ -507,7 +507,7 @@ What is <em>special</em> about the optimal cars?
 </ul>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="cell" data-execution_count="2">
+<div id="8fecfddb" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-3-output-1.svg"></p>
 </div>
@@ -538,6 +538,8 @@ What is <em>special</em> about the optimal cars?
 <section id="introduction-3" class="slide level2">
 <h2>Introduction</h2>
 <div class="slidecontent v-center">
+<div class="columns">
+<div class="column">
 <ul>
 <li>Multi-Objective Optimization
 <ul>
@@ -568,30 +570,7 @@ Update <em>problem formulation</em>
 </li>
 </ul>
 </div>
-</div>
-<aside class="notes">
-<ol type="1">
-<li>Optimization for finding solutions</li>
-<li>Decision making for analysis and choosing a final solution</li>
-<li>But that’s not all…</li>
-<li>You might want to learn the capabilities of the formulation</li>
-<li>Learn to improve the next-coming optimization</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="introduction-4" class="slide level2">
-<h2>Introduction</h2>
-<div class="slidecontent v-center">
+</div><div class="column v-center fragment fade-in">
 <ul>
 <li>Knowledge Discovery
 <ul>
@@ -605,10 +584,19 @@ Inform <em>Decision Maker</em> (DM) to make better decisions
 </ul></li>
 </ul>
 </div>
+</div>
+</div>
 <aside class="notes">
-<p>Knowledge Discovery …</p>
-<p>You know your preferred solutions in the objective space, what makes them good?</p>
-<p>A more informed DM is able to make more informed, <em>better</em>, decisions</p>
+<ol type="1">
+<li>Optimization for finding solutions</li>
+<li>Decision making for analysis and choosing a final solution</li>
+<li>But that’s not all…</li>
+<li>You might want to learn the capabilities of the formulation</li>
+<li>Learn to improve the next-coming optimization</li>
+<li>Knowledge Discovery …</li>
+<li>You know your preferred solutions in the objective space, what makes them good?</li>
+<li>A more informed DM is able to make more informed, <em>better</em>, decisions</li>
+</ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -620,19 +608,39 @@ Inform <em>Decision Maker</em> (DM) to make better decisions
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+<!-- ## Introduction -->
+<!---->
+<!-- ::: {.slidecontent .v-center} -->
+<!---->
+<!-- * Knowledge Discovery -->
+<!--   * Data mining and machine learning -->
+<!--   * Find relationships, patterns, rules, ...  -->
+<!--   * Describe *good* solutions in terms of the *decision space*   -->
+<!--     &nbsp; -->
+<!--   <li class="important-li"> Inform *Decision Maker* (DM) to make better decisions</li> -->
+<!---->
+<!-- ::: -->
+<!---->
+<!-- ::: {.notes} -->
+<!-- Knowledge Discovery ... -->
+<!---->
+<!-- You know your preferred solutions in the objective space, what makes them good? -->
+<!---->
+<!-- A more informed DM is able to make more informed, *better*, decisions -->
+<!-- ::: -->
 </section>
-<section id="introduction-5" class="slide level2">
+<section id="introduction-4" class="slide level2">
 <h2>Introduction</h2>
 <div class="slidecontent v-center">
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell" data-execution_count="3">
+<div id="d93d1eae" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-4-output-1.svg"></p>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="cell" data-execution_count="4">
+<div id="f0caaa93" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-5-output-1.svg"></p>
 </div>
@@ -716,13 +724,13 @@ canvas.height = displayHeight * scale;
 
 
 start_point = [438, 502];
-end_point = [1642, 496];
+end_point = [1630, 496];
 ctrl_point1 = [800, 60];
 ctrl_point2 = [1000, 120];
 drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
 
 start_point = [375, 795];
-end_point = [1690, 695];
+end_point = [1680, 695];
 ctrl_point1 = [800, 1100];
 ctrl_point2 = [1500, 920];
 drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
@@ -748,7 +756,7 @@ drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
           display:block!important;
       }</style></aside>
 </section>
-<section id="introduction-6" class="slide level2">
+<section id="introduction-5" class="slide level2">
 <h2>Introduction</h2>
 <div class="slidecontent v-center">
 <div class="columns">
@@ -760,7 +768,7 @@ drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
 <li><span class="math inline">\(x_2 &lt; 0.25\)</span></li>
 </ul></li>
 </ul>
-<div style="padding-top: 70px;  width: 200%; display: block;">
+<div style="padding-top: 70px; width: 200%; display: block;">
 <ul>
 <li><em>Decision rules</em> as knowledge</li>
 </ul>
@@ -768,13 +776,13 @@ drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
 </div><div class="column" style="width:50%;">
 <div class="columns">
 <div class="column threequarter" style="position: absolute; left: 400px; top: -72px;">
-<div class="cell" data-execution_count="5">
+<div id="8b014e2b" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-6-output-1.svg"></p>
 </div>
 </div>
 </div><div class="column threequarter" style="position: absolute; left: 800px; top: -72px;">
-<div class="cell" data-execution_count="6">
+<div id="8965c3e9" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-7-output-1.svg"></p>
 </div>
@@ -856,7 +864,7 @@ drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
           display:block!important;
       }</style></aside>
 </section>
-<section id="introduction-7" class="slide level2">
+<section id="introduction-6" class="slide level2">
 <h2>Introduction</h2>
 <div class="slidecontent v-center">
 <div>
@@ -910,7 +918,7 @@ Can be realized in two ways…</p>
           display:block!important;
       }</style></aside>
 </section>
-<section id="introduction-8" class="slide level2">
+<section id="introduction-7" class="slide level2">
 <h2>Introduction</h2>
 <div class="slidecontent v-center">
 <p><span style="font-size: 125%;">Motivation</span></p>
@@ -980,17 +988,17 @@ Generate many sub-optimal solutions
 </div><div class="column" style="width:60%;">
 <div class="quarto-layout-panel" style="padding-left:60px; padding-top:40px;">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-execution_count="7" style="flex-basis: 33.3%;justify-content: center;">
+<div id="9614b447" class="cell quarto-layout-cell" data-execution_count="7" style="flex-basis: 33.3%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-8-output-1.svg"></p>
 </div>
 </div>
-<div class="cell quarto-layout-cell" data-execution_count="8" style="flex-basis: 33.3%;justify-content: center;">
+<div id="b1484a88" class="cell quarto-layout-cell" data-execution_count="8" style="flex-basis: 33.3%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-9-output-1.svg"></p>
 </div>
 </div>
-<div class="cell quarto-layout-cell" data-execution_count="9" style="flex-basis: 33.3%;justify-content: center;">
+<div id="3671d0ff" class="cell quarto-layout-cell" data-execution_count="9" style="flex-basis: 33.3%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-10-output-1.svg"></p>
 </div>
@@ -1039,24 +1047,24 @@ Generate many sub-optimal solutions
 </ul>
 <div class="quarto-layout-panel" style="scale: 100%; position: absolute; top: -100px; right: 0px;">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-execution_count="10" style="flex-basis: 50.0%;justify-content: center;">
+<div id="349b982d" class="cell quarto-layout-cell" data-execution_count="10" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-11-output-1.svg"></p>
 </div>
 </div>
-<div class="cell quarto-layout-cell" data-execution_count="11" style="flex-basis: 50.0%;justify-content: center;">
+<div id="9193e465" class="cell quarto-layout-cell" data-execution_count="11" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-12-output-1.svg"></p>
 </div>
 </div>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-execution_count="12" style="flex-basis: 50.0%;justify-content: center;">
+<div id="6944f527" class="cell quarto-layout-cell" data-execution_count="12" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-13-output-1.svg"></p>
 </div>
 </div>
-<div class="cell quarto-layout-cell" data-execution_count="13" style="flex-basis: 50.0%;justify-content: center;">
+<div id="6fe2f039" class="cell quarto-layout-cell" data-execution_count="13" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-14-output-1.svg"></p>
 </div>
@@ -1095,12 +1103,13 @@ Generate many sub-optimal solutions
 <li>Scatter Plot</li>
 <li>Parallel Coordinate Plot</li>
 <li>RadViz</li>
-<li>Heatmaps</li>
+<li>Heatmap</li>
+<li>Spider chart</li>
 <li>…</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:65%;">
-<div class="cell quarto-layout-panel" data-execution_count="14">
+<div id="f22a1c1a" class="cell quarto-layout-panel" data-execution_count="14">
 <div class="quarto-layout-row quarto-layout-valign-bottom">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <p><img data-src="presentation_files/figure-revealjs/cell-15-output-1.svg"></p>
@@ -1302,6 +1311,10 @@ Produce useful <em>artifacts</em>
 </div>
 <aside class="notes">
 <p>The whole work is motivated by the belief that knowledge discovery can benefit optimization and decision making</p>
+<p>Design Science<br>
+Produce useful artifacts by iteratively developing and testing them<br>
+And they should have a contribution both to industrial needs and to the scientific literature</p>
+<p>Algorithms, frameworks, instantiations, …</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1332,7 +1345,7 @@ Produce useful <em>artifacts</em>
 <p><strong>RQ2</strong></p>
 </div>
 <div style="position:absolute; padding-left: 70px; width: 45%">
-<p><strong>Decision Support.</strong> How can different representations of knowledge be processed and presented to the decision maker in an <em>interactive</em> manner for better <em>decision support</em>?</p>
+<p><strong>Decision Support.</strong> How can different <em>representations of knowledge</em> be processed and presented to the decision maker in an <em>interactive</em> manner for better <em>decision support</em>?</p>
 </div>
 </div>
 <div style="padding-top: 120px">
@@ -1398,22 +1411,13 @@ Research Methodology
 * Produce useful *artifacts*
 :::
 ::: -->
-<aside class="notes">
-<p>Design Science<br>
-Produce useful artifacts by iteratively developing and testing them<br>
-And they should have a contribution both to industrial needs and to the scientific literature</p>
-<p>Algorithms, frameworks, instantiations, …</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<!-- ::: {.notes}
+Design Science  
+Produce useful artifacts by iteratively developing and testing them  
+And they should have a contribution both to industrial needs and to the scientific literature
+
+Algorithms, frameworks, instantiations, ...
+::: -->
 </section></section>
 <section>
 <section id="included-papers" class="title-slide slide level1 center">
@@ -1561,6 +1565,27 @@ And they should have a contribution both to industrial needs and to the scientif
 </div>
 </div>
 </div>
+<aside class="notes">
+<div style="font-size: 90%">
+<p>This RQ is about different representations of knowledge, with at point that it should work in many different scenarios<br>
+I primarily focused on three different knowledge representations for different aspects of MOO</p>
+<p>Variable trends/trend mining is a way to find if individual variables follow an interesting trend in the decision space,<br>
+as the solutions move in the objective space</p>
+<p>Variable importance can be used to find if individual variables are more related to diversity or convergence</p>
+<p>And a large part of my work focused on decision rules with FPM, which is a way to incorporate a DM’s preferences,<br>
+as selected and unselected sets of solutions in the objective space and find rules for these preferences in the decision space</p>
+</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="variable-trends" class="slide level2">
 <h2>Variable Trends</h2>
@@ -1569,7 +1594,7 @@ And they should have a contribution both to industrial needs and to the scientif
 <div class="column">
 <div class="v-center" style="width: 50%">
 <ul>
-<li>Trend Mining
+<li>Trend Mining 2.0
 <ul>
 <li><span style="width: 150%; display: block;">Find if <em>variables</em> follow a trend in the <em>objective space</em></span></li>
 <li>Limited to monotonic trends</li>
@@ -1595,7 +1620,7 @@ And they should have a contribution both to industrial needs and to the scientif
 <div class="quarto-layout-cell" style="flex-basis: 31.3%;justify-content: center;">
 <p><span class="math inline">\(\quad\)</span></p>
 </div>
-<div class="cell quarto-layout-cell" data-execution_count="15" style="flex-basis: 62.5%;justify-content: center;">
+<div id="0fd16308" class="cell quarto-layout-cell" data-execution_count="15" style="flex-basis: 62.5%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <p><img data-src="presentation_files/figure-revealjs/cell-16-output-1.svg"></p>
 </div>
@@ -1662,7 +1687,7 @@ And they should have a contribution both to industrial needs and to the scientif
 <li>Finds a <em>normalized score</em> for each variable</li>
 <li>Able to find expected groups of variables<br>
 in tested problem cases</li>
-<li>Applied to an industiral use-case</li>
+<li>Applied to an industrial use-case</li>
 </ul></li>
 </ul>
 </div>
@@ -1708,7 +1733,10 @@ in tested problem cases</li>
 </div>
 </div>
 <aside class="notes">
-<p>DTLZ problems have a number of <strong>positional</strong> and <strong>directional</strong> variables</p>
+<p>I presented influence score as a way to find if variables are related more to diversity or convergence</p>
+<p>finds a score for each variable</p>
+<p>DTLZ problems have a number of <strong>positional</strong> and <strong>directional</strong> variables that are identified</p>
+<p>has also been used in an industrial use-case</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1757,6 +1785,22 @@ in tested problem cases</li>
 <p><strong><em>Paper III</em></strong>: Smedberg, Henrik and Bandaru, Sunith (2023). “Interactive Knowledge Discovery and Knowledge Visualization for Decision Support in Multi-Objective Optimization”. In: <em>European Journal of Operational Research</em> 306.3, pp.&nbsp;1311–1329</p>
 </div>
 </div>
+<aside class="notes">
+<p>RQ2 is about interactive knowledge discovery and visualization</p>
+<p>In my thesis I present a paper with an interactive DSS framework that enables DM to both discover and visualize knowledge<br>
+With solution exploration for and interaction for preference elicitation,<br>
+and a graph-based visualization of FPM rules</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="mimer-openly-available-instantiation-of-dss" class="slide level2">
 <h2>Mimer: <em>Openly Available Instantiation of DSS</em></h2>
@@ -1788,7 +1832,7 @@ in tested problem cases</li>
 </div>
 <aside class="notes">
 <ul>
-<li>DSS - framework for knowledge discovery</li>
+<li>This framework was also realized as an openly available web tool — Mimer</li>
 <li>…</li>
 <li>Mimer demo</li>
 <li>User study… positive feedback that FPM rules and graph-interface is a useful tool</li>
@@ -1804,6 +1848,72 @@ in tested problem cases</li>
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="mimer-demo" class="slide level2">
+<h2>Mimer: <em>Demo</em></h2>
+<div class="slidecontent">
+<div class="columns">
+<div class="column">
+<p><video data-src="./figures/mimier-gifs/inspect.webm" controls=""><a href="./figures/mimier-gifs/inspect.webm">Video</a></video></p>
+</div><div class="column v-center">
+<ul>
+<li>Vehicle crash-worthiness problem
+<ul>
+<li>Objectives (<em>minimize</em>)
+<ul>
+<li>Total weight</li>
+<li>Acceleration</li>
+<li>Toe-board intrusion</li>
+</ul></li>
+<li>Variables
+<ul>
+<li><span class="math inline">\(x_0\)</span> – <span class="math inline">\(x_4\)</span></li>
+<li>Thickness of support pillars</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="mimer-demo-1" class="slide level2">
+<h2>Mimer: <em>Demo</em></h2>
+<div class="slidecontent">
+<div class="columns">
+<div class="column">
+<p><video data-src="./figures/mimier-gifs/select.webm" controls=""><a href="./figures/mimier-gifs/select.webm">Video</a></video></p>
+</div><div class="column v-center">
+<ul>
+<li>All opened plots are <em>linked</em></li>
+<li>Lasso selection for <em>interaction</em></li>
+<li>The <em>DM</em> can find their <em>preferred solution</em></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="mimer-demo-2" class="slide level2">
+<h2>Mimer: <em>Demo</em></h2>
+<div class="slidecontent">
+<div class="slidecontent">
+<div class="columns">
+<div class="column">
+<p><video data-src="./figures/mimier-gifs/knowledge.webm" controls=""><a href="./figures/mimier-gifs/knowledge.webm">Video</a></video></p>
+</div><div class="column v-center">
+<ul>
+<li><em>FPM</em> for knowledge discovery</li>
+<li>Graph-based visualization for filtering</li>
+</ul>
+<div style="height: 40px;">
+
+</div>
+<ul>
+<li>The selection can be entirely described by just one rule</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="rq3-knowledge-driven-optimization" class="slide level2">
 <h2>RQ3: <em>Knowledge-Driven Optimization</em></h2>
@@ -1836,9 +1946,27 @@ in tested problem cases</li>
 </div>
 </div>
 </div>
+<aside class="notes">
+<p>rq3 is about KDO and how knowledge can be incorporated in MOEAs</p>
+<p>Offline, where the knowledge comes from previous, completed optimizations<br>
+and get applied in future, similar cases</p>
+<p>Online, where the knowledge is both generated and applied during an optimization run<br>
+to help the algorithm</p>
+<p>Whether generated offline or online, the knowledge itself can still be used to inform the DM</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="offline-kdo-reconfigurable-manufacturing-system-use-case" class="slide level2">
-<h2>Offline KDO: <em>Reconfigurable Manufacturing System use-case</em></h2>
+<h2>Offline KDO: <em>Reconfigurable Manufacturing System Use-case</em></h2>
 <div class="slidecontent">
 <div class="columns">
 <div class="column" style="padding-top: 20px;">
@@ -1846,7 +1974,7 @@ in tested problem cases</li>
 <ul>
 <li><span style="display: block; width: 150%;">Reconfigurable manufacturing system (RMS)</span>
 <ul>
-<li>Considered <em>different scenarios</em> of same RMS</li>
+<li>Considered <em>different scenarios</em> of the same RMS</li>
 <li><em>Grouped scenarios together</em> based on operators and proportions between parts</li>
 <li><em>Discovered knowledge</em> among the groups</li>
 <li>Used <em>Mimer</em> for interactive knowledge discovery</li>
@@ -1891,7 +2019,7 @@ in tested problem cases</li>
 </tr>
 <tr class="even">
 <td style="text-align: center;">8 <span style="opacity:0;">Proppportion</span></td>
-<td style="text-align: center;"><span class="math inline">\(A_{17} = 2 ∧ A_{27} \neq 3 ∧ B7 = 1 ∧ B16 = 2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A_{17} = 2 ∧ A_{27} \neq 3 ∧ B_7 = 1 ∧ B_{16} = 2\)</span></td>
 <td style="text-align: center;">96.43%</td>
 <td style="text-align: center;">12.89%</td>
 </tr>
@@ -1932,6 +2060,7 @@ Different scenarios for an RMS, with different NO and proportions between two pa
 We used Mimer to find this knowledge about task assignment to workstations</p>
 <p>offline KDO<br>
 we used this knowledge in optimization of new scenarios<br>
+as hard constraints to apply it as simple as possible<br>
 found better convergence</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -2099,25 +2228,25 @@ in benchmark problems we can see and improvement (lower is better in the figure)
 </div>
 </div>
 </section>
-<section id="future-research-directions" class="slide level2">
-<h2>Future Research Directions</h2>
+<section id="future-works" class="slide level2">
+<h2>Future Works</h2>
 <div class="slidecontent v-center">
 <div class="columns">
 <div style="height: 2vw;">
 
-</div><div class="column" style="width:50%;">
+</div><div class="column">
 <ul>
 <li><em>Knowledge discovery</em>
 <ul>
 <li>More knowledge representations</li>
-<li>Design knowledge base for different knowledge representations</li>
+<li>Develop clear guidelines for knowledge discovery for practitioners</li>
 </ul></li>
 </ul>
-</div><div class="column fragment fade-in" style="width:50%;">
+</div><div class="column fragment fade-in">
 <ul>
 <li><em>Decision support</em>
 <ul>
-<li>Efficient storing and retrevial of knoweldge</li>
+<li>Efficient storing and retrieval of knowledge</li>
 <li>Group decision making</li>
 </ul></li>
 </ul>
@@ -2127,7 +2256,7 @@ in benchmark problems we can see and improvement (lower is better in the figure)
 
 </div>
 <div class="columns">
-<div class="column fragment fade-in" style="width:50%;">
+<div class="column fragment fade-in">
 <ul>
 <li><em>Mimer</em>
 <ul>
@@ -2136,7 +2265,7 @@ in benchmark problems we can see and improvement (lower is better in the figure)
 <li>Add compatibility with existing optimization platforms</li>
 </ul></li>
 </ul>
-</div><div class="column fragment fade-in" style="width:50%;">
+</div><div class="column fragment fade-in">
 <ul>
 <li><em>KDO</em>
 <ul>
@@ -2149,15 +2278,17 @@ in benchmark problems we can see and improvement (lower is better in the figure)
 </div>
 </div>
 <aside class="notes">
-<p>RQ: Used DS to develop artifacts to investigate the RQs<br>
-Posed as open questions, future research can investigate the same RQs</p>
-<p>For example, we can find more novel knowledge representations<br>
-And something I didn’t investigate in my thesis is how we can store and retrieve knowledge efficiently</p>
+<div style="font-size: 70%;">
+<p>KD: more representations for types of MOOPs, focus on continuous, what about combinatorial?<br>
+Also develop guidelines for practitioners for how knowledge can be discovered and applied</p>
+<p>DS: find efficient ways to store the knowledge, and the insights from it, to enable several DMs to work together<br>
+And to find appropriate knowledge for future cases. Also ties together with group decision making</p>
 <p>We got a lot of good feedback from the Mimer user study<br>
 And we can add more functionality and plots, and good ideas for the user interface</p>
 <p>For online KDO, we applied knowledge discovery as an extra step of the algorithm<br>
 It would be interesting to investigate algorithms centered around knowledge to drive the search<br>
 Instead of a metaphor like <em>survival of the fittest</em> (NSGA-II), something like <em>learning from your mistakes</em></p>
+</div>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2244,6 +2375,13 @@ Van der Maaten, Laurens, and Geoffrey Hinton. 2008. <span>“Visualizing Data Us
 </section></section>
 <section id="thank-you" class="title-slide slide level1 center">
 <h1>Thank you</h1>
+<script>
+let videos = document.getElementsByTagName("video");
+for (let i = 0; i < videos.length; i++) {
+  videos[i].controls = false;
+  videos[i].loop = true;
+}
+</script>
 <div class="footer footer-default">
 <p><span style="padding-left: 300px;">his.se/smeh</span> <span style="padding-left: 150px; padding-right: 15px;">PhD Defense Presentation</span> | <span style="padding-left: 15px;">Henrik Smedberg</span></p>
 </div>
@@ -2275,7 +2413,6 @@ Van der Maaten, Laurens, and Geoffrey Hinton. 2008. <span>“Visualizing Data Us
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -2370,7 +2507,7 @@ Van der Maaten, Laurens, and Geoffrey Hinton. 2008. <span>“Visualizing Data Us
         showNotes: false,
 
         // Global override for autoplaying embedded media (null/true/false)
-        autoPlayMedia: null,
+        autoPlayMedia: true,
 
         // Global override for preloading lazy-loaded iframes (null/true/false)
         preloadIframes: null,
@@ -2537,10 +2674,9 @@ Van der Maaten, Laurens, and Geoffrey Hinton. 2008. <span>“Visualizing Data Us
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -2550,8 +2686,17 @@ Van der Maaten, Laurens, and Geoffrey Hinton. 2008. <span>“Visualizing Data Us
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 

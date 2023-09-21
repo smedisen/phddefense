@@ -20,6 +20,7 @@ format:
     margin: 0.15
     width: 1280
     height: 720
+    auto-play-media: true
 ---
 
 # Introduction
@@ -298,6 +299,8 @@ plt.show()
 
 ::: {.slidecontent .v-center}
 
+:::: {.columns}
+::: {.column}
 * Multi-Objective Optimization
   * Find *optimal* solutions
 
@@ -319,18 +322,7 @@ plt.show()
 :::
 :::
 
-::: {.notes}
-1. Optimization for finding solutions
-2. Decision making for analysis and choosing a final solution
-3. But that's not all...
-4. You might want to learn the capabilities of the formulation
-5. Learn to improve the next-coming optimization
-:::
-
-## Introduction
-
-::: {.slidecontent .v-center}
-
+::: {.column .v-center .fragment .fade-in}
 * Knowledge Discovery
   * Data mining and machine learning
   * Find relationships, patterns, rules, ... 
@@ -340,13 +332,41 @@ plt.show()
 
 :::
 
-::: {.notes}
-Knowledge Discovery ...
-
-You know your preferred solutions in the objective space, what makes them good?
-
-A more informed DM is able to make more informed, *better*, decisions
+::::
 :::
+
+::: {.notes}
+1. Optimization for finding solutions
+2. Decision making for analysis and choosing a final solution
+3. But that's not all...
+4. You might want to learn the capabilities of the formulation
+5. Learn to improve the next-coming optimization
+1. Knowledge Discovery ...
+1. You know your preferred solutions in the objective space, what makes them good?
+1. A more informed DM is able to make more informed, *better*, decisions
+
+:::
+
+<!-- ## Introduction -->
+<!---->
+<!-- ::: {.slidecontent .v-center} -->
+<!---->
+<!-- * Knowledge Discovery -->
+<!--   * Data mining and machine learning -->
+<!--   * Find relationships, patterns, rules, ...  -->
+<!--   * Describe *good* solutions in terms of the *decision space*   -->
+<!--     &nbsp; -->
+<!--   <li class="important-li"> Inform *Decision Maker* (DM) to make better decisions</li> -->
+<!---->
+<!-- ::: -->
+<!---->
+<!-- ::: {.notes} -->
+<!-- Knowledge Discovery ... -->
+<!---->
+<!-- You know your preferred solutions in the objective space, what makes them good? -->
+<!---->
+<!-- A more informed DM is able to make more informed, *better*, decisions -->
+<!-- ::: -->
 
 ## Introduction
 
@@ -547,13 +567,13 @@ canvas.height = displayHeight * scale;
 
 
 start_point = [438, 502];
-end_point = [1642, 496];
+end_point = [1630, 496];
 ctrl_point1 = [800, 60];
 ctrl_point2 = [1000, 120];
 drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
 
 start_point = [375, 795];
-end_point = [1690, 695];
+end_point = [1680, 695];
 ctrl_point1 = [800, 1100];
 ctrl_point2 = [1500, 920];
 drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
@@ -581,7 +601,7 @@ drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
   * $x_1 < 0.25$
   * $x_2 < 0.25$
 
-::: {style="padding-top: 70px;  width: 200%; display: block;"}
+::: {style="padding-top: 70px; width: 200%; display: block;"}
 * *Decision rules* as knowledge
 :::
 :::
@@ -1168,7 +1188,8 @@ plt.show()
   * Scatter Plot
   * Parallel Coordinate Plot
   * RadViz
-  * Heatmaps
+  * Heatmap
+  * Spider chart
   * ...
 :::
 ::: {.column width="65%"}
@@ -1446,7 +1467,13 @@ so what did I actually do?
 :::
 
 ::: {.notes}
-The whole work is motivated by the belief that knowledge discovery can benefit optimization and decision making
+The whole work is motivated by the belief that knowledge discovery can benefit optimization and decision making  
+
+Design Science  
+Produce useful artifacts by iteratively developing and testing them  
+And they should have a contribution both to industrial needs and to the scientific literature
+
+Algorithms, frameworks, instantiations, ...
 :::
 
 ## Research Approach
@@ -1470,7 +1497,7 @@ The whole work is motivated by the belief that knowledge discovery can benefit o
 :::
 
 ::: {style="position:absolute; padding-left: 70px; width: 45%"}
-**Decision Support.** How can different representations of knowledge be processed and presented to the decision maker in an *interactive* manner for better *decision support*?
+**Decision Support.** How can different *representations of knowledge* be processed and presented to the decision maker in an *interactive* manner for better *decision support*?
 :::
 :::
 
@@ -1538,13 +1565,13 @@ Research Methodology
 ::: -->
 
 
-::: {.notes}
+<!-- ::: {.notes}
 Design Science  
 Produce useful artifacts by iteratively developing and testing them  
 And they should have a contribution both to industrial needs and to the scientific literature
 
 Algorithms, frameworks, instantiations, ...
-:::
+::: -->
 
 # Included Papers
 
@@ -1625,6 +1652,21 @@ Algorithms, frameworks, instantiations, ...
 ::::
 :::
 
+::: {.notes}
+::: {style="font-size: 90%"}
+This RQ is about different representations of knowledge, with at point that it should work in many different scenarios  
+I primarily focused on three different knowledge representations for different aspects of MOO
+
+Variable trends/trend mining is a way to find if individual variables follow an interesting trend in the decision space,  
+as the solutions move in the objective space
+
+Variable importance can be used to find if individual variables are more related to diversity or convergence
+
+And a large part of my work focused on decision rules with FPM, which is a way to incorporate a DM's preferences,  
+as selected and unselected sets of solutions in the objective space and find rules for these preferences in the decision space
+:::
+:::
+
 ## Variable Trends
 
 ::: {.slidecontent}
@@ -1633,7 +1675,7 @@ Algorithms, frameworks, instantiations, ...
 :::: {.columns}
 ::: {.column}
 ::: {.v-center style="width: 50%"}
-* Trend Mining
+* Trend Mining 2.0
   * <span style="width: 150%; display: block;">Find if *variables* follow a trend in the *objective space*</span>
   * Limited to monotonic trends
   * How do different *variables change* along different directions in the *objective space*?  
@@ -1746,7 +1788,7 @@ $\quad$
   * Finds a *normalized score* for each variable
   * Able to find expected groups of variables  
     in tested problem cases
-  * Applied to an industiral use-case
+  * Applied to an industrial use-case
 
 :::
 :::
@@ -1783,7 +1825,13 @@ $\quad$
 :::
 
 ::: {.notes}
-DTLZ problems have a number of **positional** and **directional** variables
+I presented influence score as a way to find if variables are related more to diversity or convergence
+
+finds a score for each variable
+
+DTLZ problems have a number of **positional** and **directional** variables that are identified
+
+has also been used in an industrial use-case
 :::
 
 ## RQ2: *Interactive Decision Support*
@@ -1818,6 +1866,14 @@ DTLZ problems have a number of **positional** and **directional** variables
 :::
 :::
 
+::: {.notes}
+RQ2 is about interactive knowledge discovery and visualization
+
+In my thesis I present a paper with an interactive DSS framework that enables DM to both discover and visualize knowledge  
+With solution exploration for and interaction for preference elicitation,  
+and a graph-based visualization of FPM rules
+:::
+
 ## Mimer: *Openly Available Instantiation of DSS*
 
 ::: {.slidecontent}
@@ -1848,10 +1904,69 @@ DTLZ problems have a number of **positional** and **directional** variables
 :::
 
 ::: {.notes}
-* DSS - framework for knowledge discovery
+* This framework was also realized as an openly available web tool --- Mimer
 * ...
 * Mimer demo
 * User study... positive feedback that FPM rules and graph-interface is a useful tool
+:::
+
+## Mimer: *Demo*
+
+::: {.slidecontent}
+:::: {.columns}
+::: {.column}
+![](./figures/mimier-gifs/inspect.webm){}
+:::
+::: {.column .v-center}
+* Vehicle crash-worthiness problem
+    * Objectives (*minimize*)
+        * Total weight
+        * Acceleration
+        * Toe-board intrusion
+    * Variables
+        * $x_0$ -- $x_4$
+        * Thickness of support pillars
+:::
+::::
+:::
+
+## Mimer: *Demo*
+
+::: {.slidecontent}
+:::: {.columns}
+::: {.column}
+![](./figures/mimier-gifs/select.webm){}
+:::
+::: {.column .v-center}
+* All opened plots are *linked*
+* Lasso selection for *interaction*
+* The *DM* can find their *preferred solution*
+:::
+::::
+:::
+
+## Mimer: *Demo*
+
+::: {.slidecontent}
+
+::: {.slidecontent}
+:::: {.columns}
+::: {.column}
+![](./figures/mimier-gifs/knowledge.webm){}
+:::
+::: {.column .v-center}
+* *FPM* for knowledge discovery
+* Graph-based visualization for filtering
+
+::: {style="height: 40px;"}
+
+:::
+
+* The selection can be entirely described by just one rule 
+:::
+::::
+:::
+
 :::
 
 ## RQ3: *Knowledge-Driven Optimization*
@@ -1883,14 +1998,24 @@ DTLZ problems have a number of **positional** and **directional** variables
 ::: {style="scale:75%; text-align: center;"}
 Both forms of KDO can *inform* the decision maker
 :::
-
 ::::
+:::
 
+::: {.notes}
+rq3 is about KDO and how knowledge can be incorporated in MOEAs
+
+Offline, where the knowledge comes from previous, completed optimizations  
+and get applied in future, similar cases
+
+Online, where the knowledge is both generated and applied during an optimization run  
+to help the algorithm
+
+Whether generated offline or online, the knowledge itself can still be used to inform the DM
 :::
 
 
 
-## Offline KDO: *Reconfigurable Manufacturing System use-case*
+## Offline KDO: *Reconfigurable Manufacturing System Use-case*
 
 ::: {.slidecontent}
 
@@ -1899,7 +2024,7 @@ Both forms of KDO can *inform* the decision maker
 
 ::: {style=""}
 * <span style="display: block; width: 150%;">Reconfigurable manufacturing system (RMS)</span>
-    * Considered *different scenarios* of same RMS
+    * Considered *different scenarios* of the same RMS
     * *Grouped scenarios together* based on operators and proportions between parts
     * *Discovered knowledge* among the groups
     * Used *Mimer* for interactive knowledge discovery  
@@ -1922,7 +2047,7 @@ Both forms of KDO can *inform* the decision maker
 | $\begin{gathered} \textbf{Group} \\ \textbf{NO} \;\; \textbf{Proportion} \end{gathered}$ | Rule Interaction | Sig.  | Unsig.  |
 | :------------------:                             | :--------------------------------------------:         | :-------: | :-------: |
 | 7 <span style="opacity:0;">Proppportion</span>   | $A_{10} = 2 ∧ B_4 \neq 3 ∧ B_5 = 2 ∧ B_{23} = 1$       | 100%      | 10.13%    |
-| 8 <span style="opacity:0;">Proppportion</span>   | $A_{17} = 2 ∧ A_{27} \neq 3 ∧ B7 = 1 ∧ B16 = 2$        | 96.43%    | 12.89%    |
+| 8 <span style="opacity:0;">Proppportion</span>   | $A_{17} = 2 ∧ A_{27} \neq 3 ∧ B_7 = 1 ∧ B_{16} = 2$    | 96.43%    | 12.89%    |
 | 9 <span style="opacity:0;">Proppportion</span>   | $A_{28} = 1 ∧ B_7 = 1 ∧ B_8 = 3 ∧ B_9 \neq 1$          | 91.67%    | 4.89%     |
 | <span style="opacity:0;">NO</span>$\;\;$ 30%/70% | $A_{14} = 3 ∧ B_3 = 1 ∧ B_{10} \neq 1 ∧ B_{23} \neq 3$ | 97.06%    | 29.23%    |
 | <span style="opacity:0;">NO</span>$\;\;$ 70%/30% | $A_{14} = 2 ∧ A_{17} = 2 ∧ B_4 \neq 3 ∧ B_{11} \neq 2$ | 92.11%    | 10.89%    |
@@ -1951,6 +2076,7 @@ We used Mimer to find this knowledge about task assignment to workstations
 
 offline KDO  
 we used this knowledge in optimization of new scenarios  
+as hard constraints to apply it as simple as possible  
 found better convergence 
 :::
 
@@ -2079,7 +2205,7 @@ Offline KDO is the best, online KDO is the second best
 :::
 
 
-## Future Research Directions
+## Future Works
 
 ::: {.slidecontent .v-center}
 :::: {.columns}
@@ -2087,14 +2213,14 @@ Offline KDO is the best, online KDO is the second best
 :::: {style="height: 2vw;"}
 :::
 
-::: {.column width="50%"}
+::: {.column }
 * *Knowledge discovery*
   * More knowledge representations
-  * Design knowledge base for different knowledge representations
+  * Develop clear guidelines for knowledge discovery for practitioners
 :::
-::: {.column width="50%" .fragment .fade-in}
+::: {.column .fragment .fade-in}
 * *Decision support*
-  * Efficient storing and retrevial of knoweldge
+  * Efficient storing and retrieval of knowledge
   * Group decision making
 :::
 ::::
@@ -2103,14 +2229,14 @@ Offline KDO is the best, online KDO is the second best
 :::
 
 :::: {.columns}
-::: {.column width="50%" .fragment .fade-in}
+::: {.column .fragment .fade-in}
 * *Mimer*
   * Add more knowledge discovery methods
   * Add more visualization methods
   * Add compatibility with existing optimization platforms
 
 :::
-::: {.column width="50%" .fragment .fade-in}
+::: {.column .fragment .fade-in}
 * *KDO*
   * Find more appropriate use-cases
   * Algorithms centered around knowledge
@@ -2120,11 +2246,12 @@ Offline KDO is the best, online KDO is the second best
 :::
 
 ::: {.notes}
-RQ: Used DS to develop artifacts to investigate the RQs  
-Posed as open questions, future research can investigate the same RQs
+::: {style="font-size: 70%;"}
+KD: more representations for types of MOOPs, focus on continuous, what about combinatorial?  
+Also develop guidelines for practitioners for how knowledge can be discovered and applied
 
-For example, we can find more novel knowledge representations  
-And something I didn't investigate in my thesis is how we can store and retrieve knowledge efficiently 
+DS: find efficient ways to store the knowledge, and the insights from it, to enable several DMs to work together  
+And to find appropriate knowledge for future cases. Also ties together with group decision making
 
 We got a lot of good feedback from the Mimer user study  
 And we can add more functionality and plots, and good ideas for the user interface
@@ -2132,6 +2259,7 @@ And we can add more functionality and plots, and good ideas for the user interfa
 For online KDO, we applied knowledge discovery as an extra step of the algorithm  
 It would be interesting to investigate algorithms centered around knowledge to drive the search  
 Instead of a metaphor like *survival of the fittest* (NSGA-II), something like *learning from your mistakes*
+:::
 :::
 
 ## References
@@ -2150,5 +2278,12 @@ myFunction();
 # Thank you
 
 
+<script>
+let videos = document.getElementsByTagName("video");
+for (let i = 0; i < videos.length; i++) {
+  videos[i].controls = false;
+  videos[i].loop = true;
+}
+</script>
 
 

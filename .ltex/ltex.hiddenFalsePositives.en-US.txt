@@ -37,3 +37,4 @@
 {"rule":"EN_COMPOUNDS","sentence":"^\\QSub-optimal solutions are wasteful we can use knowledge to reduce number of solutions needed to converge\\E$"}
 {"rule":"EN_COMPOUNDS","sentence":"^\\QSub-optimal solutions are wasteful\nwe can use knowledge to reduce number of solutions needed to converge\\E$"}
 {"rule":"EN_COMPOUNDS","sentence":"^\\QSub-optimal solutions are wasteful\nwe can use knowledge to reduce number of solutions needed to converge\nOne of the very common MOEAs is NSGA-II :::\\E$"}
+{"rule":"IN_FUTURE","sentence":"^\\QOffline, where the knowledge comes from previous, completed optimizations and get applied in future, similar cases\\E$"}
