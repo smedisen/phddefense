@@ -1457,7 +1457,7 @@ so what did I actually do?
 
 * Research Methodology
   * Design Science [@hevner2008design]
-    * Designing *artifacts* motivated by *business needs*
+    * Designing *artifacts* for clearly defined *relevant problems*
     * Rigorous *testing and development* and a clear *contribution*
     * *Communicate results* with scientific communities and stakeholders  
     &nbsp;
