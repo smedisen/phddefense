@@ -742,9 +742,9 @@ plt.show()
     canvas.height = displayHeight * scale;
 
     ctx.beginPath();
-    ctx.moveTo(0, 180*2 +160);
-    ctx.lineTo(90*2, 180*2 + 160);
-    ctx.lineTo(90*2, 270*2 + 160);
+    ctx.moveTo(0, 180*2 + 158);
+    ctx.lineTo(90*2, 180*2 + 158);
+    ctx.lineTo(90*2, 270*2 + 158);
     ctx.strokeStyle = '#c0348b';
     ctx.lineWidth = 3;
     ctx.stroke();
@@ -760,8 +760,8 @@ plt.show()
     sp1 = start_point;
     ep1 = end_point;
 
-    start_point = [850, 490-60 + 160];
-    end_point = [1193-50, 20+160];
+    start_point = [850, 490-70 + 160];
+    end_point = [1193-60, 20+160];
     ctrl_point1 = [(start_point[0]+end_point[0])/2, start_point[1]];
     ctrl_point2 = [end_point[0], (start_point[1]+end_point[1])/2];
     drawLine(start_point, end_point, ctrl_point1, ctrl_point2, false, false);
@@ -1428,10 +1428,11 @@ Knowledge Discovery in MOO
 :::
 
 ::: {.notes}
-* Implicit  
-    clustering may find similar solutions but does not answer **how** they are similar
+* Knowledge discovery has been applied in MOO before, and there are two types of knowledge
+* Implicit knowledge, like clustering and manifold learning  
+* and explicit knowledge, like Innovization, decision rules and variable trends
 
-This thesis work focused on explicit knowledge representations
+* I focused on explicit knowledge representations since they...
 :::
 
 # Research Approach
@@ -1633,7 +1634,7 @@ Algorithms, frameworks, instantiations, ...
 :::: {.columns}
 ::: {.column}
 * Variable trends 
-    * Finding interesting trends for variables in the objective space
+    * Finding interesting trends for variables along the objective space
     * *Trend Mining 2.0* <psmall>(Paper I)</psmall>
 
 * Variable importance
@@ -1677,7 +1678,7 @@ as selected and unselected sets of solutions in the objective space and find rul
 ::: {.v-center style="width: 50%"}
 * Trend Mining 2.0
   * <span style="width: 150%; display: block;">Find if *variables* follow a trend in the *objective space*</span>
-  * Limited to monotonic trends
+  * Monotonic trends in the decision space
   * How do different *variables change* along different directions in the *objective space*?  
     &nbsp;
   1. <lsmall>Finding an optimized reference direction</lsmall>
@@ -1857,7 +1858,7 @@ has also been used in an industrial use-case
 ::: {layout="[1,1]" layout-valign="center" style="width:150%;"}
 ![](figures\ejor-1.png){style="width: 80%"}
 
-![](figures\ejor-2.png){style="width: 40%; margin-left: -4vw;"}
+![](figures\ejor-2.png){style="width: 40%; margin-left: -100px;"}
 :::
 
 :::
@@ -1985,7 +1986,7 @@ and a graph-based visualization of FPM rules
 :::: {.columns}
 ::: {.column}
 * Offline KDO
-    * Discovery knowledge from *previous* optimizations
+    * Discover knowledge from *previous* optimizations
     * Apply this knowledge in *future* optimizations
 :::
 
@@ -1996,7 +1997,7 @@ and a graph-based visualization of FPM rules
 :::
 
 ::: {style="scale:75%; text-align: center;"}
-Both forms of KDO can *inform* the decision maker
+Both forms of KDO can *inform* the DM
 :::
 ::::
 :::
@@ -2038,7 +2039,7 @@ Whether generated offline or online, the knowledge itself can still be used to i
 
 :::
 :::
-::: {.column width="50%" style="padding-top: 3vw;"}
+::: {.column width="50%" style="padding-top: 80px;"}
 
 ::: {style="font-size: 35%;"}
 
@@ -2097,7 +2098,7 @@ found better convergence
 :::
 ::: {.column width="50%"}
 
-![](figures\kdoflow.drawio.svg){style="width: 85%; margin-left: 2vw;"}
+![](figures\kdoflow.drawio.svg){style="width: 85%; margin-left: 50px;"}
 
 :::
 ::::
@@ -2127,7 +2128,7 @@ We compared 3 different ones and found better convergence rates
   * Variable importance (*InfS-R*)
   * Discovered either *offline* or *online*
   * Apply knowledge to restrict  
-  *convergence-related* variables
+  *convergence-related* variables in crossover
   * Improvement in terms of Hypervolume (HV) and  
     convergence rate (AUC)
 
@@ -2282,7 +2283,7 @@ myFunction();
 let videos = document.getElementsByTagName("video");
 for (let i = 0; i < videos.length; i++) {
   videos[i].controls = false;
-  videos[i].loop = true;
+  // videos[i].loop = true;
 }
 </script>
 
