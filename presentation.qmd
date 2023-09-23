@@ -1053,7 +1053,7 @@ plt.yticks([])
 add_arrows()
 
 plt.scatter([1.9], [1.9], facecolors='none', edgecolors='none', label="1.")
-plt.gca().legend(loc="upper right", fancybox=False, frameon=False)
+plt.gca().legend(loc="upper right", fancybox=False, frameon=False, fontsize=15)
 
 plt.axis('square')
 plt.show()
@@ -1090,7 +1090,7 @@ add_arrows()
 
 plt.scatter([1.3], [1.3], facecolors='none', edgecolors='none', label="2.")
 
-plt.gca().legend(loc="upper right", fancybox=False, frameon=False)
+plt.gca().legend(loc="upper right", fancybox=False, frameon=False, fontsize=15)
 
 plt.axis('square')
 plt.show()
@@ -1125,7 +1125,7 @@ plt.yticks([])
 add_arrows()
 
 plt.scatter([1.3], [1.3], facecolors='none', edgecolors='none', label="3.")
-plt.gca().legend(loc="upper right", fancybox=False, frameon=False)
+plt.gca().legend(loc="upper right", fancybox=False, frameon=False, fontsize=15)
 
 plt.axis('square')
 plt.show()
@@ -1161,7 +1161,7 @@ plt.yticks([])
 add_arrows()
 
 plt.scatter([1.3], [1.3], facecolors='none', edgecolors='none', label="4.")
-plt.gca().legend(loc="upper right", fancybox=False, frameon=False)
+plt.gca().legend(loc="upper right", fancybox=False, frameon=False, fontsize=15)
 
 plt.axis('square')
 plt.show()
@@ -1582,7 +1582,7 @@ Algorithms, frameworks, instantiations, ...
 
 :::: {.columns}
 ::: {.column width="50%"}
-::: {style="width: 95%"}
+::: {style="width: 95%;"}
 <!-- Publications with High Relevance -->
 
 (@) **Smedberg, Henrik**, Bandaru, Sunith, Ng, Amos H.C., and Deb, Kalyanmoy (2020). “Trend Mining 2.0: Automating the Discovery of Variable Trends in the Objective Space”. In: *2020 IEEE Congress on Evolutionary Computation (CEC)*, pp. 1–8
@@ -1602,7 +1602,7 @@ Algorithms, frameworks, instantiations, ...
 :::
 
 ::: {.column width="50%"}
-::: {style="font-size: 55%;" .v-center}
+::: {style="font-size: 50%;" .v-center}
 |  | RQ1<br><ssmall>Knowledge Discovery</ssmall> | RQ2<br><ssmall>Decision Support</ssmall> | RQ3a<br><ssmall>Offline KDO</ssmall> | RQ3b<br><ssmall>Online KDO</ssmall> |
 | ---       | :---:    | :---:    | :---:    | :---:    |
 | Paper I   | $\times$ |          |          |          |
@@ -1613,7 +1613,7 @@ Algorithms, frameworks, instantiations, ...
 | Paper VI  |          |          |          | $\times$ |
 | Paper VII |          |          | $\times$ | $\times$ |
 
-: {tbl-colwidths="[20, 25, 22, 22, 22]"}
+: {tbl-colwidths="[24, 33, 26, 20, 22]"}
 :::
 :::
 ::::
@@ -1677,9 +1677,9 @@ as selected and unselected sets of solutions in the objective space and find rul
 ::: {.column}
 ::: {.v-center style="width: 50%"}
 * Trend Mining 2.0
-  * <span style="width: 150%; display: block;">Find if *variables* follow a trend in the *objective space*</span>
+  * <span style="width: 150%; display: block;">Find if *decision variables* follow a trend in the *objective space*</span>
   * Monotonic trends in the decision space
-  * How do different *variables change* along different directions in the *objective space*?  
+  * Find reference directions in the *objective space* that has the most interesting trends in the *decision space*  
     &nbsp;
   1. <lsmall>Finding an optimized reference direction</lsmall>
   2. <lsmall>Projection of solutions on to the reference direction</lsmall>
@@ -1688,9 +1688,6 @@ as selected and unselected sets of solutions in the objective space and find rul
 
 ::: {style="height: 2vw;"}
 :::
-
-<!-- * Contribution -->
-<!--   * *RQ1*: Variable trends as knowledge representation -->
 
 :::
 :::
@@ -1787,8 +1784,7 @@ $\quad$
   * InfS-P <small_text>(INFluence Score for *Pareto-front*)</small_text>
   * InfS-R <small_text>(INFluence Score for *Ranks*)<small_text>
   * Finds a *normalized score* for each variable
-  * Able to find expected groups of variables  
-    in tested problem cases
+  * Find expected variable groups in tested problems
   * Applied to an industrial use-case
 
 :::
