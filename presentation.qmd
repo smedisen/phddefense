@@ -1,7 +1,7 @@
 ---
 title: "Knowledge Discovery for<br> Interactive Decision Support and<br> Knowledge-Driven Optimization"
 author: "Henrik Smedberg"
-subtitle: "<strong>Main Supervisor:</strong><br>Sunith Bandaru<br><br><strong>Co-supervisors:</strong><br>Amos Ng<br>Maria Riveiro"
+subtitle: "***Main Supervisor:***<br>**Sunith Bandaru**, Associate Professor, University of Skövde<br><br>***Co-supervisors:***<br>**Amos Ng**, Professor, University of Skövde<br>**Maria Riveiro**, Professor, Jönköping University"
 footer: "<span style='padding-left: 300px;'>his.se/smeh</span> <span style='padding-left: 150px; padding-right: 15px;'>PhD Defense Presentation</span> | <span style='padding-left: 15px;'>Henrik Smedberg</span>"
 bibliography: references.bib
 # title-slide-attributes:
@@ -105,7 +105,7 @@ Optimization Example
 :::
 
 ::: {.column width="50%"}
-
+<!-- LTeX: enabled=false -->
 ```{python}
 # type: ignore
 import numpy as np
@@ -184,7 +184,7 @@ add_arrows()
 plt.axis('square')
 plt.show()
 ```
-
+<!-- LTeX: enabled=true -->
 :::
 ::::
 :::
@@ -1348,7 +1348,7 @@ plt.show()
 ::: {.column width="50%"}
 <ul>
     <li style="list-style-type: none"> 
-        <hidden>test</hidden>
+        <hidden>.</hidden>
     <ul>
     <li>How to visualize *preferences*?</li>
     <li>How to visualize *constraints*?</li>
@@ -1403,8 +1403,8 @@ Knowledge Discovery in MOO
   <li style="list-style-type: none">
     <Ul>
       <li>Does *not* have a clear, formal notation</li>
-      <li>Can *not* easily be transferred</li>
-      <li>Can *not* be diectrly applied without further interpretation</li>
+      <li>Can *not* be easily transferred</li>
+      <li>Can *not* be directly applied without further interpretation</li>
       <!-- <li>Does *not* answer ***how?***</li> -->
     </ul>
   </li>
@@ -1417,7 +1417,7 @@ Knowledge Discovery in MOO
   <li style="list-style-type: none">
     <Ul>
       <li>Has a clear, formal notation</li>
-      <li>Can be transferred between processees</li>
+      <li>Can be transferred between processes</li>
       <li>Can be applied directly both *algorithmically* and for *decision support*</li>
     </ul>
   </li>
@@ -1576,7 +1576,7 @@ Algorithms, frameworks, instantiations, ...
 
 # Main Contributions
 
-## Main Contributions
+## Included Papers
 
 ::: {.slidecontent .papers}
 
@@ -1682,7 +1682,7 @@ as selected and unselected sets of solutions in the objective space and find rul
   * Find reference directions in the *objective space* that has the most interesting trends in the *decision space*  
     &nbsp;
   1. <lsmall>Finding an optimized reference direction</lsmall>
-  2. <lsmall>Projection of solutions on to the reference direction</lsmall>
+  2. <lsmall>Projection of solutions onto the reference direction</lsmall>
   3. <lsmall>Calculation of interestingness scores</lsmall>
   4. <lsmall>Boxplot visualization of interestingness scores</lsmall>
 
@@ -1927,7 +1927,7 @@ and a graph-based visualization of FPM rules
 ::::
 :::
 
-## Mimer: *Demo*
+## Mimer: *Demo --- Linked visualizations and interaction*
 
 ::: {.slidecontent}
 :::: {.columns}
@@ -1942,7 +1942,7 @@ and a graph-based visualization of FPM rules
 ::::
 :::
 
-## Mimer: *Demo*
+## Mimer: *Demo --- Knowledge discovery and visualization*
 
 ::: {.slidecontent}
 
@@ -2077,7 +2077,7 @@ as hard constraints to apply it as simple as possible
 found better convergence 
 :::
 
-## Online KDO: *Knowledge-Driven Genetic Operator for Preference-Based MOEAs*
+## Online KDO: *Knowledge-Driven Preference-Based MOEAs*
 
 ::: {.slidecontent}
 
@@ -2176,7 +2176,7 @@ Offline KDO is the best, online KDO is the second best
 ::::
 :::: {.columns .fragment .fade-in}
 ::: {.column style="font-size: 85%;"}
-* *Knowledge discovery* (RQ1)
+* *Knowledge Discovery* (RQ1)
   * Appropriate knowledge representations?
     * Trend mining (*Paper I*)
     * Influence score (*Paper II*)
