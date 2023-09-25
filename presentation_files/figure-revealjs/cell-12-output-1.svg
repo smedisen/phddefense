@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="178.042696pt" height="178.042696pt" viewBox="0 0 178.042696 178.042696" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="181.542696pt" height="181.542696pt" viewBox="0 0 181.542696 181.542696" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2023-09-23T12:50:44.106037</dc:date>
+    <dc:date>2023-09-25T11:02:54.526758</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
-      <dc:title>Matplotlib v3.5.1, https://matplotlib.org/</dc:title>
+      <dc:title>Matplotlib v3.5.2, https://matplotlib.org/</dc:title>
      </cc:Agent>
     </dc:creator>
    </cc:Work>
@@ -21,26 +21,26 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 178.042696 
-L 178.042696 178.042696 
-L 178.042696 0 
+   <path d="M 0 181.542696 
+L 181.542696 181.542696 
+L 181.542696 0 
 L 0 0 
-L 0 178.042696 
+L 0 181.542696 
 z
 " style="fill: none"/>
   </g>
   <g id="axes_1">
    <g id="patch_2">
-    <path d="M 18.352696 159.69 
-L 167.842696 159.69 
-L 167.842696 10.2 
-L 18.352696 10.2 
+    <path d="M 21.852696 159.69 
+L 171.342696 159.69 
+L 171.342696 10.2 
+L 21.852696 10.2 
 z
 " style="fill: #ffffff"/>
    </g>
    <g id="PathCollection_1">
     <defs>
-     <path id="mdd6bde4d59" d="M 0 3 
+     <path id="mc48e77abf4" d="M 0 3 
 C 0.795609 3 1.55874 2.683901 2.12132 2.12132 
 C 2.683901 1.55874 3 0.795609 3 0 
 C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132 
@@ -52,33 +52,33 @@ C -1.55874 2.683901 -0.795609 3 0 3
 z
 " style="stroke: #000000; stroke-width: 0.5"/>
     </defs>
-    <g clip-path="url(#p9e6589e7e4)">
-     <use xlink:href="#mdd6bde4d59" x="44.561982" y="70.384286" style="fill: #e34a33; stroke: #000000; stroke-width: 0.5"/>
-     <use xlink:href="#mdd6bde4d59" x="49.114927" y="85.24375" style="fill: #e34a33; stroke: #000000; stroke-width: 0.5"/>
-     <use xlink:href="#mdd6bde4d59" x="54.774085" y="98.495794" style="fill: #e34a33; stroke: #000000; stroke-width: 0.5"/>
-     <use xlink:href="#mdd6bde4d59" x="61.400107" y="109.814109" style="fill: #e34a33; stroke: #000000; stroke-width: 0.5"/>
-     <use xlink:href="#mdd6bde4d59" x="68.829839" y="118.92" style="fill: #e34a33; stroke: #000000; stroke-width: 0.5"/>
+    <g clip-path="url(#p2dec39559e)">
+     <use xlink:href="#mc48e77abf4" x="48.061982" y="70.384286" style="fill: #e34a33; stroke: #000000; stroke-width: 0.5"/>
+     <use xlink:href="#mc48e77abf4" x="52.614927" y="85.24375" style="fill: #e34a33; stroke: #000000; stroke-width: 0.5"/>
+     <use xlink:href="#mc48e77abf4" x="58.274085" y="98.495794" style="fill: #e34a33; stroke: #000000; stroke-width: 0.5"/>
+     <use xlink:href="#mc48e77abf4" x="64.900107" y="109.814109" style="fill: #e34a33; stroke: #000000; stroke-width: 0.5"/>
+     <use xlink:href="#mc48e77abf4" x="72.329839" y="118.92" style="fill: #e34a33; stroke: #000000; stroke-width: 0.5"/>
     </g>
    </g>
    <g id="PathCollection_2">
-    <path d="M 44.561982 103.089133 
-L 43.18712 107.320522 
-L 38.737974 107.320522 
-L 42.337409 109.935665 
-L 40.962547 114.167054 
-L 44.561982 111.551912 
-L 48.161417 114.167054 
-L 46.786555 109.935665 
-L 50.38599 107.320522 
-L 45.936844 107.320522 
+    <path d="M 48.061982 103.089133 
+L 46.68712 107.320522 
+L 42.237974 107.320522 
+L 45.837409 109.935665 
+L 44.462547 114.167054 
+L 48.061982 111.551912 
+L 51.661417 114.167054 
+L 50.286555 109.935665 
+L 53.88599 107.320522 
+L 49.436844 107.320522 
 z
-" clip-path="url(#p9e6589e7e4)" style="fill: #47ff7e"/>
+" clip-path="url(#p2dec39559e)" style="fill: #47ff7e"/>
    </g>
    <g id="PathCollection_3"/>
    <g id="matplotlib.axis_1">
     <g id="text_1">
      <!-- $f_1({\bf x })$ -->
-     <g transform="translate(77.522421 167.355772)scale(0.14 -0.14)">
+     <g transform="translate(81.022421 170.855772)scale(0.14 -0.14)">
       <defs>
        <path id="CMMI12-66" d="M 2854 2566 
 C 2982 2566 3034 2566 3034 2688 
@@ -237,43 +237,43 @@ z
    </g>
    <g id="line2d_1">
     <defs>
-     <path id="m3220f00de6" d="M 3 0 
+     <path id="m91c9d74157" d="M 3 0 
 L -3 -3 
 L -3 3 
 z
 " style="stroke: #000000; stroke-linejoin: miter"/>
     </defs>
     <g>
-     <use xlink:href="#m3220f00de6" x="167.842696" y="152.895" style="stroke: #000000; stroke-linejoin: miter"/>
+     <use xlink:href="#m91c9d74157" x="171.342696" y="152.895" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="line2d_2">
     <defs>
-     <path id="mc4e712f9c9" d="M 0 -3 
+     <path id="mcf03380c76" d="M 0 -3 
 L -3 3 
 L 3 3 
 z
 " style="stroke: #000000; stroke-linejoin: miter"/>
     </defs>
     <g>
-     <use xlink:href="#mc4e712f9c9" x="25.147696" y="10.2" style="stroke: #000000; stroke-linejoin: miter"/>
+     <use xlink:href="#mcf03380c76" x="28.647696" y="10.2" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="patch_3">
-    <path d="M 25.147696 159.69 
-L 25.147696 10.2 
+    <path d="M 28.647696 159.69 
+L 28.647696 10.2 
 " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="patch_4">
-    <path d="M 18.352696 152.895 
-L 167.842696 152.895 
+    <path d="M 21.852696 152.895 
+L 171.342696 152.895 
 " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="legend_1">
     <g id="PathCollection_4"/>
     <g id="text_3">
      <!-- 2. -->
-     <g transform="translate(142.961882 34.2)scale(0.15 -0.15)">
+     <g transform="translate(146.461882 34.2)scale(0.15 -0.15)">
       <defs>
        <path id="CMSS17-32" d="M 1651 1357 
 C 1830 1541 2099 1764 2285 1987 
@@ -311,8 +311,8 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p9e6589e7e4">
-   <rect x="18.352696" y="10.2" width="149.49" height="149.49"/>
+  <clipPath id="p2dec39559e">
+   <rect x="21.852696" y="10.2" width="149.49" height="149.49"/>
   </clipPath>
  </defs>
 </svg>

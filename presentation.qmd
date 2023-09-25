@@ -567,13 +567,13 @@ canvas.height = displayHeight * scale;
 
 
 start_point = [438, 502];
-end_point = [1630, 496];
+end_point = [1635, 496];
 ctrl_point1 = [800, 60];
 ctrl_point2 = [1000, 120];
 drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
 
 start_point = [375, 795];
-end_point = [1680, 695];
+end_point = [1685, 695];
 ctrl_point1 = [800, 1100];
 ctrl_point2 = [1500, 920];
 drawLine(start_point, end_point, ctrl_point1, ctrl_point2);
@@ -752,7 +752,7 @@ plt.show()
     ctx.drawImage(canvas, 0, 0);
 
     start_point = [850, 490+160];
-    end_point = [1193, 20+160];
+    end_point = [1205, 20+160];
     ctrl_point1 = [(start_point[0]+end_point[0])/2, start_point[1]];
     ctrl_point2 = [end_point[0], (start_point[1]+end_point[1])/2];
     drawLine(start_point, end_point, ctrl_point1, ctrl_point2, false, false);
@@ -761,7 +761,7 @@ plt.show()
     ep1 = end_point;
 
     start_point = [850, 490-70 + 160];
-    end_point = [1193-60, 20+160];
+    end_point = [1193-50, 20+160];
     ctrl_point1 = [(start_point[0]+end_point[0])/2, start_point[1]];
     ctrl_point2 = [end_point[0], (start_point[1]+end_point[1])/2];
     drawLine(start_point, end_point, ctrl_point1, ctrl_point2, false, false);
@@ -1574,9 +1574,9 @@ And they should have a contribution both to industrial needs and to the scientif
 Algorithms, frameworks, instantiations, ...
 ::: -->
 
-# Included Papers
+# Main Contributions
 
-## Included Papers
+## Main Contributions
 
 ::: {.slidecontent .papers}
 
