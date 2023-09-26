@@ -1477,7 +1477,7 @@ And they should have a contribution both to industrial needs and to the scientif
 Algorithms, frameworks, instantiations, ...
 :::
 
-## Research Approach
+## Research Questions
 
 ::: {.slidecontent .rqs .v-center}
 
@@ -1634,7 +1634,7 @@ Algorithms, frameworks, instantiations, ...
 :::: {.columns}
 ::: {.column}
 * Variable trends 
-    * Finding interesting trends for variables along the objective space
+    * Finding interesting trends for variables in the objective space
     * *Trend Mining 2.0* <psmall>(Paper I)</psmall>
 
 * Variable importance
@@ -1935,7 +1935,7 @@ and a graph-based visualization of FPM rules
 ![](./figures/mimier-gifs/select.webm){}
 :::
 ::: {.column .v-center}
-* All opened plots are *linked*
+* Exploration in several *linked* visualizations
 * Lasso selection for *interaction*
 * The *DM* can find their *preferred solution*
 :::
@@ -1956,10 +1956,9 @@ and a graph-based visualization of FPM rules
 * Graph-based visualization for filtering
 
 ::: {style="height: 40px;"}
-
 :::
-
-* The selection can be entirely described by just one rule 
+<!-- * The selection can be entirely described by just one rule  -->
+* Filtered rules describe the DMs preferences
 :::
 ::::
 :::
@@ -2202,7 +2201,7 @@ Offline KDO is the best, online KDO is the second best
 :::
 
 
-## Future Works
+## Future Work
 
 ::: {.slidecontent .v-center}
 :::: {.columns}
@@ -2212,12 +2211,12 @@ Offline KDO is the best, online KDO is the second best
 
 ::: {.column }
 * *Knowledge discovery*
-  * More knowledge representations
+  * Investigate further knowledge representations
   * Develop clear guidelines for knowledge discovery for practitioners
 :::
 ::: {.column .fragment .fade-in}
 * *Decision support*
-  * Efficient storing and retrieval of knowledge
+  * Efficient storage and retrieval of knowledge
   * Group decision making
 :::
 ::::
@@ -2228,16 +2227,16 @@ Offline KDO is the best, online KDO is the second best
 :::: {.columns}
 ::: {.column .fragment .fade-in}
 * *Mimer*
-  * Add more knowledge discovery methods
-  * Add more visualization methods
-  * Add compatibility with existing optimization platforms
+  * Incorporate additional knowledge discovery methods
+  * No-preference, knee-point detection
+  * Develop compatibility with existing optimization platforms (pymoo, DESDEO)
 
 :::
 ::: {.column .fragment .fade-in}
 * *KDO*
-  * Find more appropriate use-cases
-  * Algorithms centered around knowledge
-  * Knowledge-based metaphors to drive the search
+  * Develop more knowledge-driven operators
+  * Interactive KDO
+  * Algorithms centered around knowledge, knowledge-based metaphors to drive the search
 :::
 ::::
 :::
